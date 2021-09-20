@@ -1,2 +1,1 @@
-# TCC Arthur e Thiago
- 
+# TCC
