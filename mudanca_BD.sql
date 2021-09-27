@@ -1,0 +1,1 @@
+SELECT * FROM mudanca_bd.endereco_usuario;
