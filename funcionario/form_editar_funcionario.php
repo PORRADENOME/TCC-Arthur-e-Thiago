@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try{
 
     include "../configurações/conexao.php";
@@ -8,7 +8,7 @@ try{
         die('Acesse pela listagem');
     }
 
-    $query = $conexao->PREPARE("SELECT * FROM usuario WHERE id=:id");
+    $query = $conexao->PREPARE("SELECT * FROM funcionario WHERE id=:id");
     $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();
@@ -40,7 +40,7 @@ include ("../configurações/menu.php");
 
 <div class="container">
     <h1> Editar - Usuario</h1>
-    <form action="editar_usuario.php" method="post" class="jsonForm">
+    <form action="editar_funcionario.php" method="post" class="jsonForm">
 
         <div class="form-group">
             <label for="id">ID</label>

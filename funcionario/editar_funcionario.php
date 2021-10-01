@@ -1,29 +1,29 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
-    $query = $conexao->prepare("SELECT * FROM usuario WHERE usuario=:usuario AND id<>:id");
-    $query-> bindValue(':usuario', $_POST['usuario']);
+    $query = $conexao->prepare("SELECT * FROM funcionario WHERE funcionario=:funcionario AND id<>:id");
+    $query-> bindValue(':funcionario', $_POST['funcionario']);
     $query-> bindValue(':id'  , $_POST['id']);
     $query->execute();
     if ($query->rowCount()==1){
         retornaErro('Usuario já foi cadastrado.');
     }
 
-    $query = $conexao->prepare("SELECT * FROM usuario WHERE email=:email AND id<>:id");
+    $query = $conexao->prepare("SELECT * FROM funcionario WHERE email=:email AND id<>:id");
     $query-> bindValue(':email', $_POST['email']);
     $query-> bindValue(':id'  , $_POST['id']);
     $query->execute();
     if ($query->rowCount()==1) {
-        retornaErro('usuario já foi cadastrado devido ao E-mail repetido');
+        retornaErro('funcionario já foi cadastrado devido ao E-mail repetido');
     }
 
-    $query = $conexao->prepare("UPDATE usuario SET nome=:nome, email=:email, usuario=:usuario WHERE id=:id");
+    $query = $conexao->prepare("UPDATE funcionario SET nome=:nome, email=:email, funcionario=:funcionario WHERE id=:id");
     $query->bindParam(':id',$_POST['id']);
     $query->bindParam(':nome',$_POST['nome']);
     $query->bindParam(':email',$_POST['email']);
-    $query->bindParam(':usuario',$_POST['usuario']);
+    $query->bindParam(':funcionario',$_POST['funcionario']);
     $query->execute();
 
     if ($_POST['senha']!='') {
@@ -33,7 +33,7 @@ try {
 
         $senhaCripitografada = sha1($_POST['senha']);
 
-        $query = $conexao->prepare("UPDATE usuario SET senha=:senha WHERE id=:id");
+        $query = $conexao->prepare("UPDATE funcionario SET senha=:senha WHERE id=:id");
         $query->bindParam(':id', $_POST['id']);
         $query->bindParam(':senha', $senhaCripitografada);
         $query->execute();

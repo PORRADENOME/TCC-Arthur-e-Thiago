@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
@@ -7,7 +7,7 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("DELETE FROM usuario WHERE id=:id");
+    $query = $conexao->prepare("DELETE FROM funcionario WHERE id=:id");
     $query->bindParam(':id', $_POST['id']);
     $query->execute();
 

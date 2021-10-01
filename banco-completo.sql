@@ -166,7 +166,7 @@ INSERT INTO `servico` (`id`, `nome`, `descricao`, `valor`) VALUES
 	(6, 'fgdg', '564', 657.00);
 /*!40000 ALTER TABLE `servico` ENABLE KEYS */;
 
--- Copiando estrutura para tabela algo.usuario
+-- Copiando estrutura para tabela algo.funcionario
 CREATE TABLE IF NOT EXISTS `usuario` (
   `id` int NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
@@ -177,11 +177,11 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
--- Copiando dados para a tabela algo.usuario: ~0 rows (aproximadamente)
-/*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
+-- Copiando dados para a tabela algo.funcionario: ~0 rows (aproximadamente)
+/*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
 INSERT INTO `usuario` (`id`, `nome`, `email`, `senha`, `ativo`, `usuario`) VALUES
 	(1, 'adelmo', 'adelm3GMAIL.COM', 'adelmo', 1, 'adelmo');
-/*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
+/*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 
 -- Copiando estrutura para trigger algo.atendimento_produto_after_delete
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='STRICT_TRANS_TABLES,NO_ENGINE_SUBSTITUTION';

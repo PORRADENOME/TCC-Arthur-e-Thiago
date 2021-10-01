@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try {
 
     include "../configurações/conexao.php";
@@ -10,14 +10,16 @@ try {
 
     $senhaCriptografada = sha1 ($_POST['senha']);
 
-    $query = $conexao->prepare("SELECT * FROM usuario WHERE usuario=:usuario");
-    $query->bindValue(':usuario',$_POST['usuario']);
+   /*
+    $query = $conexao->prepare("SELECT * FROM funcionario WHERE funcionario=:funcionario");
+    $query->bindValue(':funcionario',$_POST['funcionario']);
     $query->execute();
     if ($query->rowCount() == 1) {
-        retornaErro('usuario ja em uso');
+        retornaErro('funcionario ja em uso');
     }
+   */
 
-    $query = $conexao->prepare("SELECT * FROM usuario WHERE email=:email");
+    $query = $conexao->prepare("SELECT * FROM funcionario WHERE email_funcionario=:email");
     $query-> bindValue(':email', $_POST['email']);
     $query->execute();
     if ($query->rowCount()==1) {
@@ -25,11 +27,12 @@ try {
     }
 
 
-    $query = $conexao->prepare("INSERT INTO usuario (nome,senha,email,usuario) VALUES (:nome,:senha,:email,:usuario) ");
+    $query = $conexao->prepare("INSERT INTO funcionario (nome_funcionario,cpf_funcionario,email_funcionario,senha_funcionario, telefone_funcionario ) VALUES (:nome,:cpf,:email,:senha,:telefone) ");
     $query->bindValue(':nome',$_POST['nome']);
-    $query->bindValue(':senha',$senhaCriptografada);
+    $query->bindValue(':cpf',$_POST['cpf']);
     $query->bindValue(':email',$_POST['email']);
-    $query->bindValue(':usuario',$_POST['usuario']);
+    $query->bindValue(':senha',$senhaCriptografada);
+    $query->bindValue(':telefone',$_POST['telefone']);
 
     $query->execute();
 

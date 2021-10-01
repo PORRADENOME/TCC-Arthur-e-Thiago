@@ -53,9 +53,9 @@
 <body class="text-center">
 <form class="form-signin" action="VerificaSenha.php" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Login</h1>
-    <label for="usuario" class="sr-only">Email</label>
-    <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Email" required autofocus>
-    <label for="Senha" class="sr-only">Senha</label>
+    <label for="funcionario" class="sr-only">Email</label>
+    <input type="text" id="funcionario" name="funcionario" class="form-control" placeholder="Email" required autofocus>
+    <label for="senha" class="sr-only">Senha</label>
     <input type="password" id="senha" class="form-control" name="senha" placeholder="Senha" required>
     <div class="checkbox mb-3">
         <label>

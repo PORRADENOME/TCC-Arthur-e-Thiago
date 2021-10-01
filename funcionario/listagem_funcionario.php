@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try {
 require "../configurações/conexao.php";
 
@@ -16,8 +16,8 @@ include ("../configurações/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - Usuario</h1>
-            <a href="cadastro_usuario.php" class="btn btn-success">Cadastrar</a>
+            <h1>Listagem - Funcionario</h1>
+            <a href="cadastro_funcionario.php" class="btn btn-success">Cadastrar</a>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>

@@ -8,7 +8,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM usuario WHERE 1 ";
+    $sql = "SELECT * FROM funcionario WHERE 1 ";
 
     if($_POST['searchPhrase'] != '')
     {
@@ -18,7 +18,7 @@ try {
                  OR email LIKE '%{$_POST['searchPhrase']}%'
                  OR senha LIKE '%{$_POST['searchPhrase']}%'
                  OR ativo LIKE '%{$_POST['searchPhrase']}%'
-                 OR usuario LIKE '%{$_POST['searchPhrase']}%'
+                 OR funcionario LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados=$conexao->prepare($sql);

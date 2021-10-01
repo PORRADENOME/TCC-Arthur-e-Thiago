@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
@@ -14,7 +14,7 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Usuario</title>
+    <title>Cadastro de Funcionário</title>
 </head>
 <body>
 
@@ -24,8 +24,8 @@ include("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <form action="inserir_usuario.php" method="post" class="jsonForm">
-        <h1>Cadastro - usuario</h1>
+    <form action="inserir_funcionario.php" method="post" class="jsonForm">
+        <h1>Cadastro - Funcionário</h1>
 
         <div class="form-group">
             <label for="nome">Nome</label>
@@ -33,13 +33,18 @@ include("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="usuario">Usuario</label>
-            <input class="form-control" id="usuario" type="text" name="usuario" required >
+            <label for="cpf">CPF</label>
+            <input class="form-control" id="cpf" type="text" name="cpf" required >
         </div>
 
         <div class="form-group">
             <label for="email">E-mail</label>
             <input class="form-control" id="email" type="email" name="email" required >
+        </div>
+
+        <div class="form-group">
+            <label for="telefone">Telefone</label>
+            <input class="form-control" id="telefone" type="text" name="telefone" >
         </div>
 
         <div class="form-group">
@@ -51,7 +56,7 @@ include("../configurações/menu.php");
             <input class="form-control" id="confsenha" type="password" name="confsenha" required >
         </div>
 
-<button type="submit" class="btn btn-primary">Cadastrar Usuario</button>
+<button type="submit" class="btn btn-primary">Cadastrar Funcionário</button>
     </form>
 </div>
 

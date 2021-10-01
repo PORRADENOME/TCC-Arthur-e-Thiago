@@ -1,5 +1,5 @@
 <?php
-require "../configurações/segurança.php";
+//require "../configurações/segurança.php";
 try{
 
     include "../configurações/conexao.php";
@@ -7,12 +7,12 @@ try{
     if(!isset($_GET['id'])){
         die('Acesse através da listagem');
     }
-    $query = $conexao->prepare("SELECT * FROM usuario WHERE id=:id");
+    $query = $conexao->prepare("SELECT * FROM funcionario WHERE id=:id");
     $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
     if($query->rowCount()==0){
-        exit("usuario não encontrado");
+        exit("funcionario não encontrado");
     }
     $linha = $query->fetchObject();
 
@@ -34,7 +34,7 @@ try{
 <p><strong>Senha:</strong> <?php echo $linha->senha; ?></p>
 <p><strong>E-mail:</strong> <?php echo $linha->email; ?></p>
 <p><strong>Usuario:</strong> <?php echo $linha->usuario; ?></p>
-<p><a href="listagem_usuario.php">Voltar a lista de usuarios</a></p>
+<p><a href="listagem_funcionario.php">Voltar a lista de usuarios</a></p>
 
 </body>
 </html>
