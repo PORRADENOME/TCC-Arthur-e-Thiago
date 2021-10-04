@@ -8,7 +8,7 @@ try{
         die('Acesse pela listagem');
     }
 
-    $query = $conexao->PREPARE("SELECT * FROM funcionario WHERE id_funcionario=:id");
+    $query = $conexao->PREPARE("SELECT * FROM cliente WHERE id_cliente=:id");
     $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();
@@ -17,7 +17,7 @@ try{
         exit("Objeto não encontrado");
     }
 
-    $linhafuncionario = $query->fetchObject();
+    $linhacliente = $query->fetchObject();
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -28,7 +28,7 @@ try{
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Usuário</title>
+    <title>Editar - Cliente</title>
 </head>
 <body>
 
@@ -39,37 +39,37 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Editar - Funcionário</h1>
-    <form action="editar_funcionario.php" method="post" class="jsonForm">
+    <h1> Editar - Cliente</h1>
+    <form action="editar_cliente.php" method="post" class="jsonForm">
 
         <div class="form-group">
-            <label for="id_funcionario">ID</label>
-            <input class="form-control" id="id_funcionario" type="text" name="id_funcionario" readonly value="<?php echo $linhafuncionario->id_funcionario;?>">
+            <label for="id_cliente">ID</label>
+            <input class="form-control" id="id_cliente" type="text" name="id_cliente" readonly value="<?php echo $linhacliente->id_cliente;?>">
         </div>
 
         <div class="form-group">
-            <label for="nome_funcionario">Nome</label>
-            <input class="form-control" id="nome_funcionario" type="text" name="nome_funcionario" value="<?php echo $linhafuncionario->nome_funcionario;?>">
+            <label for="nome_cliente">Nome</label>
+            <input class="form-control" id="nome_cliente" type="text" name="nome_cliente" value="<?php echo $linhacliente->nome_cliente;?>">
         </div>
 
         <div class="form-group">
-            <label for="email_funcionario">E-mail</label>
-            <input class="form-control" id="email_funcionario" type="email" name="email_funcionario" value="<?php echo $linhafuncionario->email_funcionario;?>">
+            <label for="email_cliente">E-mail</label>
+            <input class="form-control" id="email_cliente" type="email" name="email_cliente" value="<?php echo $linhacliente->email_cliente;?>">
         </div>
 
         <div class="form-group">
-            <label for="cpf_funcionario">CPF</label>
-            <input class="form-control" id="cpf_funcionario" type="text" name="cpf_funcionario" value="<?php echo $linhafuncionario->cpf_funcionario;?>">
+            <label for="cpf_cliente">CPF</label>
+            <input class="form-control" id="cpf_cliente" type="text" name="cpf_cliente" value="<?php echo $linhacliente->cpf_cliente;?>">
         </div>
 
         <div class="form-group">
-            <label for="telefone_funcionario">Telefone</label>
-            <input class="form-control" id="telefone_funcionario" type="text" name="telefone_funcionario" value="<?php echo $linhafuncionario->telefone_funcionario;?>">
+            <label for="telefone_cliente">Telefone</label>
+            <input class="form-control" id="telefone_cliente" type="text" name="telefone_cliente" value="<?php echo $linhacliente->telefone_cliente;?>">
         </div>
 
         <div class="form-group">
-            <label for="senha_funcionario">Senha</label>
-            <input class="form-control" id="senha_funcionario" type="password" name="senha_funcionario">
+            <label for="senha_cliente">Senha</label>
+            <input class="form-control" id="senha_cliente" type="password" name="senha_cliente">
         </div>
 
         <div class="form-group">
@@ -77,8 +77,8 @@ include ("../configurações/menu.php");
             <input class="form-control" id="confsenha" type="password" name="confsenha">
         </div>
 
-        <button type="submit" class="btn btn-primary">Editar Funcionário</button>
-        <a href="../funcionario/listagem_funcionario.php" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Editar Cliente</button>
+        <a href="../cliente/listagem_cliente.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
 
