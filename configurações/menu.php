@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <a class="navbar-brand" href="../produto/listagem.php">Sistema de vendas</a>
+    <h3 class="text-light bg-dark">Sistema de vendas</h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -9,10 +9,10 @@
 
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Produtos</a>
+                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funcionários</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../produto/cadastro_produto.php">Cadastrar</a>
-                    <a class="dropdown-item" href="../produto/listagem_produto.php">Listagem</a>
+                    <a class="dropdown-item" href="../funcionario/cadastro_funcionario.php">Cadastrar</a>
+                    <a class="dropdown-item" href="../funcionario/listagem_funcionario.php">Listagem</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -28,27 +28,7 @@
                     <a class="dropdown-item" href="../cliente/cadastro_cliente.php">Cadastrar</a>
                     <a class="dropdown-item" href="../cliente/listagem_cliente.php">Listagem</a>
                 </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Serviços</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../servico/cadastro_servico.php">Cadastrar</a>
-                    <a class="dropdown-item" href="../servico/listagem_servico.php">Listagem</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Atendente</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../atendente/cadastro_atendente.php">Cadastrar</a>
-                    <a class="dropdown-item" href="../atendente/listagem_atendente.php">Listagem</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">atendimento</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../atendimento/formCadastrar.php">Cadastrar</a>
-                    <a class="dropdown-item" href="../atendimento/index.php">Listagem</a>
-                </div>
+
             </li>
         </ul>
     </div>

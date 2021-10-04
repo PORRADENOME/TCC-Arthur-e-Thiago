@@ -13,12 +13,11 @@ try {
     if($_POST['searchPhrase'] != '')
     {
         $sql .= " AND (
-                 id LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome LIKE '%{$_POST['searchPhrase']}%'
-                 OR email LIKE '%{$_POST['searchPhrase']}%'
-                 OR senha LIKE '%{$_POST['searchPhrase']}%'
-                 OR ativo LIKE '%{$_POST['searchPhrase']}%'
-                 OR funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 id_funcionario LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_funcionario LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados=$conexao->prepare($sql);

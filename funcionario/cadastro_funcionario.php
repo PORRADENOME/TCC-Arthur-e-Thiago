@@ -1,5 +1,5 @@
 <?php
-//require "../configurações/segurança.php";
+require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
@@ -57,6 +57,8 @@ include("../configurações/menu.php");
         </div>
 
 <button type="submit" class="btn btn-primary">Cadastrar Funcionário</button>
+<a href="../funcionario/listagem_funcionario.php" class="btn btn-danger">Cancelar</a>
+
     </form>
 </div>
 

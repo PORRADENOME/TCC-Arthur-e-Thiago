@@ -1,5 +1,5 @@
 <?php
-//require "../configurações/segurança.php";
+require "../configurações/segurança.php";
 try {
 
     include "../configurações/conexao.php";

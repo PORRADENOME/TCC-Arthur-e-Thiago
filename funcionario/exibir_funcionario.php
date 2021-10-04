@@ -1,5 +1,5 @@
 <?php
-//require "../configurações/segurança.php";
+require "../configurações/segurança.php";
 try{
 
     include "../configurações/conexao.php";
@@ -25,7 +25,7 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Exibir usuario</title>
+    <title>Exibir Funcionário</title>
 </head>
 <body>
 
@@ -33,7 +33,7 @@ try{
 <p><strong>Nome:</strong> <?php echo $linha->nome; ?></p>
 <p><strong>Senha:</strong> <?php echo $linha->senha; ?></p>
 <p><strong>E-mail:</strong> <?php echo $linha->email; ?></p>
-<p><strong>Usuario:</strong> <?php echo $linha->usuario; ?></p>
+<p><strong>Usuario:</strong> <?php echo $linha->funcionario; ?></p>
 <p><a href="listagem_funcionario.php">Voltar a lista de usuarios</a></p>
 
 </body>

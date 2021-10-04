@@ -17,7 +17,7 @@ try{
         exit("Objeto não encontrado");
     }
 
-    $linhausuario = $query->fetchObject();
+    $linhafuncionario = $query->fetchObject();
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -44,22 +44,22 @@ include ("../configurações/menu.php");
 
         <div class="form-group">
             <label for="id">ID</label>
-            <input class="form-control" id="id" type="text" name="id" readonly value="<?php echo $linhausuario->id;?>">
+            <input class="form-control" id="id" type="text" name="id" readonly value="<?php echo $linhafuncionario->id;?>">
         </div>
 
         <div class="form-group">
             <label for="nome">Nome</label>
-            <input class="form-control" id="nome" type="text" name="nome" value="<?php echo $linhausuario->nome;?>">
+            <input class="form-control" id="nome" type="text" name="nome" value="<?php echo $linhafuncionario->nome;?>">
         </div>
 
         <div class="form-group">
             <label for="valor">valor</label>
-            <input class="form-control" id="valor" type="number" name="valor" min="0" step="0.01" value="<?php echo $linhausuario->valor;?>">
+            <input class="form-control" id="valor" type="number" name="valor" min="0" step="0.01" value="<?php echo $linhafuncionario->valor;?>">
         </div>
 
         <div class="form-group">
             <label for="descricao">descricao</label>
-            <textarea class="form-control" id="descricao" type="text" name="descricao"><?php echo $linhausuario->descricao;?></textarea>
+            <textarea class="form-control" id="descricao" type="text" name="descricao"><?php echo $linhafuncionario->descricao;?></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary">Cadastrar servico</button>
