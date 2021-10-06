@@ -32,7 +32,7 @@ try {
             retornaErro('Senha diferente');
         }
 
-        $senhaCripitografada = sha1($_POST['senha']);
+        $senhaCripitografada = sha1($_POST['senha_funcionario']);
 
         $query = $conexao->prepare("UPDATE funcionario SET senha_funcionario=:senha_funcionario WHERE id_funcionario=:id_funcionario");
         $query->bindParam(':id_funcionario', $_POST['id_funcionario']);
