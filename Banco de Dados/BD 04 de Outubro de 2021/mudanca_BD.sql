@@ -92,7 +92,7 @@ CREATE TABLE `cidade` (
   PRIMARY KEY (`id_cidade`),
   KEY `fk_cidade_estado1_idx` (`estado_cidade`),
   CONSTRAINT `fk_cidade_estado1` FOREIGN KEY (`estado_cidade`) REFERENCES `estado` (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -101,6 +101,7 @@ CREATE TABLE `cidade` (
 
 LOCK TABLES `cidade` WRITE;
 /*!40000 ALTER TABLE `cidade` DISABLE KEYS */;
+INSERT INTO `cidade` VALUES (1,'cidade',1);
 /*!40000 ALTER TABLE `cidade` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -115,15 +116,15 @@ CREATE TABLE `cliente` (
   `id_cliente` int NOT NULL AUTO_INCREMENT,
   `nome_cliente` varchar(45) NOT NULL,
   `cpf_cliente` varchar(14) NOT NULL,
-  `e-mail_cliente` varchar(100) NOT NULL,
+  `email_cliente` varchar(100) NOT NULL,
   `senha_cliente` varchar(40) NOT NULL,
   `telefone_cliente` varchar(20) NOT NULL,
-  `cliente_ativo` tinyint NOT NULL,
+  `cliente_ativo` tinyint DEFAULT NULL,
   PRIMARY KEY (`id_cliente`),
   UNIQUE KEY `CPF_Cliente_UNIQUE` (`cpf_cliente`),
-  UNIQUE KEY `E-Mail_Cliente_UNIQUE` (`e-mail_cliente`),
+  UNIQUE KEY `E-Mail_Cliente_UNIQUE` (`email_cliente`),
   UNIQUE KEY `Telefone_Cliente_UNIQUE` (`telefone_cliente`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -132,6 +133,7 @@ CREATE TABLE `cliente` (
 
 LOCK TABLES `cliente` WRITE;
 /*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+INSERT INTO `cliente` VALUES (1,'teste','123','teste@teste','2e6f9b0d5885b6010f9167787445617f553a735f','123',1),(5,'oi','1234','oi@oi','ef67e0868c98e5f0b0e2fcd9b0c4a3bad808f551','1234',NULL);
 /*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -145,18 +147,21 @@ DROP TABLE IF EXISTS `endereco_usuario`;
 CREATE TABLE `endereco_usuario` (
   `id_enderco` int NOT NULL AUTO_INCREMENT,
   `pais` varchar(30) NOT NULL,
+  `estado` int NOT NULL,
+  `cidade` int NOT NULL,
   `bairro` varchar(50) NOT NULL,
   `rua` varchar(100) NOT NULL,
   `numero` int NOT NULL,
   `complemento` varchar(100) DEFAULT NULL,
   `cliente_endereco` int NOT NULL,
-  `cidade_id_cidade` int NOT NULL,
   PRIMARY KEY (`id_enderco`),
   KEY `fk_endereco_usuario_cliente1_idx` (`cliente_endereco`),
-  KEY `fk_endereco_usuario_cidade1_idx` (`cidade_id_cidade`),
-  CONSTRAINT `fk_endereco_usuario_cidade1` FOREIGN KEY (`cidade_id_cidade`) REFERENCES `cidade` (`id_cidade`),
+  KEY `fk_endereco_usuario_cidade1_idx` (`cidade`),
+  KEY `endereco_usuario_estado_idx` (`estado`),
+  CONSTRAINT `endereco_usuario_estado` FOREIGN KEY (`estado`) REFERENCES `estado` (`id_estado`) ON DELETE RESTRICT ON UPDATE RESTRICT,
+  CONSTRAINT `fk_endereco_usuario_cidade1` FOREIGN KEY (`cidade`) REFERENCES `cidade` (`id_cidade`) ON DELETE RESTRICT ON UPDATE RESTRICT,
   CONSTRAINT `fk_endereco_usuario_cliente1` FOREIGN KEY (`cliente_endereco`) REFERENCES `cliente` (`id_cliente`) ON DELETE CASCADE ON UPDATE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,6 +170,7 @@ CREATE TABLE `endereco_usuario` (
 
 LOCK TABLES `endereco_usuario` WRITE;
 /*!40000 ALTER TABLE `endereco_usuario` DISABLE KEYS */;
+INSERT INTO `endereco_usuario` VALUES (1,'pais',1,1,'bairro','rua',1,NULL,1);
 /*!40000 ALTER TABLE `endereco_usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +185,7 @@ CREATE TABLE `estado` (
   `id_estado` int NOT NULL AUTO_INCREMENT,
   `nome_estado` varchar(50) NOT NULL,
   PRIMARY KEY (`id_estado`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -188,6 +194,7 @@ CREATE TABLE `estado` (
 
 LOCK TABLES `estado` WRITE;
 /*!40000 ALTER TABLE `estado` DISABLE KEYS */;
+INSERT INTO `estado` VALUES (1,'estado');
 /*!40000 ALTER TABLE `estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -209,7 +216,7 @@ CREATE TABLE `funcionario` (
   UNIQUE KEY `E-Mail_ADM_UNIQUE` (`email_funcionario`),
   UNIQUE KEY `CPF_ADM_UNIQUE` (`cpf_funcionario`),
   UNIQUE KEY `Telefone_ADM_UNIQUE` (`telefone_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -218,7 +225,7 @@ CREATE TABLE `funcionario` (
 
 LOCK TABLES `funcionario` WRITE;
 /*!40000 ALTER TABLE `funcionario` DISABLE KEYS */;
-INSERT INTO `funcionario` VALUES (1,'admin','123','admin@admin','d033e22ae348aeb5660fc2140aec35850c4da997','1234'),(2,'asd','12345','asd@asd','f10e2821bbbea527ea02200352313bc059445190','123456'),(3,'aaa','1324','aaa@aaa','7e240de74fb1ed08fa08d38063f6a6a91462a815','54321');
+INSERT INTO `funcionario` VALUES (1,'admin','123','admin@admin','d033e22ae348aeb5660fc2140aec35850c4da997','1234'),(2,'asd','12345','asd@asd','f10e2821bbbea527ea02200352313bc059445190','123456');
 /*!40000 ALTER TABLE `funcionario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -233,13 +240,13 @@ CREATE TABLE `motorista` (
   `id_motorista` int NOT NULL AUTO_INCREMENT,
   `nome_motorista` varchar(45) NOT NULL,
   `cpf_motorista` varchar(14) NOT NULL,
-  `e-mail_motorista` varchar(100) NOT NULL,
+  `email_motorista` varchar(100) NOT NULL,
   `senha_motorista` varchar(40) NOT NULL,
   `telefone_motorista` varchar(20) NOT NULL,
   `carteira_de_motorista` varchar(45) NOT NULL,
-  `status_motorista` int NOT NULL,
+  `status_motorista` int DEFAULT NULL,
   PRIMARY KEY (`id_motorista`),
-  UNIQUE KEY `E-Mail_Taxista_UNIQUE` (`e-mail_motorista`),
+  UNIQUE KEY `E-Mail_Taxista_UNIQUE` (`email_motorista`),
   UNIQUE KEY `CPF_Taxista_UNIQUE` (`cpf_motorista`),
   UNIQUE KEY `Telefone_Taxista_UNIQUE` (`telefone_motorista`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -331,7 +338,7 @@ CREATE TABLE `veículo` (
   `ano_veiculo` varchar(45) NOT NULL,
   `placa_veiculo` varchar(45) NOT NULL,
   `tipo_veiculo` varchar(45) NOT NULL,
-  `status_veiculo` int NOT NULL,
+  `status_veiculo` int DEFAULT NULL,
   `motorista_veiculo` int NOT NULL,
   PRIMARY KEY (`id_veiculo`),
   UNIQUE KEY `Placa_Veículo_UNIQUE` (`placa_veiculo`),
@@ -349,6 +356,14 @@ LOCK TABLES `veículo` WRITE;
 /*!40000 ALTER TABLE `veículo` DISABLE KEYS */;
 /*!40000 ALTER TABLE `veículo` ENABLE KEYS */;
 UNLOCK TABLES;
+
+--
+-- Dumping events for database 'mudanca_bd'
+--
+
+--
+-- Dumping routines for database 'mudanca_bd'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -359,4 +374,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2021-10-06 14:04:28
+-- Dump completed on 2021-10-07  7:51:18
