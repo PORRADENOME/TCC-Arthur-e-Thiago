@@ -2,8 +2,14 @@
 
 try {
 
-    $conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root2', 'root' );
+    // Computador do lab3
+	// $conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root', 'root' );
 
+	// Computador de casa
+	$conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root', '' );
+
+    // Computador do cpd computador 10
+	//$conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root2', 'root' );
 
     $conexao->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     $conexao->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_OBJ);

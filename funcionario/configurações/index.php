@@ -52,7 +52,7 @@
 </head>
 <body class="text-center">
 <form class="form-signin" action="VerificaSenha.php" method="post">
-    <h1 class="h3 mb-3 font-weight-normal">Login</h1>
+    <h1 class="h3 mb-3 font-weight-normal">Login - Funcionário</h1>
     <label for="email_funcionario" class="sr-only">Email</label>
     <input type="text" id="email_funcionario" name="email_funcionario" class="form-control" placeholder="Email" required autofocus>
     <label for="senha_funcionario" class="sr-only">Senha</label>
