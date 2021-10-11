@@ -58,8 +58,8 @@ include ("../configurações/menu.php");
                 <option value="1">São Paulo</option>
                 <option value="2">Paraná</option>
                 <option value="3">Santa Catarina</option>
-                <option value="3">Rio de Janeiro</option>
-                <option value="3">Rio Grande do Sul</option>
+                <option value="4">Rio de Janeiro</option>
+                <option value="5">Rio Grande do Sul</option>
             </select>
         </div>
 

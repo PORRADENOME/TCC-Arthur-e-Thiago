@@ -8,6 +8,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
+   // $sql = "SELECT * FROM cidade, estado WHERE cidade.estado_cidade=:estado.id_estado ";
     $sql = "SELECT * FROM cidade WHERE 1 ";
 
     if($_POST['searchPhrase'] != '')
@@ -15,9 +16,19 @@ try {
         $sql .= " AND (
                  id_cidade LIKE '%{$_POST['searchPhrase']}%' 
                  OR nome_cidade LIKE '%{$_POST['searchPhrase']}%'
-                 OR cidade_estado LIKE '%{$_POST['searchPhrase']}%'
+                 OR nome_estado LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
+
+    $sql = "SELECT * FROM estado WHERE 1 ";
+
+    if($_POST['searchPhrase'] != '')
+    {
+        $sql .= " AND (
+                 nome_estado LIKE '%{$_POST['searchPhrase']}%' 
+                 ) ";
+    }
+
     $resultados=$conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();

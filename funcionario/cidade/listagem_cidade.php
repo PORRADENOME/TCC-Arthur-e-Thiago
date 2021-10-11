@@ -23,7 +23,7 @@ include ("../configurações/menu.php");
                 <tr>
                     <th data-column-id="id_cidade">ID</th>
                     <th data-column-id="nome_cidade" data-order="desc" data-sortable="true">Cidade</th>
-                    <th data-column-id="cidade_estado" data-sortable="true">Estado</th>
+                    <th data-column-id="nome_estado" data-order="desc" data-sortable="true">Estado</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
