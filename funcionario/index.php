@@ -1,3 +1,3 @@
 <?php
 
-header("Location: /configurações/");
+header("Location: / configurações/");

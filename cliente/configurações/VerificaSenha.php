@@ -4,10 +4,10 @@ session_start();
 
 include "conexao.php";
 
-$senha = sha1($_POST['senha_funcionario']);
-$query = $conexao->prepare("SELECT * FROM funcionario WHERE email_funcionario=:email_funcionario AND senha_funcionario=:senha_funcionario ");
-$query->bindValue(':email_funcionario', $_POST['email_funcionario']);
-$query->bindValue(':senha_funcionario', $senha);
+$senha = sha1($_POST['senha_cliente']);
+$query = $conexao->prepare("SELECT * FROM cliente WHERE email_cliente=:email_cliente AND senha_cliente=:senha_cliente ");
+$query->bindValue(':email_cliente', $_POST['email_cliente']);
+$query->bindValue(':senha_cliente', $senha);
 $query->execute ();
 
 if ($query->rowCount ()==1){
@@ -15,10 +15,10 @@ if ($query->rowCount ()==1){
 
         $_SESSION['id'] = $linha->id;
         $_SESSION['email'] - $linha->email;
-        $_SESSION['funcionario'] = $_POST['funcionario']; $_SESSION['autorizado'] = true;
+        $_SESSION['cliente'] = $_POST['cliente']; $_SESSION['autorizado'] = true;
         $_SESSION['autorizado'] = true;
 
-        header ("Location: ../funcionario/listagem_funcionario.php");
+        header ("Location: ../cliente/perfil_cliente.php");
 
 }else {
 

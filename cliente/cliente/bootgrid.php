@@ -1,4 +1,5 @@
 <?php
+
 require "../configurações/segurança.php";
 try {
 
@@ -8,19 +9,18 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-   // $sql = "SELECT * FROM cidade, estado WHERE cidade.estado_cidade=:estado.id_estado ";
-    $sql = "SELECT cidade.nome_cidade,cidade.id_cidade,estado.nome_estado FROM cidade INNER JOIN estado ON cidade.estado_cidade=estado.id_estado";
+    $sql = "SELECT * FROM cliente WHERE 1 ";
 
-    if($_POST['searchPhrase'] != '')
-    {
+    if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_cidade LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome_cidade LIKE '%{$_POST['searchPhrase']}%'
-                 OR nome_estado LIKE '%{$_POST['searchPhrase']}%'
+                 id_cliente LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_cliente LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
-
-    $resultados=$conexao->prepare($sql);
+    $resultados = $conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();
 
@@ -43,6 +43,8 @@ try {
     $ret['rows'] = $resultados->fetchAll();
 
     echo json_encode($ret);
-}catch (PDOException $exception){
-    echo ($exception->getMessage());
+} catch (PDOException $exception) {
+    echo($exception->getMessage());
 }
+
+
