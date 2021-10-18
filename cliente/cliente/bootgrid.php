@@ -1,5 +1,4 @@
 <?php
-
 require "../configurações/segurança.php";
 try {
 
@@ -8,6 +7,19 @@ try {
     $pagina = $_POST ['current'];
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
+
+    $sql = "SELECT * FROM funcionario WHERE 1 ";
+
+    if($_POST['searchPhrase'] != '')
+    {
+        $sql .= " AND (
+                 id_funcionario LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 ) ";
+    }
 
     $sql = "SELECT * FROM cliente WHERE 1 ";
 
@@ -20,7 +32,9 @@ try {
                  OR telefone_cliente LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
-    $resultados = $conexao->prepare($sql);
+
+
+    $resultados=$conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();
 

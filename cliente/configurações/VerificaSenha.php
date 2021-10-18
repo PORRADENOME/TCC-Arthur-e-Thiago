@@ -13,8 +13,8 @@ $query->execute ();
 if ($query->rowCount ()==1){
     $linha = $query->fetch ();
 
-        $_SESSION['id'] = $linha->id;
-        $_SESSION['email'] - $linha->email;
+        $_SESSION['id'] = $linha->id_cliente;
+        $_SESSION['email'] - $linha->email_cliente;
         $_SESSION['cliente'] = $_POST['cliente']; $_SESSION['autorizado'] = true;
         $_SESSION['autorizado'] = true;
 
