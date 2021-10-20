@@ -5,7 +5,7 @@ try {
     include "../configurações/conexao.php";
     require "../configurações/segurança.php";
 
-    $queryCliente = $conexao->query("SELECT * FROM cliente ORDER BY nome ASC");
+    $queryCliente = $conexao->query("SELECT * FROM motorista ORDER BY nome ASC");
 
     $queryAtendente = $conexao->query("SELECT * FROM atendente ORDER BY nome ASC");
 

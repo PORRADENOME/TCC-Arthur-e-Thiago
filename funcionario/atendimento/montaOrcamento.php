@@ -39,7 +39,7 @@ Where
     $queryAtendimento = $conexao->prepare("Select
 
     atendimento.formapagamento,
-    cliente.nome As cliente_nome,
+    motorista.nome As cliente_nome,
     atendente.nome As atendente_nome,
     atendimento.id,
     atendimento.valortotal,
@@ -48,7 +48,7 @@ Where
 From
     atendimento Inner Join
     atendente On atendimento.idatendente = atendente.id Inner Join
-    cliente On atendimento.idcliente = cliente.id
+    motorista On atendimento.idcliente = motorista.id
     where 
     atendimento.id=:id 
     

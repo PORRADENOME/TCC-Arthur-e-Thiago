@@ -11,7 +11,7 @@ try {
 
     //Contagem quantidade de registros
     $sql="Select
-    cliente.nome As atendente_nome,
+    motorista.nome As atendente_nome,
     atendente.nome As cliente_nome,
     atendimento.id,
     atendimento.valortotal,
@@ -19,13 +19,13 @@ try {
 From
     atendimento Inner Join
     atendente On atendimento.idatendente = atendente.id Inner Join
-    cliente On atendimento.idcliente = cliente.id
+    motorista On atendimento.idcliente = motorista.id
 Where 1 ";
 
     if ($_POST['searchPhrase']!=''){
         $sql .= " and (
                         atendente.nome LIKE '%{$_POST['searchPhrase']}%'
-                        OR cliente.nome LIKE '%{$_POST['searchPhrase']}%'
+                        OR motorista.nome LIKE '%{$_POST['searchPhrase']}%'
                         ) ";
     }
 

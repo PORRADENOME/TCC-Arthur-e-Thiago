@@ -1,4 +1,6 @@
 <?php
+
+
 require "../configurações/segurança.php";
 try {
 
@@ -8,22 +10,17 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
+    $sql = "SELECT * FROM orcamento WHERE 1 ";
 
-
-    $sql = "SELECT * FROM cliente WHERE 1 ";
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_cliente LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR email_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR cpf_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR telefone_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 id_orcamento LIKE '%{$_POST['searchPhrase']}%' 
+                 OR data_e_horario_orcamento LIKE '%{$_POST['searchPhrase']}%'
+                 OR inf_adicionais_orcamento LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
-
-
-    $resultados=$conexao->prepare($sql);
+    $resultados = $conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();
 
@@ -49,5 +46,3 @@ try {
 } catch (PDOException $exception) {
     echo($exception->getMessage());
 }
-
-

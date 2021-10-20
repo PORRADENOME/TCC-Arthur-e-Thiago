@@ -106,7 +106,7 @@ INSERT INTO `cidade` VALUES (1,'cidade',1);
 UNLOCK TABLES;
 
 --
--- Table structure for table `cliente`
+-- Table structure for table `motorista`
 --
 
 DROP TABLE IF EXISTS `cliente`;
@@ -128,13 +128,13 @@ CREATE TABLE `cliente` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `cliente`
+-- Dumping data for table `motorista`
 --
 
 LOCK TABLES `cliente` WRITE;
-/*!40000 ALTER TABLE `cliente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `motorista` DISABLE KEYS */;
 INSERT INTO `cliente` VALUES (1,'teste','123','teste@teste','2e6f9b0d5885b6010f9167787445617f553a735f','123',1),(5,'oi','1234','oi@oi','ef67e0868c98e5f0b0e2fcd9b0c4a3bad808f551','1234',NULL);
-/*!40000 ALTER TABLE `cliente` ENABLE KEYS */;
+/*!40000 ALTER TABLE `motorista` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --

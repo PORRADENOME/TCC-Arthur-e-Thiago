@@ -6,7 +6,7 @@ try {
 	// $conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root', 'root' );
 
 	// Computador de casa
-	$conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root', '' );
+	$conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root', 'root' );
 
     // Computador do cpd computador 10
 	//$conexao = new PDO(  'mysql:host=localhost;dbname=mudanca_bd', 'root2', 'root' );

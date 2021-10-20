@@ -10,15 +10,15 @@ try {
 
 
 
-    $sql = "SELECT * FROM cliente WHERE 1 ";
+    $sql = "SELECT * FROM motorista WHERE 1 ";
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_cliente LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR email_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR cpf_cliente LIKE '%{$_POST['searchPhrase']}%'
-                 OR telefone_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 id_motorista LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_motorista LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_motorista LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_motorista LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
 

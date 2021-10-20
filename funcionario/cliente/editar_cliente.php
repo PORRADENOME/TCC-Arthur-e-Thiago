@@ -8,7 +8,7 @@ try {
     $query-> bindValue(':id_cliente'  , $_POST['id_cliente']);
     $query->execute();
     if ($query->rowCount()==1){
-        retornaErro('Funcionário já foi cadastrado.');
+        retornaErro('Cliente já foi cadastrado.');
     }
 
     $query = $conexao->prepare("SELECT * FROM cliente WHERE email_cliente=:email_cliente AND id_cliente<>:id_cliente");
@@ -16,7 +16,7 @@ try {
     $query-> bindValue(':id_cliente'  , $_POST['id_cliente']);
     $query->execute();
     if ($query->rowCount()==1) {
-        retornaErro('cliente já foi cadastrado devido ao E-mail repetido');
+        retornaErro('Cliente já foi cadastrado devido ao E-mail repetido');
     }
 
     $query = $conexao->prepare("UPDATE cliente SET nome_cliente=:nome_cliente, email_cliente=:email_cliente, cpf_cliente=:cpf_cliente, telefone_cliente=:telefone_cliente WHERE id_cliente=:id_cliente");
