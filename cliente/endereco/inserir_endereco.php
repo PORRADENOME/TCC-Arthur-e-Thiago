@@ -18,7 +18,7 @@ try {
 
 
 
-    $query = $conexao->prepare("INSERT INTO indereco (pais_indereco, bairro_indereco, rua_indereco, numero_indereco, complemento_indereco ) VALUES (:pais,:bairro,:rua,:numero,:complemento) ");
+    $query = $conexao->prepare("INSERT INTO endereco (nome_endereco, pais, estado, cidade bairro, rua, numero, complemento ) VALUES (:pais,:bairro,:rua,:numero,:complemento) ");
     $query->bindValue(':pais', $_POST['pais']);
     $query->bindValue(':bairro', $_POST['bairro']);
     $query->bindValue(':rua', $_POST['rua']);

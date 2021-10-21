@@ -9,7 +9,7 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("DELETE FROM indereco WHERE id_indereco=:id_indereco");
+    $query = $conexao->prepare("DELETE FROM endereco WHERE id_indereco=:id_indereco");
     $query->bindParam(':id_indereco', $_POST['id']);
     $query->execute();
 

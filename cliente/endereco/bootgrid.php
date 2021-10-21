@@ -10,17 +10,18 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM indereco WHERE 1 ";
+    $sql = "SELECT endereco.id_endereco, endereco.nome_endereco, endereco.pais, endereco.bairro, endereco.rua, endereco.numero, endereco.complemento, cidade.nome_cidade, estado.nome_estado FROM endereco INNER JOIN estado,cidade ON endereco.cidade=cidade.id_cidade AND endereco.estado=estado.id_estado";
 
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_indereco LIKE '%{$_POST['searchPhrase']}%' 
-                 OR pais_indereco LIKE '%{$_POST['searchPhrase']}%'
-                 OR bairro_indereco LIKE '%{$_POST['searchPhrase']}%'
-                 OR rua_indereco LIKE '%{$_POST['searchPhrase']}%'
-                 OR numero_indereco LIKE '%{$_POST['searchPhrase']}%'
-                 OR complemento_indereco LIKE '%{$_POST['searchPhrase']}%'
+                 OR endereco.pais LIKE '%{$_POST['searchPhrase']}%'
+                 OR estado.nome_estado LIKE '%{$_POST['searchPhrase']}%'
+                 OR cidade.nome_cidade LIKE '%{$_POST['searchPhrase']}%'
+                 OR endereco.bairro LIKE '%{$_POST['searchPhrase']}%'
+                 OR endereco.rua LIKE '%{$_POST['searchPhrase']}%'
+                 OR endereco.numero LIKE '%{$_POST['searchPhrase']}%'
+                 OR endereco.complemento LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados = $conexao->prepare($sql);

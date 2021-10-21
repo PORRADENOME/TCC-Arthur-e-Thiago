@@ -10,7 +10,7 @@ try{
         die('Acesse pela listagem');
     }
 
-    $query = $conexao->PREPARE("SELECT * FROM indereco WHERE id_indereco=:id");
+    $query = $conexao->PREPARE("SELECT * FROM endereco WHERE id_indereco=:id");
     $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();
@@ -42,7 +42,7 @@ include ("../configurações/menu.php");
 
 <div class="container">
     <h1> Editar - indereco</h1>
-    <form action="editar_indereco.php" method="post" class="jsonForm">
+    <form action="editar_endereco.php" method="post" class="jsonForm">
 
         <div class="form-group">
             <label for="id_indereco">ID</label>
@@ -77,7 +77,7 @@ include ("../configurações/menu.php");
 
 
         <button type="submit" class="btn btn-primary">Editar Indereco</button>
-        <a href="../indereco/listagem_indereco.php" class="btn btn-danger">Cancelar</a>
+        <a href="/listagem_indereco.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
 

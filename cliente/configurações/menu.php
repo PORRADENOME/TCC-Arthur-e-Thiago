@@ -18,8 +18,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orçamento</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem orcamento</a>
-                    <a class="dropdown-item" href="../orcamento/cadastro_orcamento.php">Cadastro de orcamento</a>
+                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem</a>
+                    <a class="dropdown-item" href="../orcamento/cadastro_orcamento.php">Cadastro</a>
                 </div>
 
             </li>
@@ -27,8 +27,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Endereço</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../indereco/listagem_indereco.php">Listagem_Indereço</a>
-                    <a class="dropdown-item" href="../indereco/cadastro_indereco.php">Cadastro de Indereço</a>
+                    <a class="dropdown-item" href="../endereco/listagem_endereco.php">Listagem</a>
+                    <a class="dropdown-item" href="../endereco/cadastro_endereco.php">Cadastro</a>
                 </div>
 
             </li>
