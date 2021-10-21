@@ -25,20 +25,30 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
-<div class="form-group">
-    <label for="nome_motorista">Nome</label>
-    <input class="form-control" id="nome_motorista" type="text" name="nome_motorista" readonly value="<?php echo $linhamotorista->nome_motorista;?>">
-</div>
-<div class="form-group">
-    <label for="email_motorista">Email</label>
-    <input class="form-control" id="email_motorista" type="text" name="email_motorista" readonly value="<?php echo $linhamotorista->email_motorista;?>">
-</div>
-<div class="form-group">
-    <label for="cpf_motorista">CPF</label>
-    <input class="form-control" id="cpf_motorista" type="text" name="cpf_motorista" readonly value="<?php echo $linhamotorista->cpf_motorista;?>">
-</div>
-<div class="form-group">
-    <label for="telefone_motorista">Telefone</label>
-    <input class="form-control" id="telefone_motorista" type="text" name="telefone_motorista" readonly value="<?php echo $linhamotorista->telefone_motorista;?>">
-</div>
+<br>
 
+<div class="container">
+    <table class="table table-borderles table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nome :</th>
+            <th scope="col"><?php echo $linhamotorista->nome_motorista ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">E-mail :</th>
+            <td><?php echo $linhamotorista->email_motorista ?></td>
+        </tr>
+        <tr>
+            <th scope="row">Telefone / Celular :</th>
+            <td><?php echo $linhamotorista->telefone_motorista ?></td>
+        </tr>
+        <tr>
+            <th scope="row">CPF :</th>
+            <td><?php echo $linhamotorista->cpf_motorista ?></td>
+
+        </tr>
+        </tbody>
+    </table>
+</div>
