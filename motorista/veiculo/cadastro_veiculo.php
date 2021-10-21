@@ -34,28 +34,28 @@ include("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="marca_veiculo">marca</label>
-            <input class="form-control" id="marca_veiculo" type="text" name="marca_veiculo" required >
+            <label for="marca">marca</label>
+            <input class="form-control" id="marca" type="text" name="marca" required >
         </div>
 
         <div class="form-group">
-            <label for="modelo_veiculo">modelo</label>
-            <input class="form-control" id="modelo_veiculo" type="text" name="modelo_veiculo" required >
+            <label for="modelo">modelo</label>
+            <input class="form-control" id="modelo" type="text" name="modelo" required >
         </div>
 
         <div class="form-group">
-            <label for="ano_veiculo">ano</label>
-            <input class="form-control" id="ano_veiculo" type="text" name="ano_veiculo" required >
+            <label for="ano">ano</label>
+            <input class="form-control" id="ano" type="text" name="ano" required >
         </div>
 
         <div class="form-group">
-            <label for="placa_veiculo">placa</label>
-            <input class="form-control" id="placa_veiculo" type="text" name="placa_veiculo" required >
+            <label for="placa">placa</label>
+            <input class="form-control" id="placa" type="text" name="placa" required >
         </div>
 
         <div class="form-group">
-            <label for="tipo_veiculo">tipo</label>
-            <input class="form-control" id="tipo_veiculo" type="text" name="tipo_veiculo" required >
+            <label for="tipo">tipo</label>
+            <input class="form-control" id="tipo" type="text" name="tipo" required >
         </div>
 
 <button type="submit" class="btn btn-primary">Cadastrar veiculo</button>

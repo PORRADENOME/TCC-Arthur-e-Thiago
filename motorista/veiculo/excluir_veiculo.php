@@ -9,7 +9,7 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("DELETE FROM veiculo WHERE id_veiculo=:id_veiculo");
+    $query = $conexao->prepare("DELETE FROM veículo WHERE id_veiculo=:id_veiculo");
     $query->bindParam(':id_veiculo', $_POST['id']);
     $query->execute();
 
