@@ -10,7 +10,7 @@ try {
     $query = $conexao->prepare("UPDATE orcamento SET data_e_horario_orcamento=:data_e_horario_orcamento, inf_adicionais_orcamento=:inf_adicionais_orcamento WHERE id_orcamento=:id_orcamento");
     $query->bindParam(':id_orcamento', $_POST['id_orcamento']);
     $query->bindParam(':data_e_horario_orcamento', $_POST['data_e_horario_orcamento']);
-    $query->bindParam(':email_funcionario', $_POST['email_funcionario']);
+    $query->bindParam(':inf_adicionais_orcamento', $_POST['inf_adicionais_orcamento']);
     $query->execute();
 
 
