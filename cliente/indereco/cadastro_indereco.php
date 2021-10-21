@@ -33,6 +33,8 @@ include("../configurações/menu.php");
             <input class="form-control" id="pais_indereco" type="text" name="pais_indereco" required >
         </div>
 
+
+
         <div class="form-group">
             <label for="bairro_indereco">bairro_indereco</label>
             <input class="form-control" id="bairro_indereco" type="text" name="bairro_indereco" required >
