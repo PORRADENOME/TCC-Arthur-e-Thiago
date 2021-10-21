@@ -18,9 +18,12 @@ try {
 
 
 
-    $query = $conexao->prepare("INSERT INTO orcamento (data_e_horario_orcamento,inf_adicionais_orcamento ) VALUES (:data_e_horario,:inf_adicionais) ");
-    $query->bindValue(':data_e_horario', $_POST['data_e_horario']);
-    $query->bindValue(':inf_adicionais', $_POST['inf_adicionais']);
+    $query = $conexao->prepare("INSERT INTO indereco (pais_indereco, bairro_indereco, rua_indereco, numero_indereco, complemento_indereco ) VALUES (:pais,:bairro,:rua,:numero,:complemento) ");
+    $query->bindValue(':pais', $_POST['pais']);
+    $query->bindValue(':bairro', $_POST['bairro']);
+    $query->bindValue(':rua', $_POST['rua']);
+    $query->bindValue(':numero', $_POST['inumero']);
+    $query->bindValue(':complemento', $_POST['complemento']);
 
     $query->execute();
 
