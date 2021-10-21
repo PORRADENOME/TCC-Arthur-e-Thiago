@@ -4,9 +4,18 @@ require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
-    $query = $conexao->prepare("SELECT nome_estado FROM estado");
 
+
+    do{
+
+    $query = $conexao->prepare("SELECT * FROM estado");
     $linhaestado = $query->fetchObject();
+
+
+
+        $quantidade_estados=27;
+
+    }while ($linhaestado->id_estado<=$quantidade_estados);
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
