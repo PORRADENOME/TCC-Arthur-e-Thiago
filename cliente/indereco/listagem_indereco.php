@@ -24,11 +24,11 @@ include("../configurações/menu.php");
                 <thead>
                 <tr>
                     <th data-column-id="id_indereco">ID</th>
-                    <th data-column-id="pais_indereco" data-order="desc" data-sortable="true">Data e Horario</th>
-                    <th data-column-id="bairro_indereco" data-sortable="true">Informaçoes sobre</th>
-                    <th data-column-id="rua_indereco" data-sortable="true">Informaçoes sobre</th>
-                    <th data-column-id="numero_indereco" data-sortable="true">Informaçoes sobre</th>
-                    <th data-column-id="complemento_indereco" data-sortable="true">Informaçoes sobre</th>
+                    <th data-column-id="pais_indereco" data-order="desc" data-sortable="true">pais_indereco</th>
+                    <th data-column-id="bairro_indereco" data-sortable="true">bairro_indereco</th>
+                    <th data-column-id="rua_indereco" data-sortable="true">rua_indereco</th>
+                    <th data-column-id="numero_indereco" data-sortable="true">numero_indereco</th>
+                    <th data-column-id="complemento_indereco" data-sortable="true">complemento_indereco</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
