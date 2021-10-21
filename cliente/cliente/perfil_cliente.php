@@ -17,6 +17,8 @@ try {
 
     // var_dump($linhacliente);
 
+
+
 }catch(PDOException $exception){
     echo $exception->getMessage();
 }
@@ -25,20 +27,32 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
-<div class="form-group">
-    <label for="nome_cliente">Nome</label>
-    <input class="form-control" id="nome_cliente" type="text" name="nome_cliente" readonly value="<?php echo $linhacliente->nome_cliente;?>">
-</div>
-<div class="form-group">
-    <label for="email_cliente">Email</label>
-    <input class="form-control" id="email_cliente" type="text" name="email_cliente" readonly value="<?php echo $linhacliente->email_cliente;?>">
-</div>
-<div class="form-group">
-    <label for="cpf_cliente">CPF</label>
-    <input class="form-control" id="cpf_cliente" type="text" name="cpf_cliente" readonly value="<?php echo $linhacliente->cpf_cliente;?>">
-</div>
-<div class="form-group">
-    <label for="telefone_cliente">Telefone</label>
-    <input class="form-control" id="telefone_cliente" type="text" name="telefone_cliente" readonly value="<?php echo $linhacliente->telefone_cliente;?>">
+<br>
+
+
+<div class="container">
+    <table class="table table-borderles table-dark table-striped">
+        <thead>
+        <tr>
+            <th scope="col">Nome :</th>
+            <th scope="col"><?php echo $linhacliente->nome_cliente ?></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <th scope="row">E-mail :</th>
+            <td><?php echo $linhacliente->email_cliente ?></td>
+        </tr>
+        <tr>
+            <th scope="row">Telefone / Celular :</th>
+            <td><?php echo $linhacliente->telefone_cliente ?></td>
+        </tr>
+        <tr>
+            <th scope="row">CPF :</th>
+            <td><?php echo $linhacliente->cpf_cliente ?></td>
+
+        </tr>
+        </tbody>
+    </table>
 </div>
 

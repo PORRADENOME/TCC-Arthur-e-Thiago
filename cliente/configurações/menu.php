@@ -8,9 +8,9 @@
         <ul class="navbar-nav mr-auto">
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
+                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../cliente/perfil_cliente.php">Listagem</a>
+                    <a class="dropdown-item" href="../cliente/perfil_cliente.php">Acessar</a>
                 </div>
 
             </li>
@@ -18,7 +18,7 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orcamento</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem_orcamento</a>
+                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem orcamento</a>
                     <a class="dropdown-item" href="../orcamento/cadastro_orcamento.php">Cadastro de orcamento</a>
                 </div>
 
