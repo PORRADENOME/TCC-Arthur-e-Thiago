@@ -15,7 +15,7 @@ try {
 
     $linhamotorista = $query->fetchObject();
 
-    // var_dump($linhacliente);
+    // var_dump($linhamotorista);
 
 }catch(PDOException $exception){
     echo $exception->getMessage();
@@ -25,30 +25,39 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
-<br>
-
 <div class="container">
-    <table class="table table-borderles table-dark table-striped">
-        <thead>
-        <tr>
-            <th scope="col">Nome :</th>
-            <th scope="col"><?php echo $linhamotorista->nome_motorista ?></th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr>
-            <th scope="row">E-mail :</th>
-            <td><?php echo $linhamotorista->email_motorista ?></td>
-        </tr>
-        <tr>
-            <th scope="row">Telefone / Celular :</th>
-            <td><?php echo $linhamotorista->telefone_motorista ?></td>
-        </tr>
-        <tr>
-            <th scope="row">CPF :</th>
-            <td><?php echo $linhamotorista->cpf_motorista ?></td>
+    <div class="row">
+        <div class="col-12">
 
-        </tr>
-        </tbody>
-    </table>
+            <h1>Olá <?php echo $linhamotorista->nome_motorista?> !</h1>
+
+            <br>
+
+            <table class="table table-borderles table-striped">
+                <thead>
+                <tr>
+                    <th scope="col">Nome :</th>
+                    <th scope="col"><?php echo $linhamotorista->nome_motorista ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">E-mail :</th>
+                    <td><?php echo $linhamotorista->email_motorista ?></td>
+                </tr>
+                <tr>
+                    <th scope="row">Telefone / Celular :</th>
+                    <td><?php echo $linhamotorista->telefone_motorista ?></td>
+                </tr>
+                <tr>
+                    <th scope="row">CPF :</th>
+                    <td><?php echo $linhamotorista->cpf_motorista ?></td>
+
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
 </div>
+

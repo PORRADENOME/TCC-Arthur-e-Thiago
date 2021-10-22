@@ -21,8 +21,8 @@ include ("../configurações/menu.php");
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="id_estado">ID</th>
-                    <th data-column-id="nome_estado" data-order="desc" data-sortable="true">Estado</th>
+                    <th data-column-id="id_estado" data-order="asc">ID</th>
+                    <th data-column-id="nome_estado" data-sortable="true">Estado</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
