@@ -18,12 +18,16 @@ try {
 
 
 
-    $query = $conexao->prepare("INSERT INTO endereco (nome_endereco, pais, estado, cidade bairro, rua, numero, complemento ) VALUES (:pais,:bairro,:rua,:numero,:complemento) ");
+    $query = $conexao->prepare("INSERT INTO endereco (nome_endereco, pais, estado, cidade, bairro, rua, numero, complemento) VALUES (:nome_endereco,:pais,:bairro,:rua,:numero,:complemento) ");
+    $query->bindValue(':nome_endereco', $_POST['nome_endereco']);
     $query->bindValue(':pais', $_POST['pais']);
     $query->bindValue(':bairro', $_POST['bairro']);
     $query->bindValue(':rua', $_POST['rua']);
-    $query->bindValue(':numero', $_POST['inumero']);
+    $query->bindValue(':numero', $_POST['numero']);
     $query->bindValue(':complemento', $_POST['complemento']);
+
+    $query = $conexao->prepare("INSERT INTO endereco (cliente_endereco) VALUES (:cliente_endereco)");
+    $query->bindValue(':cliente_endereco', $_SESSION['id']);
 
     $query->execute();
 

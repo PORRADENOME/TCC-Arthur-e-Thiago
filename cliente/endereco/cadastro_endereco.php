@@ -4,18 +4,24 @@ require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
-
-
-    do{
-
     $query = $conexao->prepare("SELECT * FROM estado");
-    $linhaestado = $query->fetchObject();
+    $resultado = $query->execute();
+    $arr_estados = $query->fetchAll();
 
 
 
-        $quantidade_estados=27;
 
-    }while ($linhaestado->id_estado<=$quantidade_estados);
+
+//    do{
+
+//    $query = $conexao->prepare("SELECT * FROM estado");
+//    $linhaestado = $query->fetchObject();
+//
+//
+//
+//        $quantidade_estados=27;
+//
+//    }while ($linhaestado->id_estado<=$quantidade_estados);
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -40,8 +46,13 @@ include("../configurações/menu.php");
         <h1>Cadastro - Endereço</h1>
 
         <div class="form-group">
+            <label for="nome_endereco">Por favor, nomeie este endereço.</label>
+            <input class="form-control" id="nome_endereco" type="text" name="nome_endereco" required>
+        </div>
+
+        <div class="form-group">
             <label for="pais">País</label>
-            <input class="form-control" id="pais" type="text" name="pais" required >
+            <input class="form-control" id="pais" type="text" name="pais" required disabled">
         </div>
 
         <div class="form-group">
@@ -49,20 +60,22 @@ include("../configurações/menu.php");
             <br>
             <select class="form-select form-select-lg mb-3" id="nome_estado">
                 <option selected>Selecione um estado</option>
-                <option value="1"><?php echo $linhaestado->nome_estado?>></option>
-                <option value="2">2</option>
-                <option value="3">3</option>
+
+                <?php
+                    foreach ( $arr_estados as $estado) {
+                        echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
+                    }
+                ?>
+
+
             </select>
         </div>
 
         <div class="form-group">
             <label for="nome_estado">Cidade</label>
             <br>
-            <select class="form-select form-select-lg mb-3" id="nome_cidade" name="nome_cidade">
+            <select class="form-select form-select-lg mb-3" id="nome_cidade" name="nome_cidade" disabled>
                 <option selected>Selecione uma cidade</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
             </select>
         </div>
 
@@ -83,7 +96,7 @@ include("../configurações/menu.php");
 
         <div class="form-group">
             <label for="complemento">Complemento</label>
-            <input class="form-control" id="complemento" type="text" name="complemento" required >
+            <input class="form-control" id="complemento" type="text" name="complemento" >
         </div>
 
 <button type="submit" class="btn btn-primary">Cadastrar</button>
@@ -117,6 +130,46 @@ include("../configurações/menu.php");
                 });
             }
         });
+
+        $('#nome_estado').on('change', function() {
+            //alert( this.value );
+
+            // $.post( "/cidade/cidades_por_estado.php", function( data ) {
+            //     //$( ".result" ).html( data );
+            //     console.log(data)
+            // });
+
+            $.post(
+                "/endereco/cidades_por_estado.php",
+                {id: this.value},
+                function (data) {
+
+                    $("#nome_cidade").empty();
+                    $("#nome_cidade").append($('<option>', {
+                        //value: null,
+                        text : "Selecione uma cidade"
+                    }));
+
+                    // equivalente ao foreach()
+                    $.each(data, function (i, item) {
+
+                        console.log(item)
+
+                        $('#nome_cidade').append($('<option>', {
+                            value: item.id_cidade,
+                            text : item.nome_cidade
+                        }));
+
+                    });
+
+                    $( "#nome_cidade" ).prop( "disabled", false );
+
+                },
+                "json"
+            );
+
+        });
+
     });
 </script>
 </body>
