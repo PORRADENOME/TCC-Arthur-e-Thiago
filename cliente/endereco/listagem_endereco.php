@@ -70,7 +70,7 @@ include("../configurações/menu.php");
 
     function excluir(id) {
         $.post(
-            "excluir_orcamento.php",
+            "excluir_endereco.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

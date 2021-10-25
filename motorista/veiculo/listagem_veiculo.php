@@ -18,18 +18,18 @@ include("../configurações/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - Veiculu</h1>
+            <h1>Listagem - Veículo</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
                     <th data-column-id="id_veiculo">ID</th>
-                    <th data-column-id="numero_chassi_veiculo" data-order="desc" data-sortable="true">numero_chassi</th>
-                    <th data-column-id="marca_veiculo" data-sortable="true">marca</th>
-                    <th data-column-id="modelo_veiculo" data-sortable="true">modelo</th>
-                    <th data-column-id="ano_veiculo" data-sortable="true">ano</th>
-                    <th data-column-id="placa_veiculo" data-sortable="true">placa</th>
-                    <th data-column-id="tipo_veiculo" data-sortable="true">tipo</th>
+                    <th data-column-id="numero_chassi_veiculo" data-order="desc" data-sortable="true">Número chassi</th>
+                    <th data-column-id="marca_veiculo" data-sortable="true">Marca</th>
+                    <th data-column-id="modelo_veiculo" data-sortable="true">Modelo</th>
+                    <th data-column-id="ano_veiculo" data-sortable="true">Ano</th>
+                    <th data-column-id="placa_veiculo" data-sortable="true">Placa</th>
+                    <th data-column-id="tipo_veiculo" data-sortable="true">Tipo</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>

@@ -5,7 +5,7 @@ try{
     include "../configurações/conexao.php";
 
     $query = $conexao->prepare("SELECT * FROM estado");
-    $resultado = $query->execute();
+    $resultado = $query ->execute();
     $arr_estados = $query->fetchAll();
 
 
@@ -58,10 +58,18 @@ include("../configurações/menu.php");
         <div class="form-group">
             <label for="estado">Estado</label>
             <br>
-            <select class="form-select form-select-lg mb-3" id="estado">
+            <select class="form-control form-select-lg" id="estado" name="estado">
                 <option>Selecione um estado</option>
 
                 <?php
+                /*
+                while ($linha = $query->fetchObject()):
+                ?>
+                    <option value="<?php echo $linha->id_estado; ?>"><?php echo $linha->nome_estado; ?></option>';
+                <?php
+                endwhile;
+                ?>*/
+
                     foreach ( $arr_estados as $estado) {
                         echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
                     }
@@ -74,7 +82,7 @@ include("../configurações/menu.php");
         <div class="form-group">
             <label for="cidade">Cidade</label>
             <br>
-            <select class="form-select form-select-lg mb-3" id="cidade" name="cidade" disabled>
+            <select class="form-control form-select-lg" id="cidade" name="cidade" disabled>
                 <option selected>Selecione uma cidade</option>
             </select>
         </div>

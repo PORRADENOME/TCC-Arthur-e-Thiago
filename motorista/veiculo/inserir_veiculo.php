@@ -7,7 +7,19 @@ try {
     include "../configurações/conexao.php";
 
 
-    $query = $conexao->prepare("INSERT INTO veículo (numero_chassi_veiculo, marca_veiculo, modelo_veiculo, ano_veiculo, placa_veiculo, tipo_veiculo) VALUES (:numero_chassi,:marca,:modelo,:ano,:placa,:tipo) ");
+    $query = $conexao->prepare("INSERT INTO veiculo (numero_chassi_veiculo,
+                                                               marca_veiculo,
+                                                               modelo_veiculo, 
+                                                               ano_veiculo, 
+                                                               placa_veiculo, 
+                                                               tipo_veiculo) 
+                                                            VALUES 
+                                                               (:numero_chassi,
+                                                               :marca,
+                                                               :modelo,
+                                                               :ano,
+                                                               :placa,
+                                                               :tipo) ");
     $query->bindValue(':numero_chassi', $_POST['numero_chassi']);
     $query->bindValue(':marca', $_POST['marca']);
     $query->bindValue(':modelo', $_POST['modelo']);
