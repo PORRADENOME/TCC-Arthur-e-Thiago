@@ -72,7 +72,7 @@ include("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="estado">Cidade</label>
+            <label for="cidade">Cidade</label>
             <br>
             <select class="form-select form-select-lg mb-3" id="cidade" name="cidade" disabled>
                 <option selected>Selecione uma cidade</option>
