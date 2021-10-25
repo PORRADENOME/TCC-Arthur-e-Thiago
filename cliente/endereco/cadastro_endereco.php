@@ -52,14 +52,14 @@ include("../configurações/menu.php");
 
         <div class="form-group">
             <label for="pais">País</label>
-            <input class="form-control" id="pais" type="text" name="pais" required disabled">
+            <input class="form-control" id="pais" type="text" name="pais" required">
         </div>
 
         <div class="form-group">
-            <label for="nome_estado">Estado</label>
+            <label for="estado">Estado</label>
             <br>
-            <select class="form-select form-select-lg mb-3" id="nome_estado">
-                <option selected>Selecione um estado</option>
+            <select class="form-select form-select-lg mb-3" id="estado">
+                <option>Selecione um estado</option>
 
                 <?php
                     foreach ( $arr_estados as $estado) {
@@ -72,9 +72,9 @@ include("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="nome_estado">Cidade</label>
+            <label for="estado">Cidade</label>
             <br>
-            <select class="form-select form-select-lg mb-3" id="nome_cidade" name="nome_cidade" disabled>
+            <select class="form-select form-select-lg mb-3" id="cidade" name="cidade" disabled>
                 <option selected>Selecione uma cidade</option>
             </select>
         </div>
@@ -131,7 +131,7 @@ include("../configurações/menu.php");
             }
         });
 
-        $('#nome_estado').on('change', function() {
+        $('#estado').on('change', function() {
             //alert( this.value );
 
             // $.post( "/cidade/cidades_por_estado.php", function( data ) {
@@ -144,8 +144,8 @@ include("../configurações/menu.php");
                 {id: this.value},
                 function (data) {
 
-                    $("#nome_cidade").empty();
-                    $("#nome_cidade").append($('<option>', {
+                    $("#cidade").empty();
+                    $("#cidade").append($('<option>', {
                         //value: null,
                         text : "Selecione uma cidade"
                     }));
@@ -155,14 +155,14 @@ include("../configurações/menu.php");
 
                         console.log(item)
 
-                        $('#nome_cidade').append($('<option>', {
+                        $('#cidade').append($('<option>', {
                             value: item.id_cidade,
                             text : item.nome_cidade
                         }));
 
                     });
 
-                    $( "#nome_cidade" ).prop( "disabled", false );
+                    $( "#cidade" ).prop( "disabled", false );
 
                 },
                 "json"

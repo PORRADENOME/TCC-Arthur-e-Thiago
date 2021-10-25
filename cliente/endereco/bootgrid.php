@@ -10,7 +10,25 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT endereco.id_endereco, endereco.nome_endereco, endereco.pais, endereco.bairro, endereco.rua, endereco.numero, endereco.complemento, cidade.nome_cidade, estado.nome_estado FROM endereco INNER JOIN estado,cidade ON endereco.cidade=cidade.id_cidade AND endereco.estado=estado.id_estado";
+    $sql = "SELECT endereco.id_endereco, 
+	   endereco.nome_endereco, 
+       endereco.pais, 
+       endereco.bairro, 
+       endereco.rua, 
+       endereco.numero, 
+       endereco.complemento, 
+       cidade.nome_cidade, 
+       estado.nome_estado 
+	FROM 
+	   endereco 
+	INNER JOIN 
+		cidade 
+	ON 
+		endereco.cidade=cidade.id_cidade 
+	INNER JOIN 
+		estado 
+	ON 
+		endereco.estado=estado.id_estado";
 
 
     if ($_POST['searchPhrase'] != '') {

@@ -26,7 +26,7 @@ try {
     }
 
 
-    $query = $conexao->prepare("INSERT INTO cliente (nome_cliente,cpf_cliente,email_cliente,senha_cliente, telefone_cliente ) VALUES (:nome,:cpf,:email,:senha,:telefone) ");
+    $query = $conexao->prepare("INSERT INTO cliente (nome_cliente,cpf_cliente,email_cliente,senha_cliente,telefone_cliente ) VALUES (:nome,:cpf,:email,:senha,:telefone) ");
     $query->bindValue(':nome',$_POST['nome']);
     $query->bindValue(':cpf',$_POST['cpf']);
     $query->bindValue(':email',$_POST['email']);

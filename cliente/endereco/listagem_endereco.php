@@ -15,7 +15,7 @@ include("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet"/>
 
-<div class="container">
+<div class="container_sm">
     <div class="row">
         <div class="col-12">
             <h1>Listagem - Endereço</h1>
