@@ -58,7 +58,7 @@ include("../configurações/menu.php");
         <div class="form-group">
             <label for="estado">Estado</label>
             <br>
-            <select class="form-control form-select-lg" id="estado" name="estado">
+            <select class="form-control form-select-lg" id="estado" name="estado" required>
                 <option>Selecione um estado</option>
 
                 <?php
@@ -82,7 +82,7 @@ include("../configurações/menu.php");
         <div class="form-group">
             <label for="cidade">Cidade</label>
             <br>
-            <select class="form-control form-select-lg" id="cidade" name="cidade" disabled>
+            <select class="form-control form-select-lg" id="cidade" name="cidade" required disabled>
                 <option selected>Selecione uma cidade</option>
             </select>
         </div>

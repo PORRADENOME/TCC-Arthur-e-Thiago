@@ -7,7 +7,7 @@ try {
 
 
 
-    $query = $conexao->prepare("UPDATE veículo SET numero_chassi_veiculo=:numero_chassi_veiculo, marca_veiculo=:marca_veiculo,modelo_veiculo=:modelo_veiculo, ano_veiculo=:ano_veiculo, placa_veiculo=:placa_veiculo, tipo_veiculo=:tipo_veiculo WHERE id_veiculo=:id_veiculo");
+    $query = $conexao->prepare("UPDATE veiculo SET numero_chassi_veiculo=:numero_chassi_veiculo, marca_veiculo=:marca_veiculo,modelo_veiculo=:modelo_veiculo, ano_veiculo=:ano_veiculo, placa_veiculo=:placa_veiculo, tipo_veiculo=:tipo_veiculo WHERE id_veiculo=:id_veiculo");
     $query->bindParam(':id_veiculo', $_POST['id_veiculo']);
     $query->bindParam(':numero_chassi_veiculo', $_POST['numero_chassi_veiculo']);
     $query->bindParam(':marca_veiculo', $_POST['marca_veiculo']);

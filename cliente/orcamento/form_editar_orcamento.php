@@ -50,13 +50,13 @@ include ("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="data_e_horario_orcamento">Data e horario</label>
-            <input class="form-control" id="data_e_horario_orcamento" type="text" name="data_e_horario_orcamento" value="<?php echo $linhaorcamento->data_e_horario_orcamento;?>">
+            <label for="data_e_horario">Data e horario</label>
+            <input class="form-control" id="data_e_horario" type="text" name="data_e_horario" value="<?php echo $linhaorcamento->data_e_horario;?>">
         </div>
 
         <div class="form-group">
-            <label for="inf_adicionais_orcamento">Informaçoes extras</label>
-            <input class="form-control" id="inf_adicionais_orcamento" type="text" name="inf_adicionais_orcamento" value="<?php echo $linhaorcamento->inf_adicionais_orcamento;?>">
+            <label for="inf_adicionais">Informaçoes extras</label>
+            <input class="form-control" id="inf_adicionais" type="text" name="inf_adicionais" value="<?php echo $linhaorcamento->inf_adicionais;?>">
         </div>
 
 

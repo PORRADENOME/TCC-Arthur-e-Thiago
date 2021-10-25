@@ -24,8 +24,8 @@ include("../configurações/menu.php");
                 <thead>
                 <tr>
                     <th data-column-id="id_orcamento">ID</th>
-                    <th data-column-id="data_e_horario_orcamento" data-order="desc" data-sortable="true">Data e Horario</th>
-                    <th data-column-id="inf_adicionais_orcamento" data-sortable="true">Informaçoes sobre</th>
+                    <th data-column-id="data_e_horario" data-order="desc" data-sortable="true">Data e Horario</th>
+                    <th data-column-id="inf_adicionais" data-sortable="true">Informaçoes sobre</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>

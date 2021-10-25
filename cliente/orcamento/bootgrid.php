@@ -16,8 +16,8 @@ try {
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
                  id_orcamento LIKE '%{$_POST['searchPhrase']}%' 
-                 OR data_e_horario_orcamento LIKE '%{$_POST['searchPhrase']}%'
-                 OR inf_adicionais_orcamento LIKE '%{$_POST['searchPhrase']}%'
+                 OR data_e_horario LIKE '%{$_POST['searchPhrase']}%'
+                 OR inf_adicionais LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados = $conexao->prepare($sql);
