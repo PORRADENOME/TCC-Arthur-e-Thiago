@@ -9,7 +9,7 @@ try {
     $query = $conexao->prepare("UPDATE endereco SET nome_endereco=:nome_endereco,
                                                               pais=:pais,
                                                               estado=:estado,
-                                                              cidade=:cidade; 
+                                                              cidade=:cidade, 
                                                               bairro=:bairro,
                                                               rua=:rua, 
                                                               numero=:numero, 
