@@ -23,9 +23,10 @@ include("../configurações/menu.php");
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="id_orcamento">ID</th>
-                    <th data-column-id="data_e_horario" data-order="desc" data-sortable="true">Data e Horario</th>
-                    <th data-column-id="inf_adicionais" data-sortable="true">Informaçoes sobre</th>
+                    <th data-column-id="data_e_horario" data-order="desc" data-sortable="true">Data e Horário</th>
+                    <th data-column-id="inf_adicionais" data-sortable="true">Informações</th>
+                    <th data-column-id="inf_adicionais" data-sortable="true">Endereço Partida</th>
+                    <th data-column-id="inf_adicionais" data-sortable="true">Endereço Destino</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
@@ -47,8 +48,7 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-trash\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fa-regular fa-rectangle-xmark\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
