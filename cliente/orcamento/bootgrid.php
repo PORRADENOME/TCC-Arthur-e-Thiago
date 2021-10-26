@@ -10,14 +10,26 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM orcamento WHERE 1 ";
+    $sql = "SELECT orcamento.data_e_horario,
+                   orcamento.inf_adicionais,
+                   endereco.nome_endereco,
+                   endereco.nome_endereco 
+                FROM 
+                   orcamento 
+                INNER JOIN 
+                   endereco
+                ON 
+                   orcamento.endereco_partida=endereco.id_endereco
+                AND 
+                   orcamento.endereco_destino=endereco.id_endereco";
 
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_orcamento LIKE '%{$_POST['searchPhrase']}%' 
-                 OR data_e_horario LIKE '%{$_POST['searchPhrase']}%'
+                 data_e_horario LIKE '%{$_POST['searchPhrase']}%'
                  OR inf_adicionais LIKE '%{$_POST['searchPhrase']}%'
+                 OR nome_endereco LIKE '%{$_POST['searchPhrase']}%'                              
+                 OR nome_endereco LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados = $conexao->prepare($sql);

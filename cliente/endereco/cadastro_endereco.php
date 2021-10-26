@@ -108,7 +108,7 @@ include("../configurações/menu.php");
         </div>
 
 <button type="submit" class="btn btn-primary">Cadastrar</button>
-<a href="/listagem_endereco.php" class="btn btn-danger">Cancelar</a>
+<a href="../endereco/listagem_endereco.php" class="btn btn-danger">Cancelar</a>
 
     </form>
 </div>

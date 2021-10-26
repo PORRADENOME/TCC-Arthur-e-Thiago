@@ -15,7 +15,7 @@ try {
                                                               numero=:numero, 
                                                               complemento=:complemento 
                                                             WHERE 
-                                                              id_endereco=:id_endereco");
+                                                              id_endereco= :id_endereco");
     $query->bindParam(':id_endereco', $_POST['id_endereco']);
     $query->bindParam(':nome_endereco', $_POST['nome_endereco']);
     $query->bindParam(':pais', $_POST['pais']);
