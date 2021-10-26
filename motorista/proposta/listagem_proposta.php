@@ -18,7 +18,7 @@ include("../configurações/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - Orcamento</h1>
+            <h1>Listagem de Pedidos do orçamento</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
@@ -47,7 +47,7 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-eye\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
