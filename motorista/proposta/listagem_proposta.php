@@ -47,41 +47,18 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-success command-edit\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-check\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
-            grid.find(".command-edit").on("click", function (e) {
-                document.location = 'form_editar_orcamento.php?id=' + $(this).data("row-id");
-            }).end().find(".command-delete").on("click", function (e) {
-                iziToastExcluir($(this).data("row-id"));
-
+            grid.find(".command-visualizar").on("click", function (e) {
+                document.location = 'visualizar_proposta.php?id=' + $(this).data("row-id");
             });
 
         });
 
     });
 
-    function excluir(id) {
-        $.post(
-            "excluir_orcamento.php",
-            {id: id},
-            function (data) {
-                if (data.status == 0) {
-                    iziToast.error({
-                        message: data.mensagem
-                    });
-                } else {
-                    iziToast.success({
-                        message: data.mensagem
-                    });
-                    grid.bootgrid("reload");
-                }
-            },
-            "json"
-        );
-    }
 
 </script>
 
