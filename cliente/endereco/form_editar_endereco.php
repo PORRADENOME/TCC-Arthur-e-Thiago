@@ -10,27 +10,32 @@ try{
         die('Acesse pela listagem');
     }
 
-    $query = $conexao->PREPARE("SELECT * FROM endereco WHERE id_indereco=:id");
+    $query = $conexao->PREPARE("SELECT * FROM endereco WHERE id_endereco=:id");
     $query->bindValue(":id", $_GET['id']);
 
-    $resultado = $query->execute();
+    $query->execute();
 
     if($query->rowCount()==0){
         exit("Objeto não encontrado");
     }
 
-    $linhaindereco = $query->fetchObject();
+    $linhaendereco = $query->fetchObject();
+
+    $resultado = $conexao->prepare("SELECT * FROM estado");
+    $resultado->execute();
+    $arr_estados = $resultado->fetchAll();
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
 }
+
 
 ?>
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar indereco</title>
+    <title>Editar EndereÇo</title>
 </head>
 <body>
 
@@ -41,43 +46,73 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Editar - indereco</h1>
+    <h1> Editar Endereço</h1>
     <form action="editar_endereco.php" method="post" class="jsonForm">
 
         <div class="form-group">
-            <label for="id_indereco">ID</label>
-            <input class="form-control" id="id_indereco" type="text" name="id_indereco" readonly value="<?php echo $linhaindereco->id_indereco;?>">
+            <label for="id_endereco">ID</label>
+            <input class="form-control" id="id_endereco" type="text" name="id_endereco" readonly value="<?php echo $linhaendereco->id_endereco;?>">
         </div>
 
         <div class="form-group">
-            <label for="pais_indereco">Pais</label>
-            <input class="form-control" id="pais_indereco" type="text" name="pais_indereco" value="<?php echo $linhaindereco->data_e_horario_indereco;?>">
+            <label for="nome_endereco">Nome</label>
+            <input class="form-control" id="nome_endereco" type="text" name="nome_endereco" value="<?php echo $linhaendereco->nome_endereco;?>">
         </div>
 
         <div class="form-group">
-            <label for="bairro_indereco">Bairro</label>
-            <input class="form-control" id="bairro_indereco" type="text" name="bairro_indereco" value="<?php echo $linhaindereco->inf_adicionais_indereco;?>">
+            <label for="pais">País</label>
+            <input class="form-control" id="pais" type="text" name="pais" value="<?php echo $linhaendereco->pais;?>">
         </div>
 
         <div class="form-group">
-            <label for="rua_indereco">Rua</label>
-            <input class="form-control" id="rua_indereco" type="text" name="rua_indereco" value="<?php echo $linhaindereco->inf_adicionais_indereco;?>">
+            <label for="estado">Estado</label>
+            <br>
+            <select class="form-control form-select-lg" id="estado" name="estado" required>
+                <option>Selecione um estado</option>
+
+                <?php
+
+                foreach ( $arr_estados as $estado) {
+                    echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
+                }
+                ?>
+
+
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="numero_indereco">Numero</label>
-            <input class="form-control" id="numero_indereco" type="text" name="numero_indereco" value="<?php echo $linhaindereco->inf_adicionais_indereco;?>">
+            <label for="cidade">Cidade</label>
+            <br>
+            <select class="form-control form-select-lg" id="cidade" name="cidade" required disabled>
+                <option selected>Selecione uma cidade</option>
+            </select>
         </div>
 
         <div class="form-group">
-            <label for="complemento_indereco">complemento_indereco</label>
-            <input class="form-control" id="complemento_indereco" type="text" name="complemento_indereco" value="<?php echo $linhaindereco->inf_adicionais_indereco;?>">
+            <label for="bairro">Bairro</label>
+            <input class="form-control" id="bairro" type="text" name="bairro" value="<?php echo $linhaendereco->bairro;?>">
+        </div>
+
+        <div class="form-group">
+            <label for="rua">Rua</label>
+            <input class="form-control" id="rua" type="text" name="rua" value="<?php echo $linhaendereco->rua;?>">
+        </div>
+
+        <div class="form-group">
+            <label for="numero">Número</label>
+            <input class="form-control" id="numero" type="text" name="numero" value="<?php echo $linhaendereco->numero;?>">
+        </div>
+
+        <div class="form-group">
+            <label for="complemento">Complemento</label>
+            <input class="form-control" id="complemento" type="text" name="complemento" value="<?php echo $linhaendereco->complemento;?>">
         </div>
 
 
 
-        <button type="submit" class="btn btn-primary">Editar Indereco</button>
-        <a href="/listagem_indereco.php" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Editar Endereço</button>
+        <a href="../endereco/listagem_endereco.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
 
@@ -106,6 +141,40 @@ include ("../configurações/menu.php");
                   });
              }
         });
+
+        $('#estado').on('change', function() {
+            $.post(
+                "/endereco/cidades_por_estado.php",
+                {id: this.value},
+                function (data) {
+
+                    $("#cidade").empty();
+                    $("#cidade").append($('<option>', {
+                        //value: null,
+                        text : "Selecione uma cidade"
+                    }));
+
+                    // equivalente ao foreach()
+                    $.each(data, function (i, item) {
+
+                        console.log(item)
+
+                        $('#cidade').append($('<option>', {
+                            value: item.id_cidade,
+                            text : item.nome_cidade
+                        }));
+
+                    });
+
+                    $( "#cidade" ).prop( "disabled", false );
+
+                },
+                "json"
+            );
+
+        });
+
+
     });
 </script>
 

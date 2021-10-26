@@ -58,7 +58,7 @@ include("../configurações/menu.php");
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location = 'form_editar_orcamento.php?id=' + $(this).data("row-id");
+                document.location = 'form_editar_endereco.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 

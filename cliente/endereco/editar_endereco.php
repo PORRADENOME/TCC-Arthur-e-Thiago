@@ -6,8 +6,16 @@ try {
     include "../configurações/conexao.php";
 
 
-
-    $query = $conexao->prepare("UPDATE endereco SET pais=:pais, bairro=:bairro,rua=:rua, numero=:numero, complemento=:complemento WHERE id_endereco=:id_endereco");
+    $query = $conexao->prepare("UPDATE endereco SET nome_endereco=:nome_endereco,
+                                                              pais=:pais,
+                                                              estado=:estado,
+                                                              cidade=:cidade; 
+                                                              bairro=:bairro,
+                                                              rua=:rua, 
+                                                              numero=:numero, 
+                                                              complemento=:complemento 
+                                                            WHERE 
+                                                              id_endereco=:id_endereco");
     $query->bindParam(':id_endereco', $_POST['id_endereco']);
     $query->bindParam(':nome_endereco', $_POST['nome_endereco']);
     $query->bindParam(':pais', $_POST['pais']);
