@@ -239,7 +239,7 @@ include ("../configurações/menu.php");
     </p>
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
-            <form>
+            
 
 
                 <!DOCTYPE html>
@@ -260,7 +260,8 @@ include ("../configurações/menu.php");
                         </div>
 
                         <div class="form-group">
-                            <textarea for="informacoes_adicionais" class="form-control" id="informacoes_adicionais" type="text" name="informacoes_adicionais" required>Informaçoes Adicionais</textarea>
+                            <label for="informacoes_adicionais">Informações Adicionais</label>
+                            <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais" required></textarea>
                         </div>
 
 
