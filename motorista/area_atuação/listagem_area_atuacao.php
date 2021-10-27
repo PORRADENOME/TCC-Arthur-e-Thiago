@@ -18,13 +18,13 @@ include("../configurações/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - Orcamento</h1>
+            <h1>Listagem - Área de Atuação</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="preco" data-order="desc" data-sortable="true">Preço</th>
-                    <th data-column-id="informacoes_adicionais" data-sortable="true">Informações</th>
+                    <th data-column-id="nome_estado" data-order="desc" data-sortable="true">Estado</th>
+                    <th data-column-id="nome_cidade" data-sortable="true">Cidade</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
@@ -46,13 +46,13 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-eye\"></span></button> " +
+                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-edit\"></span></button> " +
                         "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-trash\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
+                document.location = 'form_editar_endereco.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 
@@ -64,7 +64,7 @@ include("../configurações/menu.php");
 
     function excluir(id) {
         $.post(
-            "excluir_proposta.php",
+            "excluir_endereco.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {
@@ -83,5 +83,4 @@ include("../configurações/menu.php");
     }
 
 </script>
-
 

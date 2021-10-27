@@ -9,20 +9,6 @@ try{
     $arr_estados = $query->fetchAll();
 
 
-
-
-
-//    do{
-
-//    $query = $conexao->prepare("SELECT * FROM estado");
-//    $linhaestado = $query->fetchObject();
-//
-//
-//
-//        $quantidade_estados=27;
-//
-//    }while ($linhaestado->id_estado<=$quantidade_estados);
-
 }catch (PDOException $exception){
     echo $exception->getMessage();
 }
@@ -32,7 +18,7 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Endereço</title>
+    <title>Cadastro de Área de Atuação</title>
 </head>
 <body>
 
@@ -42,37 +28,19 @@ include("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <form action="inserir_endereco.php" method="post" class="jsonForm">
-        <h1>Cadastro - Endereço</h1>
+    <form action="inserir_area_atuacao.php" method="post" class="jsonForm">
+        <h1>Cadastro - Área de Atuação</h1>
 
-        <div class="form-group">
-            <label for="nome_endereco">Dê um nome à este endereço.</label>
-            <input class="form-control" id="nome_endereco" type="text" name="nome_endereco" required>
-        </div>
-
-        <div class="form-group">
-            <label for="pais">País</label>
-            <input class="form-control" id="pais" type="text" name="pais" required">
-        </div>
-
-        <div class="form-group">
+            <div class="form-group">
             <label for="estado">Estado</label>
             <br>
             <select class="form-control form-select-lg" id="estado" name="estado" required>
                 <option>Selecione um estado</option>
 
                 <?php
-                /*
-                while ($linha = $query->fetchObject()):
-                ?>
-                    <option value="<?php echo $linha->id_estado; ?>"><?php echo $linha->nome_estado; ?></option>';
-                <?php
-                endwhile;
-                ?>*/
-
-                    foreach ( $arr_estados as $estado) {
-                        echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
-                    }
+                foreach ( $arr_estados as $estado) {
+                    echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
+                }
                 ?>
 
 
@@ -87,28 +55,8 @@ include("../configurações/menu.php");
             </select>
         </div>
 
-        <div class="form-group">
-            <label for="bairro">Bairro</label>
-            <input class="form-control" id="bairro" type="text" name="bairro" required >
-        </div>
-
-        <div class="form-group">
-            <label for="rua">Rua</label>
-            <input class="form-control" id="rua" type="text" name="rua" required >
-        </div>
-
-        <div class="form-group">
-            <label for="numero">Número</label>
-            <input class="form-control" id="numero" type="text" name="numero" required >
-        </div>
-
-        <div class="form-group">
-            <label for="complemento">Complemento</label>
-            <input class="form-control" id="complemento" type="text" name="complemento" >
-        </div>
-
-<button type="submit" class="btn btn-primary">Cadastrar</button>
-<a href="../endereco/listagem_endereco.php" class="btn btn-danger">Cancelar</a>
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a href="../area_atuação/listagem_area_atuacao.php" class="btn btn-danger">Voltar</a>
 
     </form>
 </div>
@@ -140,15 +88,8 @@ include("../configurações/menu.php");
         });
 
         $('#estado').on('change', function() {
-            //alert( this.value );
-
-            // $.post( "/cidade/cidades_por_estado.php", function( data ) {
-            //     //$( ".result" ).html( data );
-            //     console.log(data)
-            // });
-
             $.post(
-                "/endereco/cidades_por_estado.php",
+                "/area_atuação/cidades_por_estado.php",
                 {id: this.value},
                 function (data) {
 
@@ -182,4 +123,3 @@ include("../configurações/menu.php");
 </script>
 </body>
 </html>
-

@@ -16,7 +16,7 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veiculo</a>
+                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Veículo</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="../veiculo/listagem_veiculo.php">Listagem</a>
                     <a class="dropdown-item" href="../veiculo/cadastro_veiculo.php">Cadastro</a>
@@ -25,7 +25,16 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Propostas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../proposta/listagem_proposta.php">propostas</a>
+                    <a class="dropdown-item" href="../proposta/listagem_proposta.php">Propostas</a>
+                </div>
+
+            </li>
+
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Área de Atuação</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="../area_atuação/listagem_area_atuacao.php">Listagem</a>
+                    <a class="dropdown-item" href="../area_atuação/cadastro_area_atuacao.php">Cadastro</a>
                 </div>
 
             </li>
