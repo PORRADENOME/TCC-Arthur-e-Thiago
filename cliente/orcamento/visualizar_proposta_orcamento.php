@@ -43,7 +43,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Vizualizar Propostas</h1>
+    <h1> Vizualizar Proposta</h1>
     <p></p>
     <p></p>
 
@@ -82,21 +82,9 @@ include ("../configurações/menu.php");
                 </div>
             </div>
         </div>
-        <div class="card">
-            <div class="card-header" id="headingTwo">
-                <h5 class="mb-0">
-                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Informaçoes partida
-                    </button>
-                </h5>
-            </div>
 
     <p>
-        <a href="../orcamento/perfil_motorista_orcacemnto.php" class="btn btn-danger">Cancelar</a>
-
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Fazer proposta
-        </a>
+        <a href="" class="btn btn-primary" >Aceitar</a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
         </button>

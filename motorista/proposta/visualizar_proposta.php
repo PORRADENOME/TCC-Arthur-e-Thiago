@@ -12,32 +12,41 @@ From
     endereco On orcamento.endereco_partida = endereco.id_endereco Inner Join
     cliente On endereco.cliente_endereco = cliente.id_cliente
 Where
-    orcamento.id_orcamento = 1");
+    orcamento.id_orcamento=:id ");
+    $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
     $linha = $query->fetchObject();
 
 
-    $query = $conexao->prepare("Select
+  /*  $query = $conexao->prepare("Select
     cidade.estado_cidade,
     estado.id_estado,
     estado.nome_estado,
     cidade.nome_cidade
 From
     cidade Inner Join
-    estado On cidade.estado_cidade = estado.id_estado");
+    estado On cidade.estado_cidade = estado.id_estado
+    ");
 
     $resultado = $query->execute();
 
     $linha1 = $query->fetchObject();
-
+*/
 
     $query = $conexao->prepare("Select
     orcamento.endereco_partida,
-    endereco.*
+    endereco.*,
+    cidade.nome_cidade,
+    estado.nome_estado
 From
     orcamento Inner Join
-    endereco On orcamento.endereco_partida = endereco.id_endereco");
+    endereco On orcamento.endereco_partida = endereco.id_endereco Inner Join
+    cidade On endereco.cidade = cidade.id_cidade Inner Join
+    estado On endereco.estado = estado.id_estado
+            And cidade.estado_cidade = estado.id_estado
+            WHERE orcamento.id_orcamento=:id;");
+    $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();
 
@@ -45,11 +54,17 @@ From
 
     $query = $conexao->prepare("Select
     endereco.*,
-    orcamento.endereco_destino
+    orcamento.endereco_destino,
+    cidade.nome_cidade,
+    estado.nome_estado
 From
     orcamento Inner Join
-    endereco On orcamento.endereco_partida = endereco.id_endereco");
-
+    endereco On orcamento.endereco_destino = endereco.id_endereco Inner Join
+    cidade On endereco.cidade = cidade.id_cidade Inner Join
+    estado On endereco.estado = estado.id_estado
+            And cidade.estado_cidade = estado.id_estado
+            WHERE orcamento.id_orcamento=:id;");
+    $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
     $linha3 = $query->fetchObject();
@@ -106,10 +121,12 @@ include ("../configurações/menu.php");
                 </h5>
             </div>
 
+
+
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="card-body">
-                        <h6>Data e Horario </h6>
+                        <h6>Nome </h6>
                         <?php echo $linha->nome_cliente; ?>
                     </div>
 
@@ -125,6 +142,9 @@ include ("../configurações/menu.php");
                 </div>
             </div>
         </div>
+
+
+
         <div class="card">
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
@@ -146,37 +166,41 @@ include ("../configurações/menu.php");
 
                 <div class="card-body">
                     <h6>Estado </h6>
-                    <?php echo $linha1->nome_estado; ?>
+                    <?php echo $linha2->nome_estado; ?>
                 </div>
 
                 <div class="card-body">
                     <h6>Cidade </h6>
-                    <?php echo $linha1->nome_cidade; ?>
+                    <?php echo $linha2->nome_cidade; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Bairro </h6>
                     <?php echo $linha2->bairro; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Rua </h6>
                     <?php echo $linha2->rua; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Número </h6>
                     <?php echo $linha2->numero; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Complemento </h6>
                     <?php echo $linha2->complemento; ?>
                 </div>
 
 
             </div>
         </div>
+
+
+
+
         <div class="card">
             <div class="card-header" id="headingThree">
                 <h5 class="mb-0">
@@ -198,31 +222,31 @@ include ("../configurações/menu.php");
 
                 <div class="card-body">
                     <h6>Estado </h6>
-                    <?php echo $linha1->nome_estado; ?>
+                    <?php echo $linha3->nome_estado; ?>
                 </div>
 
                 <div class="card-body">
                     <h6>Cidade </h6>
-                    <?php echo $linha1->nome_cidade; ?>
+                    <?php echo $linha3->nome_cidade; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Bairro </h6>
                     <?php echo $linha3->bairro; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Rua </h6>
                     <?php echo $linha3->rua; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Número </h6>
                     <?php echo $linha3->numero; ?>
                 </div>
 
                 <div class="card-body">
-                    <h6>Endereço Partida </h6>
+                    <h6>Complemento </h6>
                     <?php echo $linha3->complemento; ?>
                 </div>
             </div>
@@ -239,7 +263,7 @@ include ("../configurações/menu.php");
     </p>
     <div class="collapse" id="collapseExample">
         <div class="card card-body">
-            
+
 
 
                 <!DOCTYPE html>
@@ -262,6 +286,11 @@ include ("../configurações/menu.php");
                         <div class="form-group">
                             <label for="informacoes_adicionais">Informações Adicionais</label>
                             <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais" required></textarea>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="id_orcamento">ID orçamento</label>
+                            <input class="form-control" type="text" id="id_orcamento" name="id_orcamento" value="<?php echo $linha->id_orcamento?>" readonly>
                         </div>
 
 
