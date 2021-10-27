@@ -3,7 +3,9 @@ require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
-
+    $query = $conexao->prepare("SELECT * FROM estado");
+    $resultado = $query ->execute();
+    $arr_estados = $query->fetchAll();
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -32,13 +34,26 @@ include("../configurações/menu.php");
             <input class="form-control" id="nome" type="text" name="nome" required >
         </div>
         <div class="form-group">
-            <label for="estado_cidade">Selecione o Estado</label>
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="estado_cidade" name="estado_cidade">
-                <option value="1">São Paulo</option>
-                <option value="2">Paraná</option>
-                <option value="3">Santa Catarina</option>
-                <option value="4">Rio de Janeiro</option>
-                <option value="5">Rio Grande do Sul</option>
+            <label for="estado_cidade">Estado</label>
+            <br>
+            <select class="form-control form-select-lg" id="estado_cidade" name="estado_cidade" required>
+                <option>Selecione um estado</option>
+
+                <?php
+                /*
+                while ($linha = $query->fetchObject()):
+                ?>
+                    <option value="<?php echo $linha->id_estado; ?>"><?php echo $linha->nome_estado; ?></option>';
+                <?php
+                endwhile;
+                ?>*/
+
+                foreach ( $arr_estados as $estado) {
+                    echo '<option value="' . $estado->id_estado . '">' . $estado->nome_estado . '</option>';
+                }
+                ?>
+
+
             </select>
         </div>
 
