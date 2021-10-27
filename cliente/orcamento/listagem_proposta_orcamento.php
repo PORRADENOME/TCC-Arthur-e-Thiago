@@ -23,9 +23,8 @@ include("../configurações/menu.php");
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="data_e_horario" data-order="desc" data-sortable="true">Data e Horário</th>
-                    <th data-column-id="inf_adicionais" data-sortable="true">Informações</th>
-                    <th data-column-id="nome_endereco" data-sortable="true">Endereço Partida</th>
+                    <th data-column-id="preco" data-order="desc" data-sortable="true">Preco</th>
+                    <th data-column-id="informacoes_adicionais" data-sortable="true">Informações</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
@@ -53,7 +52,7 @@ include("../configurações/menu.php");
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location = 'listagem_proposta_orcamento.php?id=' + $(this).data("row-id");
+                document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 
@@ -65,7 +64,7 @@ include("../configurações/menu.php");
 
     function excluir(id) {
         $.post(
-            "excluir_orcamento.php",
+            "excluir_proposta.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {
@@ -84,4 +83,5 @@ include("../configurações/menu.php");
     }
 
 </script>
+
 
