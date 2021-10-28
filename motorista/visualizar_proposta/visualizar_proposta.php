@@ -254,8 +254,6 @@ include ("../configurações/menu.php");
     </div>
 
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Fazer proposta
         </a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
