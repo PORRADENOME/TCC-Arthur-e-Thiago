@@ -17,6 +17,17 @@ try {
 
     $linhamotorista = $query->fetchObject();
 
+    $query = $conexao->PREPARE("SELECT * FROM avaliacao WHERE id_avaliacao=:id");
+    $query->bindValue(":id", $_SESSION['id']);
+
+    $resultado = $query->execute();
+
+    if($query->rowCount()==0){
+        exit("Objeto não encontrado");
+    }
+
+    $linhaavaliacao = $query->fetchObject();
+
     // var_dump($linhamotorista);
 
 }catch(PDOException $exception){
@@ -50,6 +61,20 @@ include ("../configurações/menu.php");
                 <tr>
                     <th scope="row">Telefone / Celular :</th>
                     <td><?php echo $linhamotorista->telefone_motorista ?></td>
+                </tr>
+
+                </tbody>
+
+                <thead>
+                <tr>
+                    <th scope="col">Nome :</th>
+                    <th scope="col"><?php echo $linhamotorista->texto_avaliacao ?></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">E-mail :</th>
+                    <td><?php echo $linhamotorista->data_avaliacao ?></td>
                 </tr>
 
                 </tbody>

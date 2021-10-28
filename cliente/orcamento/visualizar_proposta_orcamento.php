@@ -84,7 +84,7 @@ include ("../configurações/menu.php");
         </div>
 
     <p>
-        <a href="" class="btn btn-primary" >Aceitar</a>
+        <a class="btn btn-primary" href="../avaliacao/cadastro_avaliacao.php">Aceitar</a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
         </button>
