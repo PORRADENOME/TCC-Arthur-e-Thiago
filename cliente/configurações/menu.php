@@ -34,9 +34,9 @@
             </li>
 
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Avaliacao</a>
+                <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Avaliação</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../avaliacao/listagem_avaliacao.php">visualizar</a>
+                    <a class="dropdown-item" href="../avaliacao/listagem_avaliacao.php">Visualizar</a>
 
                 </div>
 

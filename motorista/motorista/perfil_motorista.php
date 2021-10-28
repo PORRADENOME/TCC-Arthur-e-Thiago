@@ -54,6 +54,11 @@ include ("../configurações/menu.php");
                     <td><?php echo $linhamotorista->cpf_motorista ?></td>
 
                 </tr>
+                <tr>
+                    <th scope="row">Carteira de motorista :</th>
+                    <td><?php echo $linhamotorista->carteira_de_motorista ?></td>
+
+                </tr>
                 </tbody>
             </table>
             <div class="form-group">
@@ -114,7 +119,7 @@ include ("../configurações/menu.php");
 
 
                                     <button type="submit" class="btn btn-primary">Editar</button>
-                                    <a href="perfil_cliente.php" class="btn btn-danger">Cancelar</a>
+                                    <a href="perfil_motorista.php" class="btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </div>

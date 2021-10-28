@@ -9,6 +9,21 @@ try{
 }
 ?>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    $("#telefone").mask("(00) 0000-0000");
+</script>
+
+<script type="text/javascript">
+    $("#cpf").mask("000.000.000-00");
+</script>
+
+<script type="text/javascript">
+    $("#carteira").mask("00000000000");
+</script>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,7 +59,10 @@ include("../configurações/bootstrap.php");
             <label for="telefone">Telefone</label>
             <input class="form-control" id="telefone" type="text" name="telefone" >
         </div>
-
+        <div class="form-group">
+            <label for="carteira">Carteira de motorista</label>
+            <input class="form-control" id="carteira" type="text" name="carteira" required >
+        </div>
         <div class="form-group">
             <label for="senha">Senha</label>
             <input class="form-control" id="senha" type="password" name="senha" required >
@@ -53,10 +71,7 @@ include("../configurações/bootstrap.php");
             <label for="confsenha">confirmaçao de senha</label>
             <input class="form-control" id="confsenha" type="password" name="confsenha" required >
         </div>
-        <div class="form-group">
-            <label for="carteira">Carteira de motorista</label>
-            <input class="form-control" id="carteira" type="text" name="carteira" required >
-        </div>
+
 
 
         <button type="submit" class="btn btn-primary">Cadastrar Motorista</button>

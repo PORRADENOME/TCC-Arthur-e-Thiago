@@ -276,11 +276,11 @@ include ("../configurações/menu.php");
 
                 <div class="container">
                     <form action="inserir_proposta.php" method="post" class="jsonForm">
-                        <h1>Cadastro da proposta</h1>
+                        <h1>Cadastro da Proposta</h1>
 
                         <div class="form-group">
                             <label for="preco">Preço</label>
-                            <input class="form-control" id="preco" type="text" name="preco" required >
+                            <input class="form-control" id="preco"  type="number" step="0.01" max="99999999,99" name="preco" required >
                         </div>
 
                         <div class="form-group">

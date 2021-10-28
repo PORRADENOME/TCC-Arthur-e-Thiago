@@ -26,7 +26,6 @@
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orçamentos</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
                     <a class="dropdown-item" href="../proposta/listagem_proposta.php">Visualizar</a>
-                    <a class="dropdown-item" href="../visualizar_proposta/listagem_proposta.php">Propostas</a>
                 </div>
 
             </li>

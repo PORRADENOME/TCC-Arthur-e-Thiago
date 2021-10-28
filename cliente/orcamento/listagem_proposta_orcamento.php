@@ -31,9 +31,13 @@ include("../configurações/menu.php");
                 </tr>
                 </thead>
             </table>
+            <button class="btn btn-primary" role="button" onclick="history.back()" >
+                Voltar
+            </button>
         </div>
     </div>
 </div>
+
 
 <script src="../js/jquery.bootgrid.js"></script>
 <script src="../js/jquery.bootgrid.fa.js"></script>

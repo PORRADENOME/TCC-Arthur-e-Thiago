@@ -16,7 +16,7 @@ include ("../configurações/menu.php");
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - motorista</h1>
+            <h1>Listagem - Motorista</h1>
     <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>

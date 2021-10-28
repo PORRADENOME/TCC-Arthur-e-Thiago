@@ -25,20 +25,20 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_avaliacao.php" method="post" class="jsonForm">
-        <h1>Cadastro - Avaliacao</h1>
+        <h1>Cadastro - Avaliação</h1>
 
         <div class="form-group">
-            <label for="texto_avaliacao">Testo</label>
+            <label for="texto_avaliacao">Texto</label>
             <input class="form-control" id="texto_avaliacao" type="text" name="texto_avaliacao" required >
         </div>
 
         <div class="form-group">
             <label for="data_avaliacao">Data</label>
-            <input class="form-control" id="data_avaliacao" type="text" name="data_avaliacao" required >
+            <input class="form-control" id="data_avaliacao" type="datetime-local" name="data_avaliacao" required >
         </div>
 
 
-<button type="submit" class="btn btn-primary" >Cadastrar Avaliacao</button>
+<button type="submit" class="btn btn-primary" >Cadastrar</button>
 <a href="../orcamento/listagem_orcamento.php" class="btn btn-danger">Sair</a>
 
     </form>
