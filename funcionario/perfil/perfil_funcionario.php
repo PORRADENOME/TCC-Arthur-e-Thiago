@@ -2,7 +2,9 @@
 require "../configurações/segurança.php";
 try {
     require "../configurações/conexao.php";
-    // var_dump($_SESSION);
+
+
+    var_dump($_SESSION);
 
     $query = $conexao->PREPARE("SELECT * FROM funcionario ");
     $query->bindValue(":id", $_SESSION['id']);
