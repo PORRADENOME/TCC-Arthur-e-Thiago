@@ -10,18 +10,18 @@ try {
 
     $sql = "Select
     motorista.*,
-    avaliacao.*
+    resposta.*
 From
-    avaliacao Inner Join
+    resposta Inner Join
     motorista
             ";
 
     if($_POST['searchPhrase'] != '')
     {
         $sql .= " AND (
-                 id_avaliacao LIKE '%{$_POST['searchPhrase']}%' 
-                 OR texto_avaliacao LIKE '%{$_POST['searchPhrase']}%'
-                 OR data_avaliacao LIKE '%{$_POST['searchPhrase']}%'
+                 id_resposta LIKE '%{$_POST['searchPhrase']}%' 
+                 OR texto_resposta LIKE '%{$_POST['searchPhrase']}%'
+                 OR data_resposta LIKE '%{$_POST['searchPhrase']}%'
                  OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
