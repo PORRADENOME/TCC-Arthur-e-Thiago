@@ -58,7 +58,94 @@ include ("../configurações/menu.php");
                 </tr>
                 </tbody>
             </table>
+
+            <div class="form-group">
+            </div>
+
+            <div class="accordion" id="accordionExample">
+                <div class="card">
+                    <div class="card-header" id="headingOne">
+                        <h5 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                Editar Perfil
+                            </button>
+                        </h5>
+                    </div>
+
+
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                        <div class="card-body">
+
+                            <div class="container">
+                                <form action="editar_perfil.php" method="post" class="jsonForm">
+
+                            <div class="card-body">
+                                <label for="nome">Nome </label>
+                                <input class="form-control" type="text" id="nome" name="nome" value="<?php echo $linhacliente->nome_cliente; ?>" required>
+                            </div>
+
+                            <div class="card-body">
+                                <label for="cpf">CPF </label>
+                                <input class="form-control" type="text" id="cpf" name="cpf" value="<?php echo $linhacliente->cpf_cliente; ?>" readonly required>
+                            </div>
+
+                            <div class="card-body">
+                                <label for="email">E-mail </label>
+                                <input class="form-control" type="email" id="email" name="email" value="<?php echo $linhacliente->email_cliente; ?>" required>
+                            </div>
+
+                            <div class="card-body">
+                                <label for="telefone">Telefone / Celular </label>
+                                <input class="form-control" type="text" id="telefone" name="telefone" value="<?php echo $linhacliente->telefone_cliente; ?>" required>
+                            </div>
+
+                            <div class="card-body">
+                                <label for="senha">Senha </label>
+                                <input class="form-control" type="text" id="senha" name="senha">
+                            </div>
+
+                            <div class="card-body">
+                                <label for="confsenha">Confirme sua senha </label>
+                                <input class="form-control" type="text" id="confsenha" name="confsenha">
+                            </div>
+
+
+                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <a href="perfil_cliente.php" class="btn btn-danger">Cancelar</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 </div>
 
+    <script>
+        $(document).ready(function () {
+            $(' .jsonForm ').ajaxForm({
+                dataType: 'json',
+                success: function (data) {
+                    if (data.status==true){
+                        iziToast.success({
+                            message: data.mensagem,
+                            onClosing: function(){
+                                $.header("/perfil/perfil_cliente.php");
+                            }
+                        });
+                        $('.jsonForm').trigger('reset');
+                    }else{
+                        iziToast.error({
+                            message: data.mensagem
+                        });
+                    }
+                },
+                error: function (data) {
+                    iziToast.error({
+                        message: 'Servidor retornou erro'
+                    });
+                }
+            });
+        });
+    </script>

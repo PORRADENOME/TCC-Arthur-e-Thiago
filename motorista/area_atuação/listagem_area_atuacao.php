@@ -46,13 +46,13 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-trash\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_area_atuacao + "\"><span class=\"fas fa-edit\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_area_atuacao + "\"><span class=\"fas fa-trash\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location = 'form_editar_endereco.php?id=' + $(this).data("row-id");
+                document.location = 'form_editar_area_atuacao.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 
@@ -64,7 +64,7 @@ include("../configurações/menu.php");
 
     function excluir(id) {
         $.post(
-            "excluir_endereco.php",
+            "excluir_area_atuacao.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {
