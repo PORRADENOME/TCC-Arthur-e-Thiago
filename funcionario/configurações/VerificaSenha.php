@@ -18,7 +18,7 @@ if ($query->rowCount ()==1){
         $_SESSION['funcionario'] = $_POST['funcionario']; $_SESSION['autorizado'] = true;
         $_SESSION['autorizado'] = true;
 
-        header ("Location: ../funcionario/listagem_funcionario.php");
+        header ("Location: ../perfil/perfil_funcionario.php");
 
 }else {
 
