@@ -42,6 +42,18 @@
                     <a class="dropdown-item" href="../cidade/listagem_cidade.php">Listagem</a>
                 </div>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orçamentos</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Propostas</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="../proposta/listagem_proposta_orcamento.php">Listagem</a>
+                </div>
+            </li>
         </ul>
     </div>
 
