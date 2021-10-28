@@ -285,7 +285,7 @@ include ("../configurações/menu.php");
 
                         <div class="form-group">
                             <label for="informacoes_adicionais">Informações Adicionais</label>
-                            <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais" required></textarea>
+                            <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais"></textarea>
                         </div>
 
                         <div class="form-group">

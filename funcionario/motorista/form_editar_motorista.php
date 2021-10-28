@@ -83,7 +83,7 @@ include ("../configurações/menu.php");
         </div>
 
         <button type="submit" class="btn btn-primary">Editar Motorista</button>
-        <a href="listagem_motorista.php" class="btn btn-danger"
+        <a href="listagem_motorista.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
 

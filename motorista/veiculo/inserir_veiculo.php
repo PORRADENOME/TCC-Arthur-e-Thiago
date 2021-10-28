@@ -7,7 +7,7 @@ try {
     include "../configurações/conexao.php";
 
 
-    $query = $conexao->prepare("INSERT INTO veiculo (numero_chassi_veiculo,
+    $query = $conexao->prepare("INSERT INTO veiculos (numero_chassi_veiculo,
                                                                marca_veiculo,
                                                                modelo_veiculo, 
                                                                ano_veiculo, 
