@@ -9,22 +9,22 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
-    cliente.nome_cliente,
-    cliente.id_cliente,
-    avaliacao.texto_avaliacao,
-    avaliacao.data_avaliacao,
-    avaliacao.cliente_avaliacao
+    motorista.nome_motorista,
+    motorista.id_motorista,
+    resposta.texto_resposta,
+    resposta.data_resposta,
+    resposta.motorista_resposta
 From
-    avaliacao Inner Join
-    cliente ";
+    resposta Inner Join
+    motorista ";
 
     if($_POST['searchPhrase'] != '')
     {
         $sql .= " AND (
-                 id_avaliacao LIKE '%{$_POST['searchPhrase']}%' 
-                 OR texto_avaliacao LIKE '%{$_POST['searchPhrase']}%'
-                 OR data_avaliacao LIKE '%{$_POST['searchPhrase']}%'
-                 OR nome_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 id_resposta LIKE '%{$_POST['searchPhrase']}%' 
+                 OR texto_resposta LIKE '%{$_POST['searchPhrase']}%'
+                 OR data_resposta LIKE '%{$_POST['searchPhrase']}%'
+                 OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados=$conexao->prepare($sql);

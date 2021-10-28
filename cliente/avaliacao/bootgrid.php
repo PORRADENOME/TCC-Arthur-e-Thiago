@@ -8,7 +8,15 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM avaliacao WHERE 1 ";
+    $sql = "Select
+    resposta.*,
+    motorista.*,
+    avaliacao.*
+From
+    resposta Inner Join
+    avaliacao Inner Join
+    motorista
+            ";
 
     if($_POST['searchPhrase'] != '')
     {
@@ -16,6 +24,9 @@ try {
                  id_avaliacao LIKE '%{$_POST['searchPhrase']}%' 
                  OR texto_avaliacao LIKE '%{$_POST['searchPhrase']}%'
                  OR data_avaliacao LIKE '%{$_POST['searchPhrase']}%'
+                 nome_motorista LIKE '%{$_POST['searchPhrase']}%' 
+                 OR texto_resposta LIKE '%{$_POST['searchPhrase']}%'
+                 OR data_resposta LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados=$conexao->prepare($sql);

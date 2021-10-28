@@ -24,7 +24,7 @@ include ("../configurações/menu.php");
                     <th data-column-id="id_avaliacao">ID</th>
                     <th data-column-id="texto_avaliacao" data-order="desc" data-sortable="true">Texto</th>
                     <th data-column-id="data_avaliacao" data-sortable="true">Data</th>
-                    <th data-column-id="nome_cliente" data-sortable="true">Data</th>
+                    <th data-column-id="nome_cliente" data-sortable="true">Nome</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
@@ -47,12 +47,13 @@ include ("../configurações/menu.php");
             formatters: {
                 "commands": function(column, row)
                 {
-                    return "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_avaliacao + "\"><span class=\"fas fa-trash\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_avaliacao   + "\"><span class=\"fas fa-edit\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_avaliacao + "\"><span class=\"fas fa-trash\"></span></button>";
                 }
             }
         }).on ("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location='form_editar_funcionario.php?id=' + $(this).data("row-id");
+                document.location='../resposta/cadastro_resposta.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e)
             {
                 iziToastExcluir($(this).data("row-id"));

@@ -23,7 +23,10 @@ include ("../configurações/menu.php");
                 <tr>
                     <th data-column-id="id_avaliacao">ID</th>
                     <th data-column-id="texto_avaliacao" data-order="desc" data-sortable="true">Texto</th>
-                    <th data-column-id="data_avaliacao" data-sortable="true">Data</th>
+                    <th data-column-id="data_avaliacao" data-sortable="true">Data Envio</th>
+                    <th data-column-id="nome_motorista" data-sortable="true">Nome do motorista</th>
+                    <th data-column-id="texto_resposta" data-sortable="true">Data</th>
+                    <th data-column-id="data_resposta" data-sortable="true">Data Resposta</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
