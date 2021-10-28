@@ -24,6 +24,18 @@ try{
 }
 
 ?>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    $("#telefone_funcionario").mask("(00) 0000-0000");
+</script>
+
+<script type="text/javascript">
+    $("#cpf_funcionario").mask("000.000.000-00");
+</script>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>

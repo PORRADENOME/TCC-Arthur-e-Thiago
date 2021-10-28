@@ -14,7 +14,7 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Avaliacao</title>
+    <title>Cadastro de Resposta</title>
 </head>
 <body>
 
@@ -25,16 +25,16 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_resposta.php" method="post" class="jsonForm">
-        <h1>Cadastro - Avaliacao</h1>
+        <h1>Cadastro - Resposta</h1>
 
         <div class="form-group">
-            <label for="texto_avaliacao">Testo</label>
+            <label for="texto_avaliacao">Texto</label>
             <input class="form-control" id="texto_resposta" type="text" name="texto_resposta" required >
         </div>
 
         <div class="form-group">
             <label for="data_avaliacao">Data</label>
-            <input class="form-control" id="data_resposta" type="text" name="data_resposta" required >
+            <input class="form-control" id="data_resposta" type="datetime-local" name="data_resposta" required >
         </div>
 
 

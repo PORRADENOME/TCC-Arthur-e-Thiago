@@ -24,6 +24,21 @@ try{
 }
 
 ?>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    $("#telefone").mask("(00) 0000-0000");
+</script>
+
+<script type="text/javascript">
+    $("#cpf").mask("000.000.000-00");
+</script>
+
+<script type="text/javascript">
+    $("#carteira").mask("00000000000");
+</script>
+
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -68,6 +83,11 @@ include ("../configurações/menu.php");
         </div>
 
         <div class="form-group">
+            <label for="carteira">Carteira de Motorista</label>
+            <input class="form-control" id="carteira" type="text" name="carteira_de_motorista" value="<?php echo $linhamotorista->carteira_de_motorista;?>">
+        </div>
+
+        <div class="form-group">
             <label for="senha">Senha</label>
             <input class="form-control" id="senha" type="password" name="senha_motorista">
         </div>
@@ -77,13 +97,10 @@ include ("../configurações/menu.php");
             <input class="form-control" id="confsenha" type="password" name="confsenha">
         </div>
 
-        <div class="form-group">
-            <label for="carteira">Nome</label>
-            <input class="form-control" id="carteira" type="text" name="carteira_de_motorista" value="<?php echo $linhamotorista->carteira_de_motorista;?>">
-        </div>
+
 
         <button type="submit" class="btn btn-primary">Editar Motorista</button>
-        <a href="listagem_motorista.php" class="btn btn-danger"
+        <a href="listagem_motorista.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
 
