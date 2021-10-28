@@ -25,7 +25,7 @@ include("../configurações/menu.php");
                 <tr>
                     <th data-column-id="preco" data-order="desc" data-sortable="true">Preço</th>
                     <th data-column-id="informacoes_adicionais" data-sortable="true">Informações</th>
-                    <th data-column-id="motorista" data-sortable="true">Motorista</th>
+                    <th data-column-id="nome_motorista" data-sortable="true">Motorista</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
