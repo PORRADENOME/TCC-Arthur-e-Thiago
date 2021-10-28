@@ -4,7 +4,7 @@ try {
     require "../configurações/conexao.php";
     // var_dump($_SESSION);
 
-    $query = $conexao->PREPARE("SELECT * FROM funcionario WHERE id_funcionario=:id");
+    $query = $conexao->PREPARE("SELECT * FROM funcionario ");
     $query->bindValue(":id", $_SESSION['id']);
 
     $resultado = $query->execute();
