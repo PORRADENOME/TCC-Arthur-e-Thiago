@@ -18,6 +18,8 @@ try {
     $query->bindValue(':texto_avaliacao',$_POST['texto_avaliacao']);
     $query->bindValue(':data_avaliacao',$_POST['data_avaliacao']);
 
+
+
     $query->execute();
 
     if ($query->rowCount() == 1) {
