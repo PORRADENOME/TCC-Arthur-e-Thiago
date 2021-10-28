@@ -37,7 +37,7 @@ include ("../configurações/menu.php");
                 <thead>
                 <tr>
                     <th scope="col">Nome :</th>
-                    <th scope="col"><?php echo $linhafuncionario->nome_funcionaro ?></th>
+                    <th scope="col"><?php echo $linhafuncionario->nome_funcionario ?></th>
                 </tr>
                 </thead>
                 <tbody>
