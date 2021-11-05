@@ -17,7 +17,8 @@ try {
     endereco.nome_endereco
 From
     orcamento Inner Join
-    endereco On orcamento.endereco_destino = endereco.id_endereco";
+    endereco On orcamento.endereco_destino = endereco.id_endereco
+    ";
 
 
     if ($_POST['searchPhrase'] != '') {
