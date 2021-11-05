@@ -101,13 +101,18 @@ include ("../configurações/menu.php");
                             </div>
 
                             <div class="card-body">
-                                <label for="senha">Senha </label>
-                                <input class="form-control" type="text" id="senha" name="senha">
+                                <label for="senha_atual">Senha Atual </label>
+                                <input class="form-control" type="password" id="senha_atual" name="senha_atual">
                             </div>
 
                             <div class="card-body">
-                                <label for="confsenha">Confirme sua senha </label>
-                                <input class="form-control" type="text" id="confsenha" name="confsenha">
+                                <label for="senha">Nova Senha </label>
+                                <input class="form-control" type="password" id="senha" name="senha">
+                            </div>
+
+                            <div class="card-body">
+                                <label for="confsenha">Confirme sua nova senha </label>
+                                <input class="form-control" type="password" id="confsenha" name="confsenha">
                             </div>
 
 

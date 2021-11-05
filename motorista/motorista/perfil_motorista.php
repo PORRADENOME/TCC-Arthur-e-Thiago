@@ -109,12 +109,12 @@ include ("../configurações/menu.php");
 
                                     <div class="card-body">
                                         <label for="senha">Senha </label>
-                                        <input class="form-control" type="text" id="senha" name="senha">
+                                        <input class="form-control" type="password" id="senha" name="senha">
                                     </div>
 
                                     <div class="card-body">
                                         <label for="confsenha">Confirme sua senha </label>
-                                        <input class="form-control" type="text" id="confsenha" name="confsenha">
+                                        <input class="form-control" type="password" id="confsenha" name="confsenha">
                                     </div>
 
 
