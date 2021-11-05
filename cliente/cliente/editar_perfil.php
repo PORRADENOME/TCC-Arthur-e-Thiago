@@ -11,6 +11,14 @@ try {
         retornaErro('E-mail já cadastrado');
     }
 
+    $query = $conexao->prepare("SELECT * FROM cliente WHERE senha_cliente=:senha_atual AND id_cliente<>:id_cliente");
+    $query-> bindValue(':senha_atual', $_POST['senha_atual']);
+    $query-> bindValue(':id_cliente'  , $_SESSION['id']);
+    $query->execute();
+    if ($query->rowCount()==1) {
+        retornaErro('Sua senha atual está incorreta');
+    }
+
     $query = $conexao->prepare("UPDATE cliente SET nome_cliente=:nome_cliente, email_cliente=:email_cliente, cpf_cliente=:cpf_cliente, telefone_cliente=:telefone_cliente WHERE id_cliente=:id_cliente");
     $query->bindParam(':id_cliente',$_SESSION['id']);
     $query->bindParam(':nome_cliente',$_POST['nome']);

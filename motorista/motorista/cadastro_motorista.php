@@ -13,7 +13,7 @@ try{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
-    $("#telefone").mask("(00) 0000-0000");
+    $("#telefone").mask("(00) 0000-00009");
 </script>
 
 <script type="text/javascript">
@@ -57,7 +57,7 @@ include("../configurações/bootstrap.php");
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input class="form-control" id="telefone" type="text" name="telefone" >
+            <input class="form-control" id="telefone" type="text" name="telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
         </div>
         <div class="form-group">
             <label for="carteira">Carteira de motorista</label>

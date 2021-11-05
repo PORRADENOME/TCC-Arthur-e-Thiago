@@ -10,6 +10,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
+
     $sql = "SELECT endereco.id_endereco, 
 	   endereco.nome_endereco, 
        endereco.pais, 
@@ -28,8 +29,9 @@ try {
 	INNER JOIN 
 		estado 
 	ON 
-		endereco.estado=estado.id_estado";
+		endereco.estado=estado.id_estado WHERE cliente_endereco=1";
 
+    $query->bindValue(':cliente_endereco', $_SESSION['id']);
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
