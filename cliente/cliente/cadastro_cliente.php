@@ -1,10 +1,7 @@
 <?php
 try{
     include "../configurações/conexao.php";
-
-    if (validaCPF($_POST['cpf'])==false) {
-        retornaErro('Erro na validação do cpf');
-    }
+    
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
