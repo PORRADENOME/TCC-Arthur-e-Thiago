@@ -37,7 +37,7 @@ include("../configurações/menu.php");
         </div>
 
         <div class="form-group">
-            <label for="inf_adicionais">informaçõs_adicionais</label>
+            <label for="inf_adicionais">informações_adicionais</label>
             <textarea class="form-control" id="inf_adicionais" name="inf_adicionais">
             </textarea>
         </div>
