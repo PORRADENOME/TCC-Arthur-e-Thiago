@@ -1,7 +1,7 @@
 <?php
 try{
     include "../configurações/conexao.php";
-    
+
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -12,7 +12,7 @@ try{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
-    $("#telefone").mask("(00) 0000-0000");
+    $("#telefone").mask("(00) 90000-0000");
 </script>
 
 <script type="text/javascript">
