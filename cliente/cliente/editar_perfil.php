@@ -11,8 +11,10 @@ try {
         retornaErro('E-mail já cadastrado');
     }
 
+    $Criptografia = sha1($_POST['senha_atual']);
+
     $query = $conexao->prepare("SELECT * FROM cliente WHERE senha_cliente=:senha_atual AND id_cliente<>:id_cliente");
-    $query-> bindValue(':senha_atual', $_POST['senha_atual']);
+    $query-> bindValue(':senha_atual', $Criptografia);
     $query-> bindValue(':id_cliente'  , $_SESSION['id']);
     $query->execute();
     if ($query->rowCount()==1) {
