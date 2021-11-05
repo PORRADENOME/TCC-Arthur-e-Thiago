@@ -18,7 +18,7 @@ try{
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cadastro de Orcamento</title>
+    <title>Cadastro de Orçamento</title>
 </head>
 <body>
 
@@ -29,15 +29,15 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_orcamento.php" method="post" class="jsonForm">
-        <h1>Cadastro - Orcamento</h1>
+        <h1>Cadastro - Orçamento</h1>
 
         <div class="form-group">
-            <label for="data_e_horario">Data e horario</label>
+            <label for="data_e_horario">Data e horário</label>
             <input class="form-control" id="data_e_horario" type="datetime-local" name="data_e_horario" required >
         </div>
 
         <div class="form-group">
-            <label for="inf_adicionais">inf_adicionais</label>
+            <label for="inf_adicionais">informaçõs_adicionais</label>
             <textarea class="form-control" id="inf_adicionais" name="inf_adicionais">
             </textarea>
         </div>

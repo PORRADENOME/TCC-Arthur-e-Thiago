@@ -30,7 +30,7 @@ try{
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Orcamento</title>
+    <title>Form-Editar Orçamento</title>
 </head>
 <body>
 
@@ -41,7 +41,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Editar - Orcamento</h1>
+    <h1> Editar - Orçamento</h1>
     <form action="editar_orcamento.php" method="post" class="jsonForm">
 
         <div class="form-group">
@@ -61,7 +61,7 @@ include ("../configurações/menu.php");
 
 
 
-        <button type="submit" class="btn btn-primary">Editar orcamento</button>
+        <button type="submit" class="btn btn-primary">Editar orçamento</button>
         <a href="../orcamento/listagem_orcamento.php" class="btn btn-danger">Cancelar</a>
     </form>
 </div>
