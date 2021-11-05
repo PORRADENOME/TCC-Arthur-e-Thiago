@@ -27,6 +27,29 @@ include("../configurações/bootstrap.php");
 include("../configurações/menu.php");
 ?>
 
+<script>
+__Method 1:__
+
+$(document).ready(function(){
+$('#data_e_horario').val(new Date().toJSON().slice(0,19));
+});
+
+__Method 2:__
+
+function zeroPadded(val) {
+if (val >= 10)
+return val;
+else
+return '0' + val;
+}
+
+$(document).ready(function(){
+d = new Date();
+$('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+zeroPadded(d.getDate())+"T"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds());
+});
+</script>
+
+
 <div class="container">
     <form action="inserir_orcamento.php" method="post" class="jsonForm">
         <h1>Cadastro - Orçamento</h1>
