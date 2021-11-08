@@ -48,17 +48,28 @@ include("../configurações/menu.php");
     $(document).ready(function () {
         grid = $("#grid-data").bootgrid({
             ajax: true,
+            post: function ()
+            {
+                return {
+                    id: <?php echo $_GET['id']; ?>
+                };
+            },
             url: "bootgrid_propostas.php",
             formatters: {
                 "commands": function (column, row) {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-eye\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-danger command-TROCAR\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-trash\"></span></button>" +
                         "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-trash\"></span></button>";
+
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
                 document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
+                iziToastExcluir($(this).data("row-id"));
+
+            }).end().find(".command-TROCAR").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 
             });

@@ -11,6 +11,7 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
+    orcamento.id_orcamento,
     orcamento.data_e_horario,
     orcamento.inf_adicionais,
     orcamento.endereco_destino,

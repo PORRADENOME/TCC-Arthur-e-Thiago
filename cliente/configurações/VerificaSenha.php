@@ -10,15 +10,31 @@ $query->bindValue(':email_cliente', $_POST['email_cliente']);
 $query->bindValue(':senha_cliente', $senha);
 $query->execute ();
 
-if ($query->rowCount ()==1){
-    $linha = $query->fetch ();
+/*$linha=$query->fetchObject();*/
 
-        $_SESSION['id'] = $linha->id_cliente;
-        $_SESSION['email'] - $linha->email_cliente;
-        $_SESSION['cliente'] = $_POST['cliente']; $_SESSION['autorizado'] = true;
-        $_SESSION['autorizado'] = true;
+if ($query->rowCount ()==1 /*AND $linha->cliente_ativo=1*/) {
+    $linha = $query->fetch();
 
-        header ("Location: ../cliente/perfil_cliente.php");
+    if ($linha->cliente_ativo == 2) {
+        $_SESSION['autorizado'] = false;
+
+        echo 'Usuário Banido';
+        exit;
+
+    } elseif ($linha->cliente_ativo == 3) {
+        $_SESSION['autorizado'] = false;
+
+        echo 'Usuário Desativado';
+        exit;
+
+    }
+
+    $_SESSION['id'] = $linha->id_cliente;
+    $_SESSION['email'] - $linha->email_cliente;
+    $_SESSION['cliente'] = $_POST['cliente'];
+    $_SESSION['autorizado'] = true;
+
+    header("Location: ../cliente/perfil_cliente.php");
 
 }else {
 

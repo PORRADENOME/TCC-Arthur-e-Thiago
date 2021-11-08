@@ -16,7 +16,8 @@ try {
     motorista.nome_motorista
 From
     proposta Inner Join
-    motorista On proposta.motorista_proposta = motorista.id_motorista";
+    motorista On proposta.motorista_proposta = motorista.id_motorista
+    where orcamento_proposta={$_POST['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {
