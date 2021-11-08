@@ -4,7 +4,7 @@ require "../configurações/segurança.php";
 try{
     include "../configurações/conexao.php";
 
-    $query = $conexao->prepare("SELECT * FROM endereco");
+    $query = $conexao->prepare("SELECT * FROM endereco WHERE cliente_endereco={$_SESSION['id']}");
     $resultado = $query ->execute();
     $arr_endereco = $query->fetchAll();
 

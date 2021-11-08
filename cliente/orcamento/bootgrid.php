@@ -17,7 +17,7 @@ try {
     endereco.nome_endereco
 From
     orcamento Inner Join
-    endereco On orcamento.endereco_destino = endereco.id_endereco
+    endereco On orcamento.endereco_destino = endereco.id_endereco WHERE cliente_endereco={$_SESSION['id']}
     ";
 
 
