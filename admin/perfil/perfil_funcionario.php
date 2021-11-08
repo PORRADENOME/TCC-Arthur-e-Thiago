@@ -114,7 +114,7 @@ include ("../configurações/menu.php");
 
 
                                     <button type="submit" class="btn btn-primary">Editar</button>
-                                    <a href="perfil_cliente.php" class="btn btn-danger">Cancelar</a>
+                                    <a href="perfil_funcionario.php" class="btn btn-danger">Cancelar</a>
                             </div>
                         </div>
                     </div>
