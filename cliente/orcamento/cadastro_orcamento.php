@@ -27,6 +27,8 @@ include("../configurações/bootstrap.php");
 include("../configurações/menu.php");
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js" integrity="sha512-qTXRIMyZIFb8iQcfjXWCO8+M5Tbc38Qi5WzdPOYZHIlZpzBHG3L3by84BBBOiRGiEb7KKtAOAs5qYdUiZiQNNQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
 <script>
 /*    Method 1:
 
@@ -44,10 +46,9 @@ return '0' + val;
 }
 
 $(document).ready(function(){
-d = new Date();
 
-$('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+zeroPadded(d.getDate() + 7)+"T"+d.getHours()+":"+d.getMinutes());
-/*$('#data_e_horario').setAttribute("min", "val");*/
+    $('#data_e_horario').attr("min", moment().add(7, 'days').format("yyyy-MM-DD\TH:mm") );
+    $('#data_e_horario').attr("max", moment().add(6, 'months').format("yyyy-MM-DD\TH:mm") );
 });
 </script>
 

@@ -6,30 +6,27 @@ try{
 }catch (PDOException $exception){
     echo $exception->getMessage();
 }
-?>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
-
-<script type="text/javascript">
-    $("#telefone").mask("(00) 90000-0000");
-</script>
-
-<script type="text/javascript">
-    $("#cpf").mask("000.000.000-00");
-</script>
-
-<!DOCTYPE html>
+?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Cliente</title>
+
+    <?php
+    include("../configurações/bootstrap.php");
+    ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#cpf").mask("000.000.000-00");
+            $("#telefone").mask("(00) 000000009");
+        });
+    </script>
 </head>
 <body>
 
-<?php
-include("../configurações/bootstrap.php");
-?>
 
 <div class="container">
     <form action="inserir_cliente.php" method="post" class="jsonForm">
@@ -52,7 +49,7 @@ include("../configurações/bootstrap.php");
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input class="form-control" id="telefone" type="text" name="telefone" >
+            <input class="form-control" id="telefone" type="text" name="telefone" required >
         </div>
 
         <div class="form-group">
