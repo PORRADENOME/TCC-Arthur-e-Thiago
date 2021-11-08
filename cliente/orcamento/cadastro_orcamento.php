@@ -28,14 +28,14 @@ include("../configurações/menu.php");
 ?>
 
 <script>
-__Method 1:__
+/*    Method 1:
 
 $(document).ready(function(){
 $('#data_e_horario').val(new Date().toJSON().slice(0,19));
 });
 
 __Method 2:__
-
+*/
 function zeroPadded(val) {
 if (val >= 10)
 return val;
@@ -45,7 +45,9 @@ return '0' + val;
 
 $(document).ready(function(){
 d = new Date();
-$('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+zeroPadded(d.getDate())+"T"+d.getHours()+":"+d.getMinutes()+":"+d.getSeconds());
+
+$('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+zeroPadded(d.getDate() + 7)+"T"+d.getHours()+":"+d.getMinutes());
+/*$('#data_e_horario').setAttribute("min", val);*/
 });
 </script>
 
