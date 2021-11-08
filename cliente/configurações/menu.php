@@ -6,9 +6,7 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
-            <?php
-                if ($_SESSION['tipo']=='admin'):
-            ?>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
@@ -16,9 +14,6 @@
                 </div>
 
             </li>
-            <?php
-                endif;
-            ?>
 
 
             <li class="nav-item dropdown">

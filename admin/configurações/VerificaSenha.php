@@ -13,12 +13,21 @@ $query->execute ();
 if ($query->rowCount ()==1){
     $linha = $query->fetch ();
 
-        $_SESSION['id'] = $linha->id;
+        $_SESSION['id'] = $linha->id_funcionario;
+        $_SESSION['valor_admin'] = $linha->valor_admin;
         $_SESSION['email'] - $linha->email;
         $_SESSION['funcionario'] = $_POST['funcionario']; $_SESSION['autorizado'] = true;
         $_SESSION['autorizado'] = true;
 
-        header ("Location: ../funcionario/listagem_funcionario.php");
+
+            if ($_SESSION['valor_admin']==1):
+
+                header ("Location: ../funcionario/listagem_funcionario.php");
+            elseif ($_SESSION['valor_admin']==0):
+
+                header ("Location: ../perfil/perfil_funcionario.php");
+            endif;
+
 
 }else {
 
@@ -28,3 +37,4 @@ if ($query->rowCount ()==1){
 }
 
 
+?>

@@ -6,15 +6,32 @@
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+            <?php
+            if ($_SESSION['valor_admin']==1):
+                ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funcionários</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="../funcionario/cadastro_funcionario.php">Cadastrar</a>
+                        <a class="dropdown-item" href="../funcionario/listagem_funcionario.php">Listagem</a>
+                    </div>
+                </li>
+            <?php
+            endif;
+            ?>
 
-
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funcionários</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../funcionario/cadastro_funcionario.php">Cadastrar</a>
-                    <a class="dropdown-item" href="../funcionario/listagem_funcionario.php">Listagem</a>
-                </div>
-            </li>
+            <?php
+            if ($_SESSION['valor_admin']==0):
+                ?>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
+                    <div class="dropdown-menu" aria-labelledby="dropdown01">
+                        <a class="dropdown-item" href="../perfil/perfil_funcionario.php">Acessar</a>
+                    </div>
+                </li>
+            <?php
+            endif;
+            ?>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Motoristas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
