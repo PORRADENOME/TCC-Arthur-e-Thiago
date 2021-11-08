@@ -21,16 +21,19 @@ try {
     $query = $conexao->prepare("INSERT INTO orcamento (data_e_horario,
                                                                  inf_adicionais,
                                                                  endereco_partida,
-                                                                 endereco_destino) 
+                                                                 endereco_destino,
+                                                                 cliente_orcamento) 
                                                                 VALUES 
                                                                  (:data_e_horario,
                                                                  :inf_adicionais,
                                                                  :endereco_partida,
-                                                                 :endereco_destino) ");
+                                                                 :endereco_destino,
+                                                                 :cliente_orcamento) ");
     $query->bindValue(':data_e_horario', $_POST['data_e_horario']);
     $query->bindValue(':inf_adicionais', $_POST['inf_adicionais']);
     $query->bindValue(':endereco_partida', $_POST['endereco_partida']);
     $query->bindValue(':endereco_destino', $_POST['endereco_destino']);
+    $query->bindValue(':cliente_orcamento', $_SESSION['id']);
 
     $query->execute();
 
