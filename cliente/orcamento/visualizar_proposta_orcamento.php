@@ -9,7 +9,7 @@ try{
     proposta.preco,
     proposta.informacoes_adicionais
 From
-    proposta");
+    proposta WHERE cliente_orcamento={$_SESSION['id']}");
 
     $resultado = $query->execute();
 
