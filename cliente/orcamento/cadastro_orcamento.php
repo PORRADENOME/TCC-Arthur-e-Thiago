@@ -47,7 +47,7 @@ $(document).ready(function(){
 d = new Date();
 
 $('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+zeroPadded(d.getDate() + 7)+"T"+d.getHours()+":"+d.getMinutes());
-/*$('#data_e_horario').setAttribute("min", val);*/
+/*$('#data_e_horario').setAttribute("min", "val");*/
 });
 </script>
 
@@ -62,7 +62,7 @@ $('#data_e_horario').val(d.getFullYear()+"-"+zeroPadded(d.getMonth() + 1)+"-"+ze
         </div>
 
         <div class="form-group">
-            <label for="inf_adicionais">informações_adicionais</label>
+            <label for="inf_adicionais">Informações adicionais</label>
             <textarea class="form-control" id="inf_adicionais" name="inf_adicionais">
             </textarea>
         </div>
