@@ -9,7 +9,7 @@ try{
     proposta.preco,
     proposta.informacoes_adicionais
 From
-    proposta WHERE cliente_orcamento={$_SESSION['id']}");
+    proposta INNER JOIN cliente WHERE id_cliente={$_SESSION['id']}");
 
     $resultado = $query->execute();
 
