@@ -9,14 +9,15 @@ try {
 
     $senhaCriptografada = sha1 ($_POST['senha']);
 
-    /*
-     $query = $conexao->prepare("SELECT * FROM funcionario WHERE funcionario=:funcionario");
-     $query->bindValue(':funcionario',$_POST['funcionario']);
-     $query->execute();
-     if ($query->rowCount() == 1) {
-         retornaErro('funcionario ja em uso');
-     }
-    */
+    $cpf = ($_POST['cpf']);
+
+    $verificacaoCPF = validaCPF($cpf);
+
+    if ($verificacaoCPF == false) {
+
+        retornaErro('Erro CPF inválido');
+    }
+
 
     $query = $conexao->prepare("SELECT * FROM cliente WHERE email_cliente=:email");
     $query-> bindValue(':email', $_POST['email']);
