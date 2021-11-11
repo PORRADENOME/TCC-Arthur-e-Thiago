@@ -19,7 +19,11 @@ try {
         retornaErro('Cliente já foi cadastrado devido ao E-mail repetido');
     }
 
-    $query = $conexao->prepare("UPDATE cliente SET nome_cliente=:nome_cliente, email_cliente=:email_cliente, cpf_cliente=:cpf_cliente, telefone_cliente=:telefone_cliente WHERE id_cliente=:id_cliente");
+    $query = $conexao->prepare("UPDATE cliente SET nome_cliente=:nome_cliente, 
+                                                             email_cliente=:email_cliente,
+                                                             cpf_cliente=:cpf_cliente,
+                                                             telefone_cliente=:telefone_cliente
+                                                         WHERE id_cliente=:id_cliente");
     $query->bindParam(':id_cliente',$_POST['id_cliente']);
     $query->bindParam(':nome_cliente',$_POST['nome_cliente']);
     $query->bindParam(':email_cliente',$_POST['email_cliente']);

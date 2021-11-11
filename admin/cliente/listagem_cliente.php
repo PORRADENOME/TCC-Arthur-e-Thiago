@@ -49,7 +49,7 @@ include ("../configurações/menu.php");
                 "commands": function(column, row)
                 {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_cliente   + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_cliente + "\"><span class=\"fas fa-trash\"></span></button>";
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_cliente + "\"><span class=\"fas fa-times\"></span></button>";
                 }
             }
         }).on ("loaded.rs.jquery.bootgrid", function () {
@@ -57,16 +57,16 @@ include ("../configurações/menu.php");
                 document.location='form_editar_cliente.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e)
             {
-                iziToastExcluir($(this).data("row-id"));
+                iziToastBanir($(this).data("row-id"));
 
             });
 
         });
 
     });
-    function excluir(id) {
+    function banir(id) {
         $.post(
-            "excluir_cliente.php",
+            "banir_cliente.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

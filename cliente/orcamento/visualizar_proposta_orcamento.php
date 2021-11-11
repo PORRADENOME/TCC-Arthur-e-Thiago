@@ -9,12 +9,17 @@ try{
     proposta.preco,
     proposta.informacoes_adicionais
 From
-    proposta INNER JOIN cliente WHERE id_cliente={$_SESSION['id']}");
+    proposta WHERE id_proposta=:id");
+    $query->bindValue(':id', $_GET['id']);
+
+    echo ($_GET['id']);
 
     $resultado = $query->execute();
 
+
     $linha = $query->fetchObject();
 
+    var_dump($linha);
 
 }catch(PDOException $exception){
     echo $exception->getMessage();
@@ -32,7 +37,7 @@ From
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Usuário</title>
+    <title>Visualizar Proposta</title>
 </head>
 <body>
 
@@ -84,7 +89,7 @@ include ("../configurações/menu.php");
         </div>
 
     <p>
-        <a class="btn btn-primary" href="../avaliacao/cadastro_avaliacao.php">Aceitar</a>
+        <a class="btn btn-primary" href="../orcamento/aceitar.php">Aceitar</a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
         </button>
