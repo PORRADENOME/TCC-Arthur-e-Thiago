@@ -15,7 +15,7 @@ try {
     proposta.*
 From
     proposta Inner Join 
-    orcamento On proposta.orcamento_proposta = orcamento.id_orcamento WHERE 1";
+    orcamento On proposta.orcamento_proposta = orcamento.id_orcamento WHERE motorista_proposta={$_SESSION['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {

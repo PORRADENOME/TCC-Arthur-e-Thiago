@@ -10,7 +10,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM veiculos WHERE 1";
+    $sql = "SELECT * FROM veiculos WHERE motorista_veiculo={$_SESSION['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {

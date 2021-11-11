@@ -9,17 +9,17 @@ try{
     proposta.preco,
     proposta.informacoes_adicionais
 From
-    proposta WHERE id_proposta=:id");
+    proposta INNER JOIN cliente WHERE id_cliente={$_SESSION['id']}");
     $query->bindValue(':id', $_GET['id']);
 
-    echo ($_GET['id']);
+    //echo ($_GET['id']);
 
     $resultado = $query->execute();
 
 
     $linha = $query->fetchObject();
 
-    var_dump($linha);
+    //var_dump($linha);
 
 }catch(PDOException $exception){
     echo $exception->getMessage();
@@ -75,12 +75,12 @@ include ("../configurações/menu.php");
             <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
                 <div class="card-body">
                     <div class="card-body">
-                        <h6>Data e Horario </h6>
+                        <h6>Preço Serviço </h6>
                         <?php echo $linha->preco; ?>
                     </div>
 
                     <div class="card-body">
-                        <h6>Informaçoes </h6>
+                        <h6>Informações </h6>
                         <?php echo $linha->informacoes_adicionais; ?>
                     </div>
 

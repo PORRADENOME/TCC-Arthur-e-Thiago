@@ -57,11 +57,6 @@
     <input type="text" id="email_funcionario" name="email_funcionario" class="form-control" placeholder="Email" required autofocus>
     <label for="senha_funcionario" class="sr-only">Senha</label>
     <input type="password" id="senha_funcionario" class="form-control" name="senha_funcionario" placeholder="Senha" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Lembre me
-        </label>
-    </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
 
     <p></p>

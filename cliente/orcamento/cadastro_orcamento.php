@@ -64,8 +64,7 @@ $(document).ready(function(){
 
         <div class="form-group">
             <label for="inf_adicionais">Informações adicionais</label>
-            <textarea class="form-control" id="inf_adicionais" name="inf_adicionais">
-            </textarea>
+            <textarea class="form-control" id="inf_adicionais" name="inf_adicionais"></textarea>
         </div>
 
         <div class="form-group">

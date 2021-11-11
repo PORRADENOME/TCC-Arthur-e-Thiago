@@ -57,11 +57,6 @@
     <input type="text" id="email_motorista" name="email_motorista" class="form-control" placeholder="Email" required autofocus>
     <label for="senha_motorista" class="sr-only">Senha</label>
     <input type="password" id="senha_motorista" class="form-control" name="senha_motorista" placeholder="Senha" required>
-    <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me"> Lembre me
-        </label>
-    </div>
     <button class="btn btn-lg btn-primary btn-block" type="submit">Acessar</button>
 
     <h7>Não possui uma conta ainda?</h7>
