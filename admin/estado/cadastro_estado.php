@@ -25,7 +25,7 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_estado.php" method="post" class="jsonForm">
-        <h1>Cadastro - Estado</h1>
+        <h1>Cadastro de Estado</h1>
 
         <div class="form-group">
             <label for="nome">Estado</label>
@@ -34,7 +34,7 @@ include("../configurações/menu.php");
 
 
         <button type="submit" class="btn btn-primary">Cadastrar Estado</button>
-        <a href="../funcionario/listagem_estado.php" class="btn btn-danger">Cancelar</a>
+        <a href="../estado/listagem_estado.php" class="btn btn-danger">Cancelar</a>
 
     </form>
 </div>

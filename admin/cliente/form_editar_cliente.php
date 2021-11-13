@@ -39,7 +39,7 @@ try{
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Editar - Cliente</title>
+    <title>Editar Cliente</title>
 </head>
 <body>
 
@@ -50,7 +50,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Editar - Cliente</h1>
+    <h1> Editar Cliente</h1>
     <form action="editar_cliente.php" method="post" class="jsonForm">
 
         <div class="form-group">

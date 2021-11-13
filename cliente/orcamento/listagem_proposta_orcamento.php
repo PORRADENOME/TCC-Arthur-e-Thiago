@@ -59,7 +59,7 @@ include("../configurações/menu.php");
                 "commands": function (column, row) {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button> " +
                         "<button type=\"button\" class=\"btn btn-info command-perfil\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-truck\"></span></button>" +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-trash\"></span></button>";
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-times\"></span></button>";
 
                 }
             }
@@ -67,7 +67,7 @@ include("../configurações/menu.php");
             grid.find(".command-edit").on("click", function (e) {
                 document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
             }).grid.find(".command-perfil").on("click", function (e) {
-                document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
+                document.location = 'visualizar_perfil_motorista.php?id=' + $(this).data("row-id");
 
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));

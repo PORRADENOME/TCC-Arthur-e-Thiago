@@ -40,7 +40,7 @@ try{
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Usuário</title>
+    <title>Editar Funcionário</title>
 </head>
 <body>
 
@@ -50,8 +50,9 @@ include ("../configurações/menu.php");
 
 ?>
 
+
 <div class="container">
-    <h1> Editar - Funcionário</h1>
+    <h1> Editar Funcionário</h1>
     <form action="editar_funcionario.php" method="post" class="jsonForm">
 
         <div class="form-group">

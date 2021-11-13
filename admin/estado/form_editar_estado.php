@@ -39,7 +39,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Editar - Estado</h1>
+    <h1> Editar Estado</h1>
     <form action="editar_estado.php" method="post" class="jsonForm">
 
         <div class="form-group">

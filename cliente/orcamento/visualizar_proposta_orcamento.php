@@ -89,7 +89,7 @@ include ("../configurações/menu.php");
         </div>
 
     <p>
-        <a class="btn btn-primary" href="../orcamento/aceitar.php">Aceitar</a>
+        <a id="aceitar" class="btn btn-primary" href="../orcamento/aceitar.php">Aceitar</a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
         </button>
@@ -126,6 +126,12 @@ include ("../configurações/menu.php");
                                 });
                             }
                         });
+                    });
+
+                    $('#aceitar').on('click', function() {
+                                               $.post(
+                            "/endereco/cidades_por_estado.php",
+                            {id: this.value},
                     });
                 </script>
                 </body>

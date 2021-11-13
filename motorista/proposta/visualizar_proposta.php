@@ -86,7 +86,7 @@ From
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Usuário</title>
+    <title>Orçamento e Proposta</title>
 </head>
 <body>
 
@@ -97,7 +97,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Vizualizar Propostas</h1>
+    <h1>Pedido de Orçamento de <?php echo $linha->nome_cliente; ?></h1>
     <p></p>
     <p></p>
 

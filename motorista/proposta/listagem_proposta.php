@@ -15,6 +15,8 @@ include("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet"/>
 
+<title>Orçamentos solicitados</title>
+
 <div class="container">
     <div class="row">
         <div class="col-12">

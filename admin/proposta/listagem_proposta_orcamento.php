@@ -15,10 +15,12 @@ include("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet"/>
 
+<title>Listagem de Propostas</title>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Visualizar Propostas</h1>
+            <h1>Listagem de Propostas</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>

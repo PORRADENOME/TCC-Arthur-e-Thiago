@@ -35,7 +35,7 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_funcionario.php" method="post" class="jsonForm">
-        <h1>Cadastro - Funcionário</h1>
+        <h1>Cadastro de Funcionário</h1>
 
         <div class="form-group">
             <label for="nome">Nome</label>

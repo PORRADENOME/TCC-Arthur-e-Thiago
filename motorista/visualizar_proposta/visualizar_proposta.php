@@ -18,22 +18,6 @@ Where
 
     $linha = $query->fetchObject();
 
-
-  /*  $query = $conexao->prepare("Select
-    cidade.estado_cidade,
-    estado.id_estado,
-    estado.nome_estado,
-    cidade.nome_cidade
-From
-    cidade Inner Join
-    estado On cidade.estado_cidade = estado.id_estado
-    ");
-
-    $resultado = $query->execute();
-
-    $linha1 = $query->fetchObject();
-*/
-
     $query = $conexao->prepare("Select
     orcamento.endereco_partida,
     endereco.*,
@@ -86,7 +70,7 @@ From
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Form-Editar Usuário</title>
+    <title>Proposta para Cliente</title>
 </head>
 <body>
 
@@ -97,7 +81,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Vizualizar Propostas</h1>
+    <h1>Proposta para o Cliente <?php echo($linha->nome_cliente); ?></h1>
     <p></p>
     <p></p>
 

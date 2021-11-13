@@ -25,13 +25,11 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
-<title>Perfil</title>
-
 <div class="container">
     <div class="row">
         <div class="col-12">
 
-            <h1>Olá <?php echo $linhamotorista->nome_motorista?>!</h1>
+            <h1>Olá <?php echo $linhamotorista->nome_motorista?> !</h1>
 
             <br>
 
@@ -141,7 +139,7 @@ include ("../configurações/menu.php");
                     iziToast.success({
                         message: data.mensagem,
                         onClosing: function(){
-                            document.location.reload(true);
+                            $.header("/perfil/perfil_motorista.php");
                         }
                     });
                     $('.jsonForm').trigger('reset');

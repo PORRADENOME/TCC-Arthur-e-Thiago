@@ -13,10 +13,12 @@ include ("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet" />
 
+<title>Listagem de Cidades</title>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem - Cidade</h1>
+            <h1>Listagem de Cidades</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>

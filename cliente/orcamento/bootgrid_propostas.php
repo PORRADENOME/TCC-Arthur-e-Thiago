@@ -11,6 +11,7 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
+    proposta.id_proposta,
     proposta.preco,
     proposta.informacoes_adicionais,
     motorista.nome_motorista
