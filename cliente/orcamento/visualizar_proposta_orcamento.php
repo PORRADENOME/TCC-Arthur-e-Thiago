@@ -6,11 +6,11 @@ try{
     include "../configurações/conexao.php";
 
     $query = $conexao->prepare("Select
-    proposta.preco,
-    proposta.informacoes_adicionais
+    preco,
+    informacoes_adicionais
 From
-    proposta INNER JOIN cliente WHERE id_cliente={$_SESSION['id']}");
-    $query->bindValue(':id', $_GET['id']);
+    proposta WHERE id_proposta=:id");
+    $query->bindValue(":id", $_GET['id']);
 
     //echo ($_GET['id']);
 
@@ -89,7 +89,6 @@ include ("../configurações/menu.php");
         </div>
 
     <p>
-        <a id="aceitar" class="btn btn-primary" href="../orcamento/aceitar.php">Aceitar</a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
         </button>

@@ -27,6 +27,14 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#telefone").mask("(00) 000000009");
+    });
+</script>
+
 <title>Perfil</title>
 
 <div class="container">
@@ -109,16 +117,16 @@ include ("../configurações/menu.php");
 
                             <div class="card-body">
                                 <label for="senha">Nova Senha </label>
-                                <input class="form-control" type="password" id="senha" name="senha">
+                                <input class="form-control" type="password" id="senha" name="senha" disabled>
                             </div>
 
                             <div class="card-body">
                                 <label for="confsenha">Confirme sua nova senha </label>
-                                <input class="form-control" type="password" id="confsenha" name="confsenha">
+                                <input class="form-control" type="password" id="confsenha" name="confsenha" disabled>
                             </div>
 
 
-                            <button type="submit" class="btn btn-primary">Editar</button>
+                            <button type="submit" id="editar" class="btn btn-primary">Editar</button>
                             <a href="perfil_cliente.php" class="btn btn-danger">Cancelar</a>
                         </div>
                     </div>
@@ -154,5 +162,17 @@ include ("../configurações/menu.php");
                     });
                 }
             });
+            $('#senha_atual').on('input', function() {
+
+                $("#senha").prop("disabled", false);
+                $("#confsenha").prop( "disabled", false);
+            });
+
+            /*$('#editar').on('click', function () {
+                $.post(
+                    "editar_perfil.php",
+                    {senha:""}
+                )
+            })*/
         });
     </script>

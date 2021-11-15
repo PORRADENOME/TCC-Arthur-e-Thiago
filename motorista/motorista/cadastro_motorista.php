@@ -14,13 +14,7 @@ try{
 
 <script type="text/javascript">
     $("#telefone").mask("(00) 0000-00009");
-</script>
-
-<script type="text/javascript">
     $("#cpf").mask("000.000.000-00");
-</script>
-
-<script type="text/javascript">
     $("#carteira").mask("00000000000");
 </script>
 
@@ -57,7 +51,7 @@ include("../configurações/bootstrap.php");
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input class="form-control" id="telefone" type="text" name="telefone" pattern="\([0-9]{2}\)[\s][0-9]{4}-[0-9]{4,5}">
+            <input class="form-control" id="telefone" type="text" name="telefone"">
         </div>
         <div class="form-group">
             <label for="carteira">Carteira de motorista</label>

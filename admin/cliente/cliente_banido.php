@@ -1,7 +1,8 @@
 <?php
+
 require "../configurações/segurança.php";
 try {
-require "../configurações/conexao.php";
+    require "../configurações/conexao.php";
 
 }catch(PDOException $exception){
     echo $exception->getMessage();
@@ -13,22 +14,21 @@ include ("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet" />
 
-<title>Listagem de Motoristas Ativos</title>
+<title>Listagem de Clientes Banidos</title>
 
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem de Motoristas Ativos</h1>
-    <br>
+            <h1>Listagem de Clientes Banidos</h1>
+            <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="id_motorista">ID</th>
-                    <th data-column-id="nome_motorista" data-order="desc" data-sortable="true">Nome</th>
-                    <th data-column-id="cpf_motorista" data-sortable="true">CPF</th>
-                    <th data-column-id="email_motorista" data-sortable="true">E-mail</th>
-                    <th data-column-id="telefone_motorista" data-sortable="true">Telefone</th>
-                    <th data-column-id="carteira_de_motorista" data-sortable="true">carteira_de_motorista</th>
+                    <th data-column-id="id_cliente">ID</th>
+                    <th data-column-id="nome_cliente" data-order="desc" data-sortable="true">Nome</th>
+                    <th data-column-id="cpf_cliente" data-sortable="true">CPF</th>
+                    <th data-column-id="email_cliente" data-sortable="true">E-mail</th>
+                    <th data-column-id="telefone_cliente" data-sortable="true">Telefone</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>
@@ -47,29 +47,26 @@ include ("../configurações/menu.php");
     $(document). ready(function () {
         grid=$("#grid-data").bootgrid({
             ajax: true,
-            url: "bootgrid.php",
+            url: "bootgrid_banidos.php",
             formatters: {
                 "commands": function(column, row)
                 {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_motorista   + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_motorista + "\"><span class=\"fas fa-times\"></span></button>";
+                    return"<button type=\"button\" class=\"btn btn-success command-delete\" data-row-id=\"" + row.id_cliente + "\"><span class=\"fas fa-undo-alt\"></span></button>";
                 }
             }
         }).on ("loaded.rs.jquery.bootgrid", function () {
-            grid.find(".command-edit").on("click", function (e) {
-                document.location='form_editar_motorista.php?id=' + $(this).data("row-id");
-            }).end().find(".command-delete").on("click", function (e)
+            grid.find(".command-delete").on("click", function (e)
             {
-                iziToastBanir($(this).data("row-id"));
+                iziToastReativar($(this).data("row-id"));
 
             });
 
         });
 
     });
-    function banir(id) {
+    function reativar(id) {
         $.post(
-            "banir_motorista.php",
+            "reativar_cliente.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

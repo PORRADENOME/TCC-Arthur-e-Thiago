@@ -8,6 +8,7 @@ try{
     $resultado = $query ->execute();
     $arr_endereco = $query->fetchAll();
 
+    echo ($_SESSION['id']);
 
 }catch (PDOException $exception){
     echo $exception->getMessage();
@@ -94,22 +95,8 @@ $(document).ready(function(){
         <div class="form-group">
             <label for="endereco_destino">Endereço Destino</label>
             <br>
-            <select class="form-control form-select-lg" id="endereco_destino" name="endereco_destino" required>
+            <select class="form-control form-select-lg" id="endereco_destino" name="endereco_destino" required disabled>
                 <option>Selecione um endereço</option>
-
-                <?php
-                /*
-                while ($linha = $query->fetchObject()):
-                ?>
-                    <option value="<?php echo $linha->id_estado; ?>"><?php echo $linha->nome_estado; ?></option>';
-                <?php
-                endwhile;
-                ?>*/
-
-                foreach ( $arr_endereco as $endereco) {
-                    echo '<option value="' . $endereco->id_endereco . '">' . $endereco->nome_endereco . '</option>';
-                }
-                ?>
 
 
             </select>
@@ -123,6 +110,7 @@ $(document).ready(function(){
 
 <script>
     $(document).ready(function () {
+
         $(' .jsonForm ').ajaxForm({
             dataType: 'json',
             success: function (data) {
@@ -146,7 +134,41 @@ $(document).ready(function(){
                 });
             }
         });
+
+        $('#endereco_partida').on('change', function() {
+            $.post(
+                "/orcamento/selecao_endereco_destino.php",
+                {id: this.value},
+                function (data) {
+
+                    $("#endereco_destino").empty();
+                    $("#endereco_destino").append($('<option>', {
+                        //value: null,
+                        text : "Selecione uma cidade"
+                    }));
+
+                    // equivalente ao foreach()
+                    $.each(data, function (i, item) {
+
+                        console.log(item)
+
+                        $('#endereco_destino').append($('<option>', {
+                            value: item.id_endereco,
+                            text : item.nome_endereco
+                        }));
+
+                    });
+
+                    $( "#endereco_destino" ).prop( "disabled", false );
+
+                },
+                "json"
+            );
+
+        });
     });
+
+
 </script>
 </body>
 </html>

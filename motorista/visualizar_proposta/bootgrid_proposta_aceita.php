@@ -11,23 +11,18 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
-    orcamento.id_orcamento,
-    orcamento.data_e_horario,
-    orcamento.inf_adicionais,
-    orcamento.endereco_destino,
-    orcamento.orcamento_ativo,
-    endereco.nome_endereco
+    orcamento.*,
+    proposta.*
 From
-    orcamento Inner Join
-    endereco On orcamento.endereco_destino = endereco.id_endereco WHERE orcamento_ativo=1 AND cliente_endereco={$_SESSION['id']}
-    ";
+    proposta Inner Join 
+    orcamento On proposta.orcamento_proposta = orcamento.id_orcamento WHERE proposta_aprovada=1 AND motorista_proposta={$_SESSION['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 data_e_horario LIKE '%{$_POST['searchPhrase']}%'
-                 OR inf_adicionais LIKE '%{$_POST['searchPhrase']}%'
-                 OR nome_endereco LIKE '%{$_POST['searchPhrase']}%'                              
+                 id_proposta LIKE '%{$_POST['searchPhrase']}%' 
+                 OR preco LIKE '%{$_POST['searchPhrase']}%'
+                 OR informacoes_adicionais LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados = $conexao->prepare($sql);

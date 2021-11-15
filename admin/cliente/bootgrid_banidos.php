@@ -1,6 +1,4 @@
 <?php
-
-
 require "../configurações/segurança.php";
 try {
 
@@ -10,27 +8,19 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "Select
-    orcamento.id_orcamento,
-    orcamento.data_e_horario,
-    orcamento.inf_adicionais,
-    orcamento.endereco_destino,
-    orcamento.orcamento_ativo,
-    endereco.nome_endereco
-From
-    orcamento Inner Join
-    endereco On orcamento.endereco_destino = endereco.id_endereco WHERE orcamento_ativo=1 AND cliente_endereco={$_SESSION['id']}
-    ";
+    $sql = "SELECT * FROM cliente WHERE cliente_ativo=2 ";
 
-
-    if ($_POST['searchPhrase'] != '') {
+    if($_POST['searchPhrase'] != '')
+    {
         $sql .= " AND (
-                 data_e_horario LIKE '%{$_POST['searchPhrase']}%'
-                 OR inf_adicionais LIKE '%{$_POST['searchPhrase']}%'
-                 OR nome_endereco LIKE '%{$_POST['searchPhrase']}%'                              
+                 id_cliente LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_cliente LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_cliente LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
-    $resultados = $conexao->prepare($sql);
+    $resultados=$conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();
 
@@ -53,6 +43,7 @@ From
     $ret['rows'] = $resultados->fetchAll();
 
     echo json_encode($ret);
-} catch (PDOException $exception) {
-    echo($exception->getMessage());
+}catch (PDOException $exception){
+    echo ($exception->getMessage());
 }
+

@@ -10,7 +10,13 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM orcamento WHERE 1 ";
+    $sql = "SELECT orcamento.id_orcamento,
+                   orcamento.data_e_horario,
+                   orcamento.inf_adicionais,
+                   orcamento.cliente_orcamento,
+                   orcamento.orcamento_ativo,
+                   cliente.nome_cliente                
+                   FROM orcamento INNER JOIN cliente ON orcamento.cliente_orcamento=cliente.id_cliente WHERE orcamento_ativo!=2";
 
 
     if ($_POST['searchPhrase'] != '') {

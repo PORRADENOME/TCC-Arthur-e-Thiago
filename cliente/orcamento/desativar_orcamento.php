@@ -7,15 +7,15 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("UPDATE cliente SET cliente_ativo=2 WHERE id_cliente=:id_cliente");
-    $query->bindParam(':id_cliente', $_POST['id']);
+    $query = $conexao->prepare("UPDATE orcamento SET orcamento_ativo=2 WHERE id_orcamento=:id_orcamento");
+    $query->bindParam(':id_orcamento', $_POST['id']);
     $query->execute();
 
     if ($query->rowCount() == 1) {
-        retornaOK( 'Banido com sucesso');
+        retornaOK( 'Desativado com sucesso');
     }
     else {
-        retornaErro( 'Erro ao banir');
+        retornaErro( 'Erro ao desativar');
     }
 
 } catch (PDOException $exception) {

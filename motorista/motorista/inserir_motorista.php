@@ -18,6 +18,15 @@ try {
      }
     */
 
+    $cpf = ($_POST['cpf']);
+
+    $verificacaoCPF = validaCPF($cpf);
+
+    if ($verificacaoCPF == false) {
+
+        retornaErro('Erro CPF inválido');
+    }
+
     $query = $conexao->prepare("SELECT * FROM motorista WHERE email_motorista=:email");
     $query-> bindValue(':email', $_POST['email']);
     $query->execute();

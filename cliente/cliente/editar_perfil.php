@@ -13,6 +13,8 @@ try {
 
     $Criptografia = sha1($_POST['senha_atual']);
 
+    /*echo("<script>console.log('PHP: " . $Criptografia . "');</script>");*/
+
     $query = $conexao->prepare("SELECT * FROM cliente WHERE senha_cliente=:senha_atual AND id_cliente<>:id_cliente");
     $query-> bindValue(':senha_atual', $Criptografia);
     $query-> bindValue(':id_cliente'  , $_SESSION['id']);
@@ -29,28 +31,30 @@ try {
     $query->bindParam(':telefone_cliente',$_POST['telefone']);
     $query->execute();
 
-    if ($_POST['senha']!='') {
-        if ($_POST['senha'] != $_POST['confsenha']) {
-            retornaErro('Senha diferente');
+    if (isset($_POST['senha'])==true) {
+
+        if ($_POST['senha'] != '') {
+            if ($_POST['senha'] != $_POST['confsenha']) {
+                retornaErro('Senha diferente');
+            }
+
+            $senhaCripitografada = sha1($_POST['senha']);
+
+            $query = $conexao->prepare("UPDATE cliente SET senha_cliente=:senha_cliente WHERE id_cliente=:id_cliente");
+            $query->bindParam(':id_cliente', $_SESSION['id']);
+            $query->bindParam(':senha_cliente', $senhaCripitografada);
+            $query->execute();
+        }
+    }else {
+        if ($query->rowCount() == 1) {
+            retornaOK('Alterado com sucesso. ');
+
+        } else {
+            retornaOK('Nenhum dado alterado. ');
         }
 
-        $senhaCripitografada = sha1($_POST['senha']);
-
-        $query = $conexao->prepare("UPDATE cliente SET senha_cliente=:senha_cliente WHERE id_cliente=:id_cliente");
-        $query->bindParam(':id_cliente', $_SESSION['id']);
-        $query->bindParam(':senha_cliente', $senhaCripitografada);
-        $query->execute();
+        header("../perfil/perfil_cliente.php");
     }
-
-    if ($query->rowCount() == 1) {
-        retornaOK('Alterado com sucesso. ');
-
-    } else {
-        retornaOK('Nenhum dado alterado. ');
-    }
-
-    header("../perfil/perfil_cliente.php");
-
 } catch (PDOException $exception) {
     retornaErro ( $exception->getMessage() );
 }

@@ -25,6 +25,14 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#telefone").mask("(00) 000000009");
+    });
+</script>
+
 <title>Perfil</title>
 
 <div class="container">
@@ -110,13 +118,18 @@ include ("../configurações/menu.php");
                                     </div>
 
                                     <div class="card-body">
+                                        <label for="senha_atual">Senha Atual </label>
+                                        <input class="form-control" type="password" id="senha_atual" name="senha_atual">
+                                    </div>
+
+                                    <div class="card-body">
                                         <label for="senha">Senha </label>
-                                        <input class="form-control" type="password" id="senha" name="senha">
+                                        <input class="form-control" type="password" id="senha" name="senha" disabled>
                                     </div>
 
                                     <div class="card-body">
                                         <label for="confsenha">Confirme sua senha </label>
-                                        <input class="form-control" type="password" id="confsenha" name="confsenha">
+                                        <input class="form-control" type="password" id="confsenha" name="confsenha" disabled>
                                     </div>
 
 
@@ -156,6 +169,11 @@ include ("../configurações/menu.php");
                     message: 'Servidor retornou erro'
                 });
             }
+        });
+        $('#senha_atual').on('input', function() {
+
+            $("#senha").prop("disabled", false);
+            $("#confsenha").prop( "disabled", false);
         });
     });
 </script>

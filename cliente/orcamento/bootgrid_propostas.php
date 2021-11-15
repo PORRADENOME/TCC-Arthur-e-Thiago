@@ -14,11 +14,12 @@ try {
     proposta.id_proposta,
     proposta.preco,
     proposta.informacoes_adicionais,
+    proposta.proposta_aprovada,
     motorista.nome_motorista
 From
     proposta Inner Join
     motorista On proposta.motorista_proposta = motorista.id_motorista
-    where orcamento_proposta={$_POST['id']}";
+    where proposta_aprovada!=2 and orcamento_proposta={$_POST['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {

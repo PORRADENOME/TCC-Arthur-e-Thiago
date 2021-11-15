@@ -19,7 +19,7 @@ try {
     $query->bindParam(':id_proposta', $_POST['id_proposta']);
     $query->execute();
 
-    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta!=1 AND orcamento_proposta=1;");
+    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta!=id_proposta AND orcamento_proposta=:orcamento_proposta;");
     $query->bindParam(':id_proposta', $_POST['id_proposta']);
     $query->bindParam(':orcamento_proposta', $orcamento_proposta);
     $query->execute();

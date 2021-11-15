@@ -36,13 +36,16 @@
                 <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Motoristas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
 
-                    <a class="dropdown-item" href="../motorista/listagem_motorista.php">Listagem</a>
+                    <a class="dropdown-item" href="../motorista/listagem_motorista.php">Ativos</a>
+                    <a class="dropdown-item" href="../motorista/motorista_banido.php">Banidos</a>
+                    <a class="dropdown-item" href="../motorista/motorista_banido.php">Validar</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Clientes</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../cliente/listagem_cliente.php">Listagem</a>
+                    <a class="dropdown-item" href="../cliente/listagem_cliente.php">Ativos</a>
+                    <a class="dropdown-item" href="../cliente/cliente_banido.php">Banidos</a>
                 </div>
             </li>
             <li class="nav-item dropdown">

@@ -1,6 +1,4 @@
 <?php
-
-
 require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
@@ -9,17 +7,17 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("DELETE FROM orcamento WHERE id_orcamento=:id_orcamento");
-    $query->bindParam(':id_orcamento', $_POST['id']);
+    $query = $conexao->prepare("UPDATE motorista SET motorista_ativo=2 WHERE id_motorista=:id_motorista");
+    $query->bindParam(':id_motorista', $_POST['id']);
     $query->execute();
 
     if ($query->rowCount() == 1) {
-        retornaOK('Excluido com sucesso');
-    } else {
-        retornaErro('Erro ao excluir');
+        retornaOK( 'Banido com sucesso');
+    }
+    else {
+        retornaErro( 'Erro ao banir');
     }
 
 } catch (PDOException $exception) {
     echo $exception->getMessage();
 }
-

@@ -7,15 +7,15 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("DELETE FROM motorista WHERE id_motorista=:id_motorista");
+    $query = $conexao->prepare("UPDATE motorista SET motorista_ativo=1 WHERE id_motorista=:id_motorista");
     $query->bindParam(':id_motorista', $_POST['id']);
     $query->execute();
 
     if ($query->rowCount() == 1) {
-        retornaOK( 'Excluido com sucesso');
+        retornaOK( 'Reativado com sucesso');
     }
     else {
-        retornaErro( 'Erro ao excluir');
+        retornaErro( 'Erro ao reativar');
     }
 
 } catch (PDOException $exception) {

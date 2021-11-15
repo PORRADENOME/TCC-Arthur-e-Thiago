@@ -18,22 +18,6 @@ Where
 
     $linha = $query->fetchObject();
 
-
-  /*  $query = $conexao->prepare("Select
-    cidade.estado_cidade,
-    estado.id_estado,
-    estado.nome_estado,
-    cidade.nome_cidade
-From
-    cidade Inner Join
-    estado On cidade.estado_cidade = estado.id_estado
-    ");
-
-    $resultado = $query->execute();
-
-    $linha1 = $query->fetchObject();
-*/
-
     $query = $conexao->prepare("Select
     orcamento.endereco_partida,
     endereco.*,
@@ -86,7 +70,7 @@ From
 <html lang="en" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta charset="UTF-8">
-    <title>Orçamento e Proposta</title>
+    <title>Proposta para Cliente</title>
 </head>
 <body>
 
@@ -97,12 +81,12 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1>Pedido de Orçamento de <?php echo $linha->nome_cliente; ?></h1>
+    <h1>Proposta para o Cliente <?php echo($linha->nome_cliente); ?></h1>
     <p></p>
     <p></p>
 
 
-        <div class="form-group">
+    <div class="form-group">
     </div>
 
     <div class="form-group">
@@ -155,8 +139,8 @@ include ("../configurações/menu.php");
             </div>
             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
                 <div class="card-body">
-                <h6>Nome local </h6>
-                <?php echo $linha2->nome_endereco; ?>
+                    <h6>Nome local </h6>
+                    <?php echo $linha2->nome_endereco; ?>
                 </div>
 
                 <div class="card-body">
@@ -254,8 +238,6 @@ include ("../configurações/menu.php");
     </div>
 
     <p>
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
-            Fazer proposta
         </a>
         <button class="btn btn-primary" role="button" onclick="history.back()" >
             Voltar
@@ -266,71 +248,68 @@ include ("../configurações/menu.php");
 
 
 
-                <!DOCTYPE html>
-                <html lang="en">
-                <head>
-                    <meta charset="UTF-8">
-                    <title>Propostar</title>
-                </head>
-                <body>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+                <meta charset="UTF-8">
+                <title>Propostar</title>
+            </head>
+            <body>
 
-                <div class="container">
-                    <form action="inserir_proposta.php"  method="post" class="jsonForm">
-                        <h1>Cadastro da Proposta</h1>
+            <div class="container">
+                <form action="inserir_proposta.php" method="post" class="jsonForm">
+                    <h1>Cadastro da proposta</h1>
 
-                        <div class="form-group">
-                            <label for="id_orcamento">ID orçamento</label>
-                            <input class="form-control" type="text" id="id_orcamento" name="id_orcamento" value="<?php echo $linha->id_orcamento?>" readonly>
-                        </div>
+                    <div class="form-group">
+                        <label for="preco">Preço</label>
+                        <input class="form-control" id="preco" type="text" name="preco" required >
+                    </div>
 
-                        <div class="form-group">
-                            <label for="preco">Preço</label>
-                            <input class="form-control" id="preco"  type="number" step="0.01" max="99999999,99" name="preco" required >
-                        </div>
+                    <div class="form-group">
+                        <label for="informacoes_adicionais">Informações Adicionais</label>
+                        <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais"></textarea>
+                    </div>
 
-                        <div class="form-group">
-                            <label for="informacoes_adicionais">Informações Adicionais</label>
-                            <textarea class="form-control" id="informacoes_adicionais" name="informacoes_adicionais"></textarea>
-                        </div>
-
-
+                    <div class="form-group">
+                        <label for="id_orcamento">ID orçamento</label>
+                        <input class="form-control" type="text" id="id_orcamento" name="id_orcamento" value="<?php echo $linha->id_orcamento?>" readonly>
+                    </div>
 
 
-                        <button type="submit" class="btn btn-primary">Cadastrar proposta</button>
+                    <button type="submit" class="btn btn-primary">Cadastrar proposta</button>
 
-                    </form>
-                </div>
+                </form>
+            </div>
 
-                <script>
-                    $(document).ready(function () {
-                        $(' .jsonForm ').ajaxForm({
-                            dataType: 'json',
-                            success: function (data) {
-                                if (data.status==true){
-                                    iziToast.success({
-                                        message: data.mensagem,
-                                        onClosing: function(){
-                                            history.back();
-                                        }
-                                    });
-                                    $('.jsonForm').trigger('reset');
-                                }else{
-                                    iziToast.error({
-                                        message: data.mensagem
-                                    });
-                                }
-                            },
-                            error: function (data) {
+            <script>
+                $(document).ready(function () {
+                    $(' .jsonForm ').ajaxForm({
+                        dataType: 'json',
+                        success: function (data) {
+                            if (data.status==true){
+                                iziToast.success({
+                                    message: data.mensagem,
+                                    onClosing: function(){
+                                        history.back();
+                                    }
+                                });
+                                $('.jsonForm').trigger('reset');
+                            }else{
                                 iziToast.error({
-                                    message: 'Servidor retornou erro'
+                                    message: data.mensagem
                                 });
                             }
-                        });
-
-                    })
-                </script>
-                </body>
-                </html>
+                        },
+                        error: function (data) {
+                            iziToast.error({
+                                message: 'Servidor retornou erro'
+                            });
+                        }
+                    });
+                });
+            </script>
+            </body>
+            </html>
 
 
             </form>

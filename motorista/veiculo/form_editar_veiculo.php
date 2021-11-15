@@ -10,7 +10,7 @@ try{
         die('Acesse pela listagem');
     }
 
-    $query = $conexao->PREPARE("SELECT * FROM veiculo WHERE id_veiculo=:id");
+    $query = $conexao->PREPARE("SELECT * FROM veiculos WHERE id_veiculo=:id");
     $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();

@@ -17,16 +17,18 @@ include("../configurações/menu.php");
 
 <title>Minhas Propostas</title>
 
+
+
 <div class="container">
-    <div class="row">
+    <div class="linha">
         <div class="col-12">
             <h1>Minhas Propostas</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
-                <tr>
+                <tr id="row">
                     <th data-column-id="id_proposta">ID</th>
-                    <th data-column-id="preco" data-order="desc" data-sortable="true">Preço</th>
+                    <th data-column-id="preco" data-order="desc" data-sortable="true" >Preço</th>
                     <th data-column-id="informacoes_adicionais" data-sortable="true">Informaçoes Adicionais</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
@@ -60,6 +62,8 @@ include("../configurações/menu.php");
         });
 
     });
+
+
 
 
 </script>

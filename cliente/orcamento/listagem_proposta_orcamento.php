@@ -13,12 +13,14 @@ include("../configurações/bootstrap.php");
 include("../configurações/menu.php");
 ?>
 
+<title>Listagem de Propostas</title>
+
 <link href="../js/jquery.bootgrid.css" rel="stylesheet"/>
 
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Visualizar Propostas</h1>
+            <h1>Listagem de Propostas</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
@@ -57,20 +59,21 @@ include("../configurações/menu.php");
             url: "bootgrid_propostas.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button> " +
+                    return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button> " +
                         "<button type=\"button\" class=\"btn btn-info command-perfil\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-truck\"></span></button>" +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-times\"></span></button>";
-
+                        "<button type=\"button\" class=\"btn btn-danger command-rejeitar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-times\"></span></button>" +
+                        "<button type=\"button\" class=\"btn btn-success command-aceitar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-check\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
-            grid.find(".command-edit").on("click", function (e) {
+            grid.find(".command-visualizar").on("click", function (e) {
                 document.location = 'visualizar_proposta_orcamento.php?id=' + $(this).data("row-id");
-            }).grid.find(".command-perfil").on("click", function (e) {
+            }).end().find(".command-perfil").on("click", function (e) {
                 document.location = 'visualizar_perfil_motorista.php?id=' + $(this).data("row-id");
-
-            }).end().find(".command-delete").on("click", function (e) {
-                iziToastExcluir($(this).data("row-id"));
+            }).end().find(".command-rejeitar").on("click", function (e) {
+                iziToastRejeitar($(this).data("row-id"));
+            }).end().find(".command-aceitar").on("click", function (e) {
+                iziToastAceitar($(this).data("row-id"));
 
             });
 
@@ -78,9 +81,29 @@ include("../configurações/menu.php");
 
     });
 
-    function excluir(id) {
+    function rejeitar(id) {
         $.post(
-            "excluir_proposta.php",
+            "rejeitar_proposta.php",
+            {id: id},
+            function (data) {
+                if (data.status == 0) {
+                    iziToast.error({
+                        message: data.mensagem
+                    });
+                } else {
+                    iziToast.success({
+                        message: data.mensagem
+                    });
+                    grid.bootgrid("reload");
+                }
+            },
+            "json"
+        );
+    }
+
+    function aceitar(id) {
+        $.post(
+            "aceitar_proposta.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

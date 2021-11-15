@@ -12,6 +12,18 @@ try {
         retornaErro('E-mail já cadastrado');
     }
 
+    $Criptografia = sha1($_POST['senha_atual']);
+
+    /*echo("<script>console.log('PHP: " . $Criptografia . "');</script>");*/
+
+    $query = $conexao->prepare("SELECT * FROM motorista WHERE senha_motorista=:senha_atual AND id_motorista<>:id_motorista");
+    $query-> bindValue(':senha_atual', $Criptografia);
+    $query-> bindValue(':id_motorista'  , $_SESSION['id']);
+    $query->execute();
+    if ($query->rowCount()==1) {
+        retornaErro('Sua senha atual está incorreta');
+    }
+
     $query = $conexao->prepare("UPDATE motorista SET nome_motorista=:nome_motorista,
                                                              email_motorista=:email_motorista,
                                                              cpf_motorista=:cpf_motorista,
@@ -27,27 +39,31 @@ try {
     $query->bindParam(':carteira_de_motorista',$_POST['carteira']);
     $query->execute();
 
-    if ($_POST['senha']!='') {
-        if ($_POST['senha'] != $_POST['confsenha']) {
-            retornaErro('Senha diferente');
+    if (isset($_POST['senha'])==true) {
+
+        if ($_POST['senha'] != '') {
+            if ($_POST['senha'] != $_POST['confsenha']) {
+                retornaErro('Senha diferente');
+            }
+
+            $senhaCripitografada = sha1($_POST['senha']);
+
+            $query = $conexao->prepare("UPDATE motorista SET senha_motorista=:senha_motorista WHERE id_motorista=:id_motorista");
+            $query->bindParam(':senha_motorista', $_SESSION['id']);
+            $query->bindParam(':senha', $senhaCripitografada);
+            $query->execute();
+        }
+    }else {
+        if ($query->rowCount() == 1) {
+            retornaOK('Alterado com sucesso. ');
+
+        } else {
+            retornaOK('Nenhum dado alterado. ');
         }
 
-        $senhaCripitografada = sha1($_POST['senha']);
+        header("../perfil/perfil_cliente.php");
 
-        $query = $conexao->prepare("UPDATE motorista SET senha_motorista=:senha_motorista WHERE id_motorista=:id_motorista");
-        $query->bindParam(':senha_motorista', $_SESSION['id']);
-        $query->bindParam(':senha', $senhaCripitografada);
-        $query->execute();
     }
-
-    if ($query->rowCount() == 1) {
-        retornaOK('Alterado com sucesso. ');
-
-    } else {
-        retornaOK('Nenhum dado alterado. ');
-    }
-
-    header("../perfil/perfil_cliente.php");
 
 } catch (PDOException $exception) {
     retornaErro ( $exception->getMessage() );

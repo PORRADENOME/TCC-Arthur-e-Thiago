@@ -33,7 +33,8 @@
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="//https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Minhas Propostas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../visualizar_proposta/listagem_proposta.php">Visualizar</a>
+                    <a class="dropdown-item" href="../visualizar_proposta/listagem_proposta.php">Feitas</a>
+                    <a class="dropdown-item" href="../visualizar_proposta/listagem_proposta_aceita.php">Aceitas</a>
                 </div>
 
             </li>
