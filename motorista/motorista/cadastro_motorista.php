@@ -3,7 +3,6 @@ try{
     include "../configurações/conexao.php";
 
 
-
 }catch (PDOException $exception){
     echo $exception->getMessage();
 }
@@ -15,7 +14,7 @@ try{
 <script type="text/javascript">
     $("#telefone").mask("(00) 0000-00009");
     $("#cpf").mask("000.000.000-00");
-    $("#carteira").mask("00000000000");
+    //$("#carteira").mask("00000000000");
 </script>
 
 <!DOCTYPE html>
@@ -31,7 +30,7 @@ include("../configurações/bootstrap.php");
 ?>
 
 <div class="container">
-    <form action="inserir_motorista.php" method="post" class="jsonForm">
+    <form action="inserir_motorista.php" method="post" enctype="multipart/form-data" class="jsonForm">
         <h1>Cadastro de Motorista</h1>
 
         <div class="form-group">
@@ -54,10 +53,6 @@ include("../configurações/bootstrap.php");
             <input class="form-control" id="telefone" type="text" name="telefone"">
         </div>
         <div class="form-group">
-            <label for="carteira">Carteira de motorista</label>
-            <input class="form-control" id="carteira" type="text" name="carteira" required >
-        </div>
-        <div class="form-group">
             <label for="senha">Senha</label>
             <input class="form-control" id="senha" type="password" name="senha" required >
         </div>
@@ -65,8 +60,13 @@ include("../configurações/bootstrap.php");
             <label for="confsenha">confirmaçao de senha</label>
             <input class="form-control" id="confsenha" type="password" name="confsenha" required >
         </div>
+        <div class="form-group">
+            <label for="carteira">Imagem CNH</label>
+            <br>
+            <input class="formFile" id="carteira" type="file" accept="image/*" name="carteira" required>
+        </div>
 
-
+        <br>
 
         <button type="submit" class="btn btn-primary">Cadastrar Motorista</button>
         <a href="../configurações/index.php" class="btn btn-danger">Cancelar</a>

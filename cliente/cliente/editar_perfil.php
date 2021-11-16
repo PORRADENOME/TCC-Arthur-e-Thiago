@@ -3,6 +3,25 @@ require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
+
+    $telefone = ($_POST['telefone']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
+    }
+
     $query = $conexao->prepare("SELECT * FROM cliente WHERE email_cliente=:email_cliente AND id_cliente<>:id_cliente");
     $query-> bindValue(':email_cliente', $_POST['email']);
     $query-> bindValue(':id_cliente'  , $_SESSION['id']);

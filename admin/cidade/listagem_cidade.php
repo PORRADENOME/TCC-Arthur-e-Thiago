@@ -49,7 +49,7 @@ include ("../configurações/menu.php");
                 "commands": function(column, row)
                 {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_cidade   + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_cidade + "\"><span class=\"fas fa-trash\"></span></button>";
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_cidade + "\"><span class=\"fas fa-times\"></span></button>";
                 }
             }
         }).on ("loaded.rs.jquery.bootgrid", function () {

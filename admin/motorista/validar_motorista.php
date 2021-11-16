@@ -13,12 +13,12 @@ include ("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet" />
 
-<title>Listagem de Motoristas Banidos</title>
+<title>Validar Motoristas</title>
 
 <div class="container">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem de Motoristas Banidos</h1>
+            <h1>Validar Motoristas</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
@@ -46,41 +46,21 @@ include ("../configurações/menu.php");
     $(document). ready(function () {
         grid=$("#grid-data").bootgrid({
             ajax: true,
-            url: "bootgrid_banidos.php",
+            url: "bootgrid_validar_motorista.php",
             formatters: {
                 "commands": function(column, row)
                 {
-                    return"<button type=\"button\" class=\"btn btn-success command-delete\" data-row-id=\"" + row.id_motorista + "\"><span class=\"fas fa-undo-alt\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_motorista   + "\"><span class=\"fas fa-edit\"></span></button> ";
+
                 }
             }
         }).on ("loaded.rs.jquery.bootgrid", function () {
-            grid.find(".command-delete").on("click", function (e)
-            {
-                iziToastReativar($(this).data("row-id"));
-
+            grid.find(".command-edit").on("click", function (e) {
+                document.location='form_editar_motorista.php?id=' + $(this).data("row-id");
             });
 
         });
 
     });
-    function reativar(id) {
-        $.post(
-            "reativar_motorista.php",
-            {id: id},
-            function (data) {
-                if (data.status == 0) {
-                    iziToast.error({
-                        message: data.mensagem
-                    });
-                } else {
-                    iziToast.success({
-                        message: data.mensagem
-                    });
-                    grid.bootgrid("reload");
-                }
-            },
-            "json"
-        );
-    }
 
 </script>

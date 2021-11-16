@@ -50,7 +50,7 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return"<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-trash\"></span></button>";
+                    return"<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-times\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {

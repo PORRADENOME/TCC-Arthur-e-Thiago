@@ -4,6 +4,26 @@ require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
+
+
+    $telefone = ($_POST['telefone']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
+    }
+
     $query = $conexao->prepare("SELECT * FROM motorista WHERE email_motorista=:email_motorista AND id_motorista<>:id_motorista");
     $query-> bindValue(':email_motorista', $_POST['email']);
     $query-> bindValue(':id_motorista'  , $_SESSION['id']);

@@ -48,12 +48,15 @@ include("../configurações/menu.php");
             formatters: {
                 "commands": function (column, row) {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-eye\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-success command-view\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-eye\"></span></button> " +
                         "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-times\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
                 document.location = 'listagem_proposta_orcamento.php?id=' + $(this).data("row-id");
+            }).end().find(".command-view").on("click", function (e) {
+                document.location = 'listagem_propostas_escolhidas.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
                 iziToastDesativar($(this).data("row-id"));
 

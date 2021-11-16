@@ -24,7 +24,7 @@ include("../configurações/menu.php");
                 <thead>
                 <tr>
                     <th data-column-id="id_veiculo">ID</th>
-                    <th data-column-id="numero_chassi_veiculo" data-order="desc" data-sortable="true">Número chassi</th>
+                    <th data-column-id="numero_chassi_veiculo" data-order="desc" data-sortable="true">Chassi</th>
                     <th data-column-id="marca_veiculo" data-sortable="true">Marca</th>
                     <th data-column-id="modelo_veiculo" data-sortable="true">Modelo</th>
                     <th data-column-id="ano_veiculo" data-sortable="true">Ano</th>
@@ -51,14 +51,11 @@ include("../configurações/menu.php");
             url: "bootgrid.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_veiculo + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_veiculo + "\"><span class=\"fas fa-trash\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_veiculo + "\"><span class=\"fas fa-trash\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
-            grid.find(".command-edit").on("click", function (e) {
-                document.location = 'form_editar_veiculo.php?id=' + $(this).data("row-id");
-            }).end().find(".command-delete").on("click", function (e) {
+            grid.find(".command-delete").on("click", function (e) {
                 iziToastExcluir($(this).data("row-id"));
 
             });

@@ -10,6 +10,33 @@ try {
 
     $senhaCriptografada = sha1 ($_POST['senha']);
 
+    $cpf = ($_POST['cpf']);
+
+    $verificacaoCPF = validaCPF($cpf);
+
+    if ($verificacaoCPF == false) {
+
+        retornaErro('CPF inválido');
+    }
+
+    $telefone = ($_POST['telefone']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
+    }
+
    /*
     $query = $conexao->prepare("SELECT * FROM funcionario WHERE funcionario=:funcionario");
     $query->bindValue(':funcionario',$_POST['funcionario']);

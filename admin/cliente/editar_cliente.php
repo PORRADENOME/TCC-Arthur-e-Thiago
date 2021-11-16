@@ -3,6 +3,33 @@ require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
+    $cpf = ($_POST['cpf_cliente']);
+
+    $verificacaoCPF = validaCPF($cpf);
+
+    if ($verificacaoCPF == false) {
+
+        retornaErro('CPF inválido');
+    }
+
+    $telefone = ($_POST['telefone_cliente']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email_cliente']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
+    }
+
     $query = $conexao->prepare("SELECT * FROM cliente WHERE cpf_cliente=:cpf_cliente AND id_cliente<>:id_cliente");
     $query-> bindValue(':cpf_cliente'  , $_POST['cpf_cliente']);
     $query-> bindValue(':id_cliente'  , $_POST['id_cliente']);

@@ -24,10 +24,7 @@
             if ($_SESSION['valor_admin']==0):
                 ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Perfil</a>
-                    <div class="dropdown-menu" aria-labelledby="dropdown01">
-                        <a class="dropdown-item" href="../perfil/perfil_funcionario.php">Acessar</a>
-                    </div>
+                    <a class="nav-link" href="../perfil/perfil_funcionario.php">Perfil</a>
                 </li>
             <?php
             endif;
@@ -38,7 +35,7 @@
 
                     <a class="dropdown-item" href="../motorista/listagem_motorista.php">Ativos</a>
                     <a class="dropdown-item" href="../motorista/motorista_banido.php">Banidos</a>
-                    <a class="dropdown-item" href="../motorista/motorista_banido.php">Validar</a>
+                    <a class="dropdown-item" href="../motorista/validar_motorista.php">Validar</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -63,16 +60,12 @@
                 </div>
             </li>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orçamentos</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../orcamento/listagem_orcamento.php">Listagem</a>
-                </div>
+                <a class="nav-link" href="../orcamento/listagem_orcamento.php">Orçamentos</a>
             </li>
+
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Propostas</a>
-                <div class="dropdown-menu" aria-labelledby="dropdown01">
-                    <a class="dropdown-item" href="../proposta/listagem_proposta_orcamento.php">Listagem</a>
-                </div>
+                <a class="nav-link" href="../proposta/listagem_proposta_orcamento.php" >Propostas</a>
+
             </li>
         </ul>
     </div>

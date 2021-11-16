@@ -28,7 +28,7 @@ include ("../configurações/menu.php");
                     <th data-column-id="cpf_motorista" data-sortable="true">CPF</th>
                     <th data-column-id="email_motorista" data-sortable="true">E-mail</th>
                     <th data-column-id="telefone_motorista" data-sortable="true">Telefone</th>
-                    <th data-column-id="carteira_de_motorista" data-sortable="true">carteira_de_motorista</th>
+
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
 
                 </tr>

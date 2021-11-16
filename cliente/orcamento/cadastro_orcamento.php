@@ -8,7 +8,6 @@ try{
     $resultado = $query ->execute();
     $arr_endereco = $query->fetchAll();
 
-    echo ($_SESSION['id']);
 
 }catch (PDOException $exception){
     echo $exception->getMessage();

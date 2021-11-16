@@ -15,7 +15,25 @@ try {
 
     if ($verificacaoCPF == false) {
 
-        retornaErro('Erro CPF inválido');
+        retornaErro('CPF inválido');
+    }
+
+    $telefone = ($_POST['telefone']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
     }
 
 

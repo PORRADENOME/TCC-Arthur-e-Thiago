@@ -40,7 +40,7 @@ if ($query->rowCount ()==1 /*AND $linha->cliente_ativo=1*/) {
 
     $_SESSION['autorizado'] = false;
 
-    echo 'senha incorreta';
+    echo 'Senha ou Email Incorretos.';
 }
 
 

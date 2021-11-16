@@ -3,6 +3,24 @@ require "../configurações/segurança.php";
 try {
     include "../configurações/conexao.php";
 
+    $telefone = ($_POST['telefone']);
+
+    $verificacaoTelefone = validaTelefone($telefone);
+
+    if ($verificacaoTelefone == false){
+
+        retornaErro('Telefone / Celular inválido');
+    }
+
+    $email = ($_POST['email']);
+
+    $verificacaoEmail = validaEmail($email);
+
+    if ($verificacaoEmail == false){
+
+        retornaErro('Email inválido');
+    }
+
     $query = $conexao->prepare("SELECT * FROM funcionario WHERE email_funcionario=:email_funcionario AND id_funcionario<>:id_funcionario");
     $query-> bindValue(':email_funcionario', $_POST['email']);
     $query-> bindValue(':id_funcionario'  , $_SESSION['id']);
@@ -44,12 +62,14 @@ try {
 
     if ($query->rowCount() == 1) {
         retornaOK('Alterado com sucesso. ');
-
+        header("../perfil/perfil_funcionario.php");
     } else {
         retornaOK('Nenhum dado alterado. ');
+
+        header("../perfil/perfil_funcionario.php");
     }
 
-    header("../perfil/perfil_funcionario.php");
+
 
 } catch (PDOException $exception) {
     retornaErro ( $exception->getMessage() );

@@ -18,8 +18,7 @@ try {
                  OR email_motorista LIKE '%{$_POST['searchPhrase']}%'
                  OR cpf_motorista LIKE '%{$_POST['searchPhrase']}%'
                  OR telefone_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR carteira_de_motorista LIKE '%{$_POST['searchPhrase']}%'
-                                  ) ";
+                 ) ";
     }
     $resultados=$conexao->prepare($sql);
     $resultados->execute();

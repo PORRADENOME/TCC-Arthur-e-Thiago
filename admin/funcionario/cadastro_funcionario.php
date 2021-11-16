@@ -9,29 +9,32 @@ try{
     echo $exception->getMessage();
 }
 ?>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
-<script type="text/javascript">
-    $("#telefone").mask("(00) 0000-0000");
-</script>
-
-<script type="text/javascript">
-    $("#cpf").mask("000.000.000-00");
-</script>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Cadastro de Funcionário</title>
+
+    <?php
+    include("../configurações/bootstrap.php");
+    include("../configurações/menu.php");
+    ?>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+
+    <script type="text/javascript">
+
+
+
+        $(document).ready(function(){
+            $("#cpf").mask("000.000.000-00");
+            $("#telefone").mask("(00) 000000009");
+        });
+    </script>
 </head>
 <body>
-
-<?php
-include("../configurações/bootstrap.php");
-include("../configurações/menu.php");
-?>
 
 <div class="container">
     <form action="inserir_funcionario.php" method="post" class="jsonForm">

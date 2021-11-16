@@ -63,3 +63,35 @@ function validaCPF ($cpf){
     }
     return true;
 }
+
+function validaTelefone($telefone)
+{
+    $regex = '/^(?:(?:\+|00)?(55)\s?)?(?:\(?([1-9][0-9])\)?\s?)?(?:((?:9\d|[2-9])\d{3})\-?(\d{4}))$/';
+
+    if (preg_match($regex, $telefone) == false) {
+
+        // O número não foi validado.
+        return false;
+    } else {
+
+        // Telefone válido.
+        return true;
+    }
+}
+
+function validaEmail($email){
+    //verifica se e-mail esta no formato correto de escrita
+    if (!preg_match('^([a-zA-Z0-9.-_])*([@])([a-z0-9]).([a-z]{2,3})^',$email)){
+
+        return false;
+    }
+    else{
+        //Valida o dominio
+        $dominio=explode('@',$email);
+        if(!checkdnsrr($dominio[1],'A')){
+
+            return false;
+        }
+        else{return true;} // Retorno true para indicar que o e-mail é valido
+    }
+}

@@ -55,7 +55,7 @@ include ("../configurações/menu.php");
 
                 </tr>
                 <tr>
-                    <th scope="row">Carteira de motorista :</th>
+                    <th scope="row">CNH :</th>
                     <td><?php echo $linhamotorista->carteira_de_motorista ?></td>
 
                 </tr>

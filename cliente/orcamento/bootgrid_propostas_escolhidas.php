@@ -1,4 +1,7 @@
 <?php
+
+
+
 require "../configurações/segurança.php";
 try {
 
@@ -8,19 +11,26 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM motorista WHERE motorista_ativo=2 ";
+    $sql = "Select
+    proposta.id_proposta,
+    proposta.preco,
+    proposta.informacoes_adicionais,
+    proposta.proposta_aprovada,
+    motorista.nome_motorista
+From
+    proposta Inner Join
+    motorista On proposta.motorista_proposta = motorista.id_motorista
+    where proposta_aprovada=1 and orcamento_proposta={$_POST['id']}";
 
-    if($_POST['searchPhrase'] != '')
-    {
+
+    if ($_POST['searchPhrase'] != '') {
         $sql .= " AND (
-                 id_motorista LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR email_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR cpf_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR telefone_motorista LIKE '%{$_POST['searchPhrase']}%'
+                 preco LIKE '%{$_POST['searchPhrase']}%'
+                 OR informacoes_adicionais LIKE '%{$_POST['searchPhrase']}%'
+                 OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'                              
                  ) ";
     }
-    $resultados=$conexao->prepare($sql);
+    $resultados = $conexao->prepare($sql);
     $resultados->execute();
     $total = $resultados->rowCount();
 
@@ -43,7 +53,6 @@ try {
     $ret['rows'] = $resultados->fetchAll();
 
     echo json_encode($ret);
-}catch (PDOException $exception){
-    echo ($exception->getMessage());
+} catch (PDOException $exception) {
+    echo($exception->getMessage());
 }
-

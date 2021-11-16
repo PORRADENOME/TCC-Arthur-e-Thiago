@@ -8,7 +8,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM motorista WHERE motorista_ativo=2 ";
+    $sql = "SELECT * FROM motorista WHERE motorista_ativo=0 ";
 
     if($_POST['searchPhrase'] != '')
     {
