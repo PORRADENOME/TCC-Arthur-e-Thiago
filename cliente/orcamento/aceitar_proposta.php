@@ -7,21 +7,20 @@ try {
 
 
 
-    $query = $conexao->prepare("SELECT orcamento_proposta FROM proposta WHERE id_porposta=:idproposta");
-    $query->bindParam(':id_proposta', $_POST['id_proposta']);
+    $query = $conexao->prepare("SELECT orcamento_proposta FROM proposta WHERE id_proposta=:id_proposta");
+    $query->bindParam(':id_proposta', $_POST['id']);
     $query->execute();
 
-    $orcamento_proposta = $query->fetchObject();
+    $linha = $query->fetchObject();
+    $orcamento_proposta = $linha->orcamento_proposta;
 
-    echo $orcamento_proposta;
+    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta!=:id_proposta AND orcamento_proposta=:orcamento_proposta");
+    $query->bindParam(':id_proposta', $_POST['id']);
+    $query->bindParam(':orcamento_proposta', $orcamento_proposta);
+    $query->execute();
 
     $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=1 WHERE id_proposta=:id_proposta");
-    $query->bindParam(':id_proposta', $_POST['id_proposta']);
-    $query->execute();
-
-    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta!=id_proposta AND orcamento_proposta=:orcamento_proposta;");
-    $query->bindParam(':id_proposta', $_POST['id_proposta']);
-    $query->bindParam(':orcamento_proposta', $orcamento_proposta);
+    $query->bindParam(':id_proposta', $_POST['id']);
     $query->execute();
 
 

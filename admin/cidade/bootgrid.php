@@ -9,7 +9,10 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
    // $sql = "SELECT * FROM cidade, estado WHERE cidade.estado_cidade=:estado.id_estado ";
-    $sql = "SELECT cidade.nome_cidade,cidade.id_cidade,estado.nome_estado FROM cidade INNER JOIN estado ON cidade.estado_cidade=estado.id_estado";
+    $sql = "SELECT cidade.nome_cidade,cidade.id_cidade,cidade.cidade_ativa,estado.nome_estado FROM cidade 
+                                                                                        INNER JOIN estado 
+                                                                                        ON cidade.estado_cidade=estado.id_estado 
+                                                                                        WHERE cidade_ativa!=2";
 
     if($_POST['searchPhrase'] != '')
     {

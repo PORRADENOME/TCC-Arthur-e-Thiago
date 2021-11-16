@@ -57,16 +57,16 @@ include ("../configurações/menu.php");
                 document.location='form_editar_cidade.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e)
             {
-                iziToastExcluir($(this).data("row-id"));
+                iziToastDesativar($(this).data("row-id"));
 
             });
 
         });
 
     });
-    function excluir(id) {
+    function desativar(id) {
         $.post(
-            "excluir_cidade.php",
+            "desativar_cidade.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

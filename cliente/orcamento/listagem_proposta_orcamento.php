@@ -25,7 +25,7 @@ include("../configurações/menu.php");
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>
                 <tr>
-                    <th data-column-id="preco" data-order="desc" data-sortable="true">Preço</th>
+                    <th data-column-id="preco" data-order="asc" data-sortable="true">Preço</th>
                     <th data-column-id="informacoes_adicionais" data-sortable="true">Informações</th>
                     <th data-column-id="nome_motorista" data-sortable="true">Motorista</th>
                     <th data-column-id="commands" data-formatter="commands" data-sortable="false"></th>
@@ -60,8 +60,8 @@ include("../configurações/menu.php");
             formatters: {
                 "commands": function (column, row) {
                     return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-eye\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-info command-perfil\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-truck\"></span></button>" +
-                        "<button type=\"button\" class=\"btn btn-danger command-rejeitar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-times\"></span></button>" +
+                        "<button type=\"button\" class=\"btn btn-info command-perfil\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-truck\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-danger command-rejeitar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-times\"></span></button> " +
                         "<button type=\"button\" class=\"btn btn-success command-aceitar\" data-row-id=\"" + row.id_proposta + "\"><span class=\"fas fa-check\"></span></button>";
                 }
             }

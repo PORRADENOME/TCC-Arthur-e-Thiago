@@ -1,5 +1,7 @@
 <?php
 try{
+
+    include "../configurações/segurança.php";
     include "../configurações/conexao.php";
 
     if (!isset($_POST['id'])) {

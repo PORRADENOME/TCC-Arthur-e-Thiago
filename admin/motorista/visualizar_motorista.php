@@ -24,8 +24,7 @@ try {
     $linhamotorista = $query->fetchObject();
 
 
-    $diretorio = "C:\laragon\www\TCC-Arthur-e-Thiago\upload\\";
-    $link_imagem = $diretorio.$linhamotorista->carteira_de_motorista;
+    $link_imagem = '/imagem.php?imagem=' . $linhamotorista->carteira_de_motorista;
 
 
 }catch(PDOException $exception){

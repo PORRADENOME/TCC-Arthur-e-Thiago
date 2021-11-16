@@ -56,16 +56,16 @@ include ("../configurações/menu.php");
                 document.location='form_editar_estado.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e)
             {
-                iziToastExcluir($(this).data("row-id"));
+                iziToastDesativar($(this).data("row-id"));
 
             });
 
         });
 
     });
-    function excluir(id) {
+    function desativar(id) {
         $.post(
-            "excluir_estado.php",
+            "desativar_estado.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {
