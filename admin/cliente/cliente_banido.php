@@ -16,7 +16,7 @@ include ("../configurações/menu.php");
 
 <title>Listagem de Clientes Banidos</title>
 
-<div class="container">
+<div class="container-sm">
     <div class="row">
         <div class="col-12">
             <h1>Listagem de Clientes Banidos</h1>

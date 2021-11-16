@@ -13,7 +13,8 @@
                     <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Funcionários</a>
                     <div class="dropdown-menu" aria-labelledby="dropdown01">
                         <a class="dropdown-item" href="../funcionario/cadastro_funcionario.php">Cadastrar</a>
-                        <a class="dropdown-item" href="../funcionario/listagem_funcionario.php">Listagem</a>
+                        <a class="dropdown-item" href="../funcionario/listagem_funcionario.php">Ativos</a>
+                        <a class="dropdown-item" href="../funcionario/funcionarios_banidos.php">Banidos</a>
                     </div>
                 </li>
             <?php

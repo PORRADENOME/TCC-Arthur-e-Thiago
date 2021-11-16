@@ -15,7 +15,7 @@ include ("../configurações/menu.php");
 
 <title>Validar Motoristas</title>
 
-<div class="container">
+<div class="container-sm">
     <div class="row">
         <div class="col-12">
             <h1>Validar Motoristas</h1>
@@ -50,17 +50,42 @@ include ("../configurações/menu.php");
             formatters: {
                 "commands": function(column, row)
                 {
-                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_motorista   + "\"><span class=\"fas fa-edit\"></span></button> ";
+                    return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_motorista   + "\"><span class=\"fas fa-eye\"></span></button> " +
+                        "<button type=\"button\" class=\"btn btn-success command-delete\" data-row-id=\"" + row.id_motorista + "\"><span class=\"fas fa-check\"></span></button>";
 
                 }
             }
+
         }).on ("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
-                document.location='form_editar_motorista.php?id=' + $(this).data("row-id");
+                document.location='visualizar_motorista.php?id=' + $(this).data("row-id");
+            }).end().find(".command-delete").on("click", function (e)
+            {
+                iziToastContratar($(this).data("row-id"));
+
             });
 
         });
 
     });
+    function contratar(id) {
+        $.post(
+            "contratar_motorista.php",
+            {id: id},
+            function (data) {
+                if (data.status == 0) {
+                    iziToast.error({
+                        message: data.mensagem
+                    });
+                } else {
+                    iziToast.success({
+                        message: data.mensagem
+                    });
+                    grid.bootgrid("reload");
+                }
+            },
+            "json"
+        );
+    }
 
 </script>

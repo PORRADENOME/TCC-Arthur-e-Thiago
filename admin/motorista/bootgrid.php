@@ -27,8 +27,8 @@ try {
 
     $sql .= " ORDER BY ";
 
-    foreach ($_POST['sort'] as $campo => $tipo_order) {
-        $sql .= $campo . " " . $tipo_order;
+   foreach ($_POST['sort'] as $campo => $tipo_order) {
+       $sql .= $campo . " " . $tipo_order;
     }
 
     if ($quantidade <> -1) {

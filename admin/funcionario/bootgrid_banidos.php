@@ -8,16 +8,16 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM motorista WHERE motorista_ativo=0 ";
+    $sql = "SELECT * FROM funcionario WHERE valor_admin!=0 AND valor_admin!=1 ";
 
     if($_POST['searchPhrase'] != '')
     {
         $sql .= " AND (
-                 id_motorista LIKE '%{$_POST['searchPhrase']}%' 
-                 OR nome_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR email_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR cpf_motorista LIKE '%{$_POST['searchPhrase']}%'
-                 OR telefone_motorista LIKE '%{$_POST['searchPhrase']}%'
+                 id_funcionario LIKE '%{$_POST['searchPhrase']}%' 
+                 OR nome_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR email_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR cpf_funcionario LIKE '%{$_POST['searchPhrase']}%'
+                 OR telefone_funcionario LIKE '%{$_POST['searchPhrase']}%'
                  ) ";
     }
     $resultados=$conexao->prepare($sql);
@@ -43,7 +43,6 @@ try {
     $ret['rows'] = $resultados->fetchAll();
 
     echo json_encode($ret);
-
 }catch (PDOException $exception){
     echo ($exception->getMessage());
 }

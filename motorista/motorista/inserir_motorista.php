@@ -53,30 +53,45 @@ try {
     }
 
 
-    $query = $conexao->prepare("INSERT INTO motorista (nome_motorista,cpf_motorista,email_motorista,senha_motorista, telefone_motorista) VALUES (:nome,:cpf,:email,:senha,:telefone) ");
+
+
+        $extensao = strtolower(substr($_FILES['carteira'] ['name'], -4));
+        $novo_nome = md5(time()) . $extensao;
+        $diretorio = "C:\laragon\www\TCC-Arthur-e-Thiago\upload\\";
+        var_dump($novo_nome);
+
+        move_uploaded_file($_FILES['carteira']['tmp_name'], $diretorio.$novo_nome);
+
+
+        $query = $conexao->prepare("INSERT INTO motorista (nome_motorista,cpf_motorista,email_motorista,senha_motorista, telefone_motorista, carteira_de_motorista)
+                                                                    VALUES (:nome,:cpf,:email,:senha,:telefone,:carteira) ");
     $query->bindValue(':nome',$_POST['nome']);
     $query->bindValue(':cpf',$_POST['cpf']);
     $query->bindValue(':email',$_POST['email']);
     $query->bindValue(':senha',$senhaCriptografada);
     $query->bindValue(':telefone',$_POST['telefone']);
+    $query->bindParam(':carteira', $novo_nome);
 
     $query->execute();
 
 
 
-    if (isset($_FILES['carteira'])){
 
-        $extensao = strtolower(substr($_FILES['carteira'] ['name'], -4));
-        $novo_nome = md5(time()) . $extensao;
-        $diretorio = "upload/";
+       /* $uploaddir = '/var/www/uploads/';
+        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
 
-        move_uploaded_file($_FILES['carteira']['tmp_name'], $diretorio.$novo_nome);
+        if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
+            echo "Arquivo válido e enviado com sucesso.\n";
+        } else {
+            echo "Possível ataque de upload de arquivo!\n";
+        }
 
-        $query = $conexao->prepare("INSERT INTO motorista (carteira) VALUE (:carteira)");
+        $query = $conexao->prepare("INSERT INTO motorista (carteira_de_motorista) VALUE (:carteira)");
         $query->bindParam(':carteira', $novo_nome);
 
-        $query->execute();
-    }
+        $query->execute();*/
+
+
 
     if ($query->rowCount() == 1) {
         retornaOK('Inserido com sucesso ');

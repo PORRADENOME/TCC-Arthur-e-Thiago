@@ -57,7 +57,16 @@ try{
 
         <div class="form-group">
             <label for="telefone">Telefone</label>
-            <input class="form-control" id="telefone" type="text" name="telefone" >
+            <input class="form-control" id="telefone" type="text" name="telefone" required>
+        </div>
+
+        <div class="form-group">
+            <label for="valor">Funcionário ou Administrador?</label>
+            <select class="form-control form-select-lg" id="valor"name="valor" required >
+                <option>Selecione uma opção</option>
+                <option value="1">Administrador</option>
+                <option value="0">Funcionário</option>
+            </select>
         </div>
 
         <div class="form-group">

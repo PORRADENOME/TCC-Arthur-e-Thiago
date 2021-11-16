@@ -8,7 +8,7 @@ try {
     $quantidade = $_POST ['rowCount'];
     $inicio = ($pagina - 1) * $quantidade;
 
-    $sql = "SELECT * FROM funcionario WHERE 1 ";
+    $sql = "SELECT * FROM funcionario WHERE valor_admin=0 OR valor_admin=1 AND id_funcionario={$_SESSION['id']}";
 
     if($_POST['searchPhrase'] != '')
     {

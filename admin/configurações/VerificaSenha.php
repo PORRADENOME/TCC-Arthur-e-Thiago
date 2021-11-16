@@ -13,6 +13,16 @@ $query->execute ();
 if ($query->rowCount ()==1){
     $linha = $query->fetch ();
 
+    if ($linha->valor_admin == 2) {
+        $_SESSION['autorizado'] = false;
+
+        retornaErro('Usuário Banido');
+
+        header("Location: ../configurações/index.php");
+        exit;
+
+    }
+
         $_SESSION['id'] = $linha->id_funcionario;
         $_SESSION['valor_admin'] = $linha->valor_admin;
         $_SESSION['email'] - $linha->email;
@@ -33,7 +43,7 @@ if ($query->rowCount ()==1){
 
     $_SESSION['autorizado'] = false;
 
-    echo 'senha incorreta';
+    echo 'senha ou email incorretos';
 }
 
 

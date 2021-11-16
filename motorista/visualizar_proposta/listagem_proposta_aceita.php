@@ -51,7 +51,7 @@ include("../configurações/menu.php");
             url: "bootgrid_proposta_aceita.php",
             formatters: {
                 "commands": function (column, row) {
-                    return "<button type=\"button\" class=\"btn btn-primary command-visualizar\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-eye\"></span></button>";
+                    return "<button type=\"button\" class=\"btn btn-success command-visualizar\" data-row-id=\"" + row.id_orcamento + "\"><span class=\"fas fa-eye\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {

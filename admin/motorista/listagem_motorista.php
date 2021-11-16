@@ -15,7 +15,7 @@ include ("../configurações/menu.php");
 
 <title>Listagem de Motoristas Ativos</title>
 
-<div class="container">
+<div class="container-sm">
     <div class="row">
         <div class="col-12">
             <h1>Listagem de Motoristas Ativos</h1>

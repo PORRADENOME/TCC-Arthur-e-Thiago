@@ -30,11 +30,6 @@
 
             </li>
 
-            <li class="nav-item dropdown">
-                <a class="nav-link" href="../proposta/listagem_proposta.php">Propostas</a>
-            </li>
-
-
         </ul>
     </div>
 

@@ -19,7 +19,7 @@ try {
 From
     proposta Inner Join
     motorista On proposta.motorista_proposta = motorista.id_motorista
-    where proposta_aprovada!=2 and orcamento_proposta={$_POST['id']}";
+    where proposta_aprovada=0 and orcamento_proposta={$_POST['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {

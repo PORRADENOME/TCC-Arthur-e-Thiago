@@ -54,12 +54,14 @@ try {
     }
 
 
-    $query = $conexao->prepare("INSERT INTO funcionario (nome_funcionario,cpf_funcionario,email_funcionario,senha_funcionario, telefone_funcionario ) VALUES (:nome,:cpf,:email,:senha,:telefone) ");
+    $query = $conexao->prepare("INSERT INTO funcionario (nome_funcionario,cpf_funcionario,email_funcionario,senha_funcionario,telefone_funcionario,valor_admin )
+                                                            VALUES (:nome,:cpf,:email,:senha,:telefone,:valor)");
     $query->bindValue(':nome',$_POST['nome']);
     $query->bindValue(':cpf',$_POST['cpf']);
     $query->bindValue(':email',$_POST['email']);
     $query->bindValue(':senha',$senhaCriptografada);
     $query->bindValue(':telefone',$_POST['telefone']);
+    $query->bindValue(':valor',$_POST['valor']);
 
     $query->execute();
 
