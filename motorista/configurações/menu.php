@@ -1,3 +1,14 @@
+<?php
+
+$query = $conexao->prepare("SELECT * FROM motorista WHERE id_motorista={$_SESSION['id']}");
+$query->execute();
+
+$linha = $query->fetchObject();
+
+?>
+
+
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <h3 class="text-light bg-dark">Sistema de Mudanças</h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,7 +47,7 @@
 
         </ul>
     </div>
-
+    <h5 class="text-light"><?php echo $linha->nome_motorista?></h5> &nbsp&nbsp&nbsp&nbsp&nbsp
     </ul>
     <span class="navbar-text">
 

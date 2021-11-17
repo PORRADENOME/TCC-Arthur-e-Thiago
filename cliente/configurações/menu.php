@@ -1,8 +1,19 @@
+<?php
+
+$query = $conexao->prepare("SELECT * FROM cliente WHERE id_cliente={$_SESSION['id']}");
+$query->execute();
+
+$linha = $query->fetchObject();
+
+?>
+
+
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
-    <h3 class="text-light bg-dark">Sistema de Mudanças</h3>
+    <h3 class="text-light bg-dark">Sistema de Mudanças <small class="text-light"> </small></h3>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
+
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
@@ -32,6 +43,7 @@
 
         </ul>
     </div>
+    <h5 class="text-light"> <?php echo $linha->nome_cliente?> </h5> &nbsp&nbsp&nbsp&nbsp&nbsp
 
     </ul>
     <span class="navbar-text">

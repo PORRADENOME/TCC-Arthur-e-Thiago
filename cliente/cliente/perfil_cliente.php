@@ -111,7 +111,7 @@ include ("../configurações/menu.php");
                             </div>
 
                             <div class="card-body">
-                                <label for="senha_atual">Senha Atual </label>
+                                <label for="senha_atual">Senha Atual (só utilize quando for mudar sua senha)</label>
                                 <input class="form-control" type="password" id="senha_atual" name="senha_atual">
                             </div>
 
@@ -164,6 +164,7 @@ include ("../configurações/menu.php");
             });
             $('#senha_atual').on('input', function() {
 
+                $('#senha_atual').prop("required", true);
                 $("#senha").prop("disabled", false);
                 $("#confsenha").prop( "disabled", false);
             });
