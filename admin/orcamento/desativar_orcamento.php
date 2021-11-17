@@ -11,7 +11,7 @@ try {
     $query->bindParam(':id_orcamento', $_POST['id']);
     $query->execute();
 
-    if ($query->rowCount() == 1) {
+    if ($query->rowCount() >= 1) {
         retornaOK( 'Desativado com sucesso');
     }
     else {

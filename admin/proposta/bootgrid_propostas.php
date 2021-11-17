@@ -11,12 +11,13 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
+    proposta.id_proposta,
     proposta.preco,
     proposta.informacoes_adicionais,
     motorista.nome_motorista
 From
     proposta Inner Join
-    motorista On proposta.motorista_proposta = motorista.id_motorista";
+    motorista On proposta.motorista_proposta = motorista.id_motorista where proposta_aprovada!=2";
 
 
     if ($_POST['searchPhrase'] != '') {

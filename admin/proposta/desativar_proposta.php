@@ -7,8 +7,8 @@ try {
         die('Acesse através da listagem');
     }
 
-    $query = $conexao->prepare("UPDATE orcamento,proposta SET orcamento_ativo=2,proposta_aprovada=2 WHERE id_orcamento=:id_orcamento AND orcamento_proposta=:id_orcamento ");
-    $query->bindParam(':id_orcamento', $_POST['id']);
+    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta=:id_proposta");
+    $query->bindParam(':id_proposta', $_POST['id']);
     $query->execute();
 
     if ($query->rowCount() == 1) {

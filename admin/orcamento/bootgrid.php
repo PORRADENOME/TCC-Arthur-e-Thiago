@@ -11,6 +11,7 @@ try {
     $inicio = ($pagina - 1) * $quantidade;
 
     $sql = "Select
+    orcamento.id_orcamento,
     cliente.nome_cliente,
     endereco.nome_endereco,
     orcamento.data_e_horario,
@@ -18,7 +19,7 @@ try {
 From
     cliente Inner Join
     endereco On endereco.cliente_endereco = cliente.id_cliente Inner Join
-    orcamento On orcamento.endereco_partida = endereco.id_endereco";
+    orcamento On orcamento.endereco_partida = endereco.id_endereco where orcamento_ativo!=2";
 
 
     if ($_POST['searchPhrase'] != '') {
