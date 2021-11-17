@@ -39,15 +39,14 @@ try {
     $query-> bindValue(':senha_atual', $Criptografia);
     $query-> bindValue(':id_motorista'  , $_SESSION['id']);
     $query->execute();
-    if ($query->rowCount()==1) {
+    if ($query->rowCount()==0) {
         retornaErro('Sua senha atual está incorreta');
     }
 
     $query = $conexao->prepare("UPDATE motorista SET nome_motorista=:nome_motorista,
                                                                  email_motorista=:email_motorista,
                                                                  cpf_motorista=:cpf_motorista,
-                                                                 telefone_motorista=:telefone_motorista,
-                                                                 carteira_de_motorista=:carteira_de_motorista
+                                                                 telefone_motorista=:telefone_motorista
                                                              WHERE
                                                                  id_motorista=:id_motorista");
         $query->bindParam(':id_motorista',$_SESSION['id']);
@@ -55,7 +54,6 @@ try {
         $query->bindParam(':email_motorista',$_POST['email']);
         $query->bindParam(':cpf_motorista',$_POST['cpf']);
         $query->bindParam(':telefone_motorista',$_POST['telefone']);
-        $query->bindParam(':carteira_de_motorista',$_POST['carteira']);
         $query->execute();
 
         if (isset($_POST['senha'])==true) {

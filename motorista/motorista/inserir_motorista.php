@@ -74,25 +74,6 @@ try {
 
     $query->execute();
 
-
-
-
-       /* $uploaddir = '/var/www/uploads/';
-        $uploadfile = $uploaddir . basename($_FILES['userfile']['name']);
-
-        if (move_uploaded_file($_FILES['userfile']['tmp_name'], $uploadfile)) {
-            echo "Arquivo válido e enviado com sucesso.\n";
-        } else {
-            echo "Possível ataque de upload de arquivo!\n";
-        }
-
-        $query = $conexao->prepare("INSERT INTO motorista (carteira_de_motorista) VALUE (:carteira)");
-        $query->bindParam(':carteira', $novo_nome);
-
-        $query->execute();*/
-
-
-
     if ($query->rowCount() == 1) {
         retornaOK('Inserido com sucesso ');
     } else {

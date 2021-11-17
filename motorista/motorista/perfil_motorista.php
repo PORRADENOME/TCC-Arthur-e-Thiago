@@ -64,11 +64,6 @@ include ("../configurações/menu.php");
                     <td><?php echo $linhamotorista->cpf_motorista ?></td>
 
                 </tr>
-                <tr>
-                    <th scope="row">Carteira de motorista :</th>
-                    <td><?php echo $linhamotorista->carteira_de_motorista ?></td>
-
-                </tr>
                 </tbody>
             </table>
             <div class="form-group">
@@ -110,11 +105,6 @@ include ("../configurações/menu.php");
                                     <div class="card-body">
                                         <label for="telefone">Telefone / Celular </label>
                                         <input class="form-control" type="text" id="telefone" name="telefone" value="<?php echo $linhamotorista->telefone_motorista; ?>" required>
-                                    </div>
-
-                                    <div class="card-body">
-                                        <label for="carteira">Carteira de Motorista</label>
-                                        <input class="form-control" type="text" id="carteira" name="carteira" value="<?php echo $linhamotorista->carteira_de_motorista; ?>" readonly required>
                                     </div>
 
                                     <div class="card-body">
