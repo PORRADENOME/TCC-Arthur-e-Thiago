@@ -29,32 +29,32 @@ include("../configurações/menu.php");
         <h1>Cadastro - Veiculo</h1>
 
         <div class="form-group">
-            <label for="numero_chassi">numero de chassi</label>
+            <label for="numero_chassi">Número de chassi</label>
             <input class="form-control" id="numero_chassi" type="text" name="numero_chassi" required >
         </div>
 
         <div class="form-group">
-            <label for="marca">marca</label>
+            <label for="marca">Marca</label>
             <input class="form-control" id="marca" type="text" name="marca" required >
         </div>
 
         <div class="form-group">
-            <label for="modelo">modelo</label>
+            <label for="modelo">Modelo</label>
             <input class="form-control" id="modelo" type="text" name="modelo" required >
         </div>
 
         <div class="form-group">
-            <label for="ano">ano</label>
+            <label for="ano">Ano</label>
             <input class="form-control" id="ano" type="text" name="ano" required >
         </div>
 
         <div class="form-group">
-            <label for="placa">placa</label>
+            <label for="placa">Placa</label>
             <input class="form-control" id="placa" type="text" name="placa" required >
         </div>
 
         <div class="form-group">
-            <label for="tipo">tipo</label>
+            <label for="tipo">Tipo</label>
             <input class="form-control" id="tipo" type="text" name="tipo" required >
         </div>
 
