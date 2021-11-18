@@ -13,12 +13,12 @@ include ("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet" />
 
-<title>Listagem de Funcionários Ativos</title>
+<title>Funcionários Ativos</title>
 
 <div class="container-lg">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem de Funcionários Ativos</h1>
+            <h1>Funcionários Ativos</h1>
     <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>

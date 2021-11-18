@@ -57,7 +57,7 @@ try{
             <input class="form-control" id="senha" type="password" name="senha" required >
         </div>
         <div class="form-group">
-            <label for="confsenha">confirmaçao de senha</label>
+            <label for="confsenha">Confirmação de senha</label>
             <input class="form-control" id="confsenha" type="password" name="confsenha" required >
         </div>
 

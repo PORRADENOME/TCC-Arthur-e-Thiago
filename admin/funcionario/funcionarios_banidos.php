@@ -14,12 +14,12 @@ include("../configurações/menu.php");
 
 <link href="../js/jquery.bootgrid.css" rel="stylesheet"/>
 
-<title>Listagem de Funcionários Banidos</title>
+<title>Funcionários Banidos</title>
 
 <div class="container-lg">
     <div class="row">
         <div class="col-12">
-            <h1>Listagem de Funcionários Banidos</h1>
+            <h1>Funcionários Banidos</h1>
             <br>
             <table id="grid-data" class="table table-condensed table-hover table striped">
                 <thead>

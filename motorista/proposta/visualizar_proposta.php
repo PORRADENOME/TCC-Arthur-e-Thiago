@@ -12,11 +12,11 @@ From
     endereco On orcamento.endereco_partida = endereco.id_endereco Inner Join
     cliente On endereco.cliente_endereco = cliente.id_cliente
 Where
-    orcamento.id_orcamento=:id ");
+    orcamento.id_orcamento=:id; ");
     $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
-    $linha = $query->fetchObject();
+    $linha1 = $query->fetchObject();
 
 
   /*  $query = $conexao->prepare("Select
@@ -45,7 +45,8 @@ From
     cidade On endereco.cidade = cidade.id_cidade Inner Join
     estado On endereco.estado = estado.id_estado
             And cidade.estado_cidade = estado.id_estado
-            WHERE orcamento.id_orcamento=:id;");
+            WHERE orcamento.id_orcamento=:id ");
+
     $query->bindValue(":id", $_GET['id']);
 
     $resultado = $query->execute();
@@ -63,7 +64,7 @@ From
     cidade On endereco.cidade = cidade.id_cidade Inner Join
     estado On endereco.estado = estado.id_estado
             And cidade.estado_cidade = estado.id_estado
-            WHERE orcamento.id_orcamento=:id;");
+            WHERE orcamento.id_orcamento=:id");
     $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
@@ -97,7 +98,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1>Pedido de Orçamento de <?php echo $linha->nome_cliente; ?></h1>
+    <h1>Pedido de Orçamento de <?php echo $linha1->nome_cliente; ?></h1>
     <p></p>
     <p></p>
 
@@ -127,17 +128,17 @@ include ("../configurações/menu.php");
                 <div class="card-body">
                     <div class="card-body">
                         <h6>Nome </h6>
-                        <?php echo $linha->nome_cliente; ?>
+                        <?php echo $linha1->nome_cliente; ?>
                     </div>
 
                     <div class="card-body">
                         <h6>Informaçoes </h6>
-                        <?php echo $linha->inf_adicionais; ?>
+                        <?php echo $linha1->inf_adicionais; ?>
                     </div>
 
                     <div class="card-body">
                         <h6>Data e Horario </h6>
-                        <?php echo $linha->data_e_horario; ?>
+                        <?php echo $linha1->data_e_horario; ?>
                     </div>
                 </div>
             </div>
@@ -280,7 +281,7 @@ include ("../configurações/menu.php");
 
                         <div class="form-group">
                             <label for="id_orcamento">ID orçamento</label>
-                            <input class="form-control" type="text" id="id_orcamento" name="id_orcamento" value="<?php echo $linha->id_orcamento?>" readonly>
+                            <input class="form-control" type="text" id="id_orcamento" name="id_orcamento" value="<?php echo $linha1->id_orcamento?>" readonly>
                         </div>
 
                         <div class="form-group">

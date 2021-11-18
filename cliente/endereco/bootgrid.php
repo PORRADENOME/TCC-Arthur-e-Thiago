@@ -29,7 +29,7 @@ try {
 	INNER JOIN 
 		estado 
 	ON 
-		endereco.estado=estado.id_estado WHERE cliente_endereco={$_SESSION['id']}";
+		endereco.estado=estado.id_estado WHERE endereco_ativo!=2 AND cliente_endereco={$_SESSION['id']}";
 
 
     if ($_POST['searchPhrase'] != '') {

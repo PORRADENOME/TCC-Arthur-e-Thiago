@@ -80,7 +80,7 @@ $linha = $query->fetchObject();
             </li>
         </ul>
     </div>
-    <h5 class="text-light"> <?php echo $linha->nome_funcionario?> </h5> &nbsp&nbsp&nbsp&nbsp&nbsp
+    <h5 class="text-light">Usuário: <?php echo $linha->nome_funcionario?> </h5> &nbsp&nbsp&nbsp&nbsp&nbsp
     </ul>
     <span class="navbar-text">
 

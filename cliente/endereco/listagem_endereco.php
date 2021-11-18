@@ -55,14 +55,14 @@ include("../configurações/menu.php");
             formatters: {
                 "commands": function (column, row) {
                     return "<button type=\"button\" class=\"btn btn-primary command-edit\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-edit\"></span></button> " +
-                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-trash\"></span></button>";
+                        "<button type=\"button\" class=\"btn btn-danger command-delete\" data-row-id=\"" + row.id_endereco + "\"><span class=\"fas fa-times\"></span></button>";
                 }
             }
         }).on("loaded.rs.jquery.bootgrid", function () {
             grid.find(".command-edit").on("click", function (e) {
                 document.location = 'form_editar_endereco.php?id=' + $(this).data("row-id");
             }).end().find(".command-delete").on("click", function (e) {
-                iziToastExcluir($(this).data("row-id"));
+                iziToastDesativar($(this).data("row-id"));
 
             });
 
@@ -70,9 +70,9 @@ include("../configurações/menu.php");
 
     });
 
-    function excluir(id) {
+    function desativar(id) {
         $.post(
-            "excluir_endereco.php",
+            "desativar_endereco.php",
             {id: id},
             function (data) {
                 if (data.status == 0) {

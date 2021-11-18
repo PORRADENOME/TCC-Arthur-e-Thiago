@@ -55,7 +55,7 @@ $(document).ready(function(){
 
 <div class="container">
     <form action="inserir_orcamento.php" method="post" class="jsonForm">
-        <h1>Cadastro - Orçamento</h1>
+        <h1>Cadastro de Orçamento</h1>
 
         <div class="form-group">
             <label for="data_e_horario">Data e horário</label>

@@ -50,7 +50,7 @@ include("../configurações/menu.php");
 
 <div class="container">
     <form action="inserir_endereco.php" method="post" class="jsonForm">
-        <h1>Cadastro - Endereço</h1>
+        <h1>Cadastro de Endereço</h1>
 
         <div class="form-group">
             <label for="nome_endereco">Dê um nome à este endereço.</label>
