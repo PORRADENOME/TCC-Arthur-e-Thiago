@@ -7,8 +7,9 @@
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
     <title>Signin Template · Bootstrap</title>
-    <?php include "conexao.php";
-    include "bootstrap.php";
+    <?php
+        include "../configurações/conexao.php";
+        include "bootstrap.php";
     ?>
     <style>
         .form-signin {
@@ -66,3 +67,5 @@
 </form>
 </body>
 </html>
+
+

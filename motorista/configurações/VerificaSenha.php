@@ -13,6 +13,13 @@ $query->execute ();
 if ($query->rowCount ()==1){
     $linha = $query->fetch ();
 
+    if ($linha->motorista_ativo == 2) {
+        $_SESSION['autorizado'] = false;
+
+        echo('Usuário Banido');
+
+    }
+
         $_SESSION['id'] = $linha->id_motorista;
         $_SESSION['email'] - $linha->email_motorista;
         $_SESSION['motorista'] = $_POST['motorista']; $_SESSION['autorizado'] = true;
@@ -24,7 +31,7 @@ if ($query->rowCount ()==1){
 
     $_SESSION['autorizado'] = false;
 
-    echo 'senha incorreta';
+    echo('Senha ou E-mail incorretos');
 }
 
 
