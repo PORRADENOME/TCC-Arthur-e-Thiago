@@ -17,7 +17,7 @@ From
     $resultado = $query->execute();
 
 
-    $linha = $query->fetchObject();
+    $linha0 = $query->fetchObject();
 
     //var_dump($linha);
 
@@ -76,12 +76,12 @@ include ("../configurações/menu.php");
                 <div class="card-body">
                     <div class="card-body">
                         <h6>Preço Serviço </h6>
-                        <?php echo $linha->preco; ?>
+                        <?php echo $linha0->preco; ?>
                     </div>
 
                     <div class="card-body">
                         <h6>Informações </h6>
-                        <?php echo $linha->informacoes_adicionais; ?>
+                        <?php echo $linha0->informacoes_adicionais; ?>
                     </div>
 
                 </div>

@@ -5,17 +5,46 @@ try {
 
     if (!isset($_POST['id'])) {
         die('Acesse através da listagem');
+
     }
 
-    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta=:id_proposta");
+    $query = $conexao->prepare("SELECT * FROM proposta WHERE id_proposta=:id_proposta");
     $query->bindParam(':id_proposta', $_POST['id']);
     $query->execute();
 
-    if ($query->rowCount() == 1) {
-        retornaOK( 'Desativado com sucesso');
-    }
-    else {
-        retornaErro( 'Erro ao desativar');
+    $resultado = $query->fetchObject();
+
+    $proposta_aprovada = $resultado->proposta_aprovada;
+
+    $orcamento_proposta = $resultado->orcamento_proposta;
+
+    if ($proposta_aprovada=1) {
+
+
+
+        $query = $conexao->prepare("UPDATE proposta,orcamento SET proposta_aprovada=2,proposta_aceita=0 WHERE id_proposta=:id_proposta AND id_orcamento=:orcamento_proposta");
+        $query->bindParam(':id_proposta', $_POST['id']);
+        $query->bindParam(':orcamento_proposta', $orcamento_proposta);
+        $query->execute();
+
+        if ($query->rowCount() >= 1) {
+            retornaOK('Desativado com sucesso');
+        } else {
+            retornaErro('Erro ao desativar');
+        }
+
+    }else{
+
+        $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=2 WHERE id_proposta=:id_proposta");
+        $query->bindParam(':id_proposta', $_POST['id']);
+        $query->execute();
+
+        if ($query->rowCount() == 1) {
+            retornaOK('Desativado com sucesso');
+        } else {
+            retornaErro('Erro ao desativar');
+        }
+
     }
 
 } catch (PDOException $exception) {

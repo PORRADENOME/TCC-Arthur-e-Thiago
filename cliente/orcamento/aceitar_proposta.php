@@ -19,12 +19,13 @@ try {
     $query->bindParam(':orcamento_proposta', $orcamento_proposta);
     $query->execute();
 
-    $query = $conexao->prepare("UPDATE proposta SET proposta_aprovada=1 WHERE id_proposta=:id_proposta");
+    $query = $conexao->prepare("UPDATE proposta,orcamento SET proposta_aprovada=1,proposta_aceita=1 WHERE id_proposta=:id_proposta AND id_orcamento=:orcamento_proposta");
     $query->bindParam(':id_proposta', $_POST['id']);
+    $query->bindParam(':orcamento_proposta', $orcamento_proposta);
     $query->execute();
 
 
-    if ($query->rowCount() == 1) {
+    if ($query->rowCount() >= 1) {
         retornaOK('Alterado com sucesso. ');
 
     } else {

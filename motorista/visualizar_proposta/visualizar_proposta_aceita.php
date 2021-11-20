@@ -16,7 +16,7 @@ Where
     $query->bindValue(":id", $_GET['id']);
     $resultado = $query->execute();
 
-    $linha = $query->fetchObject();
+    $linha0 = $query->fetchObject();
 
     $query = $conexao->prepare("Select
     orcamento.endereco_partida,
@@ -81,7 +81,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1>Proposta para o Cliente <?php echo($linha->nome_cliente); ?></h1>
+    <h1>Proposta para o Cliente <?php echo($linha0->nome_cliente); ?></h1>
     <p></p>
     <p></p>
 
@@ -111,17 +111,17 @@ include ("../configurações/menu.php");
                 <div class="card-body">
                     <div class="card-body">
                         <h6>Nome </h6>
-                        <?php echo $linha->nome_cliente; ?>
+                        <?php echo $linha0->nome_cliente; ?>
                     </div>
 
                     <div class="card-body">
-                        <h6>Informaçoes </h6>
-                        <?php echo $linha->inf_adicionais; ?>
+                        <h6>Informações </h6>
+                        <?php echo $linha0->inf_adicionais; ?>
                     </div>
 
                     <div class="card-body">
-                        <h6>Data e Horario </h6>
-                        <?php echo $linha->data_e_horario; ?>
+                        <h6>Data e Horário </h6>
+                        <?php echo $linha0->data_e_horario; ?>
                     </div>
                 </div>
             </div>
@@ -133,7 +133,7 @@ include ("../configurações/menu.php");
             <div class="card-header" id="headingTwo">
                 <h5 class="mb-0">
                     <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                        Informaçoes partida
+                        Informações partida
                     </button>
                 </h5>
             </div>

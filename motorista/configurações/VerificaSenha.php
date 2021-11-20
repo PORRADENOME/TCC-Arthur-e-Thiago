@@ -18,6 +18,8 @@ if ($query->rowCount ()==1){
 
         echo('Usuário Banido');
 
+        exit;
+
     }
 
         $_SESSION['id'] = $linha->id_motorista;
