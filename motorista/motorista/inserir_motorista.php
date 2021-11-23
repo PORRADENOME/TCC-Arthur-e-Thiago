@@ -9,32 +9,20 @@ try {
 
     $senhaCriptografada = sha1 ($_POST['senha']);
 
-    /*
-     $query = $conexao->prepare("SELECT * FROM funcionario WHERE funcionario=:funcionario");
-     $query->bindValue(':funcionario',$_POST['funcionario']);
-     $query->execute();
-     if ($query->rowCount() == 1) {
-         retornaErro('funcionario ja em uso');
-     }
-    */
 
     $cpf = ($_POST['cpf']);
 
-    $verificacaoCPF = validaCPF($cpf);
-
-    if ($verificacaoCPF == false) {
+    if (validaCPF($cpf) == false) {
 
         retornaErro('CPF inválido');
     }
 
-    /*$telefone = ($_POST['telefone']);
+    $telefone = ($_POST['telefone']);
 
-    $verificacaoTelefone = validaTelefone($telefone);
-
-    if ($verificacaoTelefone == false){
+    if (validaTelefone($telefone) == false){
 
         retornaErro('Telefone / Celular inválido');
-    }*/
+    }
 
     $email = ($_POST['email']);
 
@@ -58,7 +46,7 @@ try {
         $extensao = strtolower(substr($_FILES['carteira'] ['name'], -4));
         $novo_nome = md5(time()) . $extensao;
         $diretorio = "C:\laragon\www\TCC-Arthur-e-Thiago\upload\\";
-        var_dump($novo_nome);
+
 
         move_uploaded_file($_FILES['carteira']['tmp_name'], $diretorio.$novo_nome);
 

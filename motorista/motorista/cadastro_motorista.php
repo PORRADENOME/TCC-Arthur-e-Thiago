@@ -12,7 +12,7 @@ try{
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
 
 <script type="text/javascript">
-    $("#telefone").mask("(00) 0000-00009");
+    $("#telefone").mask("(00) 000000009");
     $("#cpf").mask("000.000.000-00");
     //$("#carteira").mask("00000000000");
 </script>

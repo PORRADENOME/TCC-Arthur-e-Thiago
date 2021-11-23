@@ -2,6 +2,8 @@
 
 session_start();
 
+try {
+
 include "conexao.php";
 
 $senha = sha1($_POST['senha_motorista']);
@@ -16,24 +18,26 @@ if ($query->rowCount ()==1){
     if ($linha->motorista_ativo == 2) {
         $_SESSION['autorizado'] = false;
 
-        echo('Usuário Banido');
-
-        exit;
-
+        retornaErro('Usuário Banido');
     }
 
         $_SESSION['id'] = $linha->id_motorista;
-        $_SESSION['email'] - $linha->email_motorista;
-        $_SESSION['motorista'] = $_POST['motorista']; $_SESSION['autorizado'] = true;
+        $_SESSION['email'] = $linha->email_motorista;
+        $_SESSION['motorista'] = $linha->nome_motorista;
         $_SESSION['autorizado'] = true;
 
-        header ("Location: ../motorista/perfil_motorista.php");
+        retornaOK('Acesso autorizado');
 
 }else {
 
     $_SESSION['autorizado'] = false;
 
-    echo('Senha ou E-mail incorretos');
+    retornaErro('Senha ou E-mail incorretos');
 }
+
+} catch (Exception $exception) {
+    retornaErro($exception->getMessage());
+}
+
 
 
