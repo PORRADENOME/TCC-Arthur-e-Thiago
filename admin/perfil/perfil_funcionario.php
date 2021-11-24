@@ -24,6 +24,8 @@ include ("../configurações/bootstrap.php");
 include ("../configurações/menu.php");
 ?>
 
+<title>Perfil</title>
+
 <div class="container">
     <div class="row">
         <div class="col-12">
