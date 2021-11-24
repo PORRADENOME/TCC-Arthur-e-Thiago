@@ -7,6 +7,7 @@ try {
         die('Acesse através da listagem');
     }
 
+
     $query = $conexao->prepare("UPDATE cidade SET cidade_ativa=2 WHERE id_cidade=:id_cidade");
     $query->bindParam(':id_cidade', $_POST['id']);
     $query->execute();

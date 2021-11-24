@@ -76,7 +76,7 @@
                         message: data.mensagem,
                         timeout: 1000,
                         onClosing: function(){
-                            history.back();
+                            window.location.assign("http://localhost:83/motorista/perfil_motorista.php");
                         }
                     });
                     $('.jsonForm').trigger('reset');

@@ -18,29 +18,28 @@ if ($query->rowCount ()==1 /*AND $linha->cliente_ativo=1*/) {
     if ($linha->cliente_ativo == 2) {
         $_SESSION['autorizado'] = false;
 
-        echo 'Usuário Banido';
-        exit;
+        retornaErro('Usuário Banido');
+
 
     } elseif ($linha->cliente_ativo == 3) {
         $_SESSION['autorizado'] = false;
 
-        echo 'Usuário Desativado';
-        exit;
+        retornaErro('Usuário Desativado');
+
 
     }
 
     $_SESSION['id'] = $linha->id_cliente;
-    $_SESSION['email'] - $linha->email_cliente;
-    $_SESSION['cliente'] = $_POST['cliente'];
+    $_SESSION['email'] = $linha->email_cliente;
     $_SESSION['autorizado'] = true;
 
-    header("Location: ../cliente/perfil_cliente.php");
+    retornaOK('Acesso autorizado');
 
 }else {
 
     $_SESSION['autorizado'] = false;
 
-    echo 'Senha ou Email Incorretos.';
+    retornaErro('Senha ou E-mail Incorretos.');
 }
 
 

@@ -28,7 +28,7 @@ try {
                    orcamento.orcamento_ativo,
                    cliente.nome_cliente             
                    FROM orcamento INNER JOIN cliente ON orcamento.cliente_orcamento=cliente.id_cliente  
-                   WHERE orcamento_ativo!=2 AND proposta_aceita!=1 ";
+                   WHERE orcamento_ativo!=2 AND proposta_aceita!=1  ";
 
 
         if ($_POST['searchPhrase'] != '') {

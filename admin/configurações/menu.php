@@ -16,6 +16,11 @@ $linha = $query->fetchObject();
 
     <div class="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item dropdown">
+                <a class="nav-link" href="../perfil/perfil_funcionario.php">Perfil</a>
+            </li>
+
             <?php
             if ($_SESSION['valor_admin']==1):
                 ?>
@@ -31,15 +36,7 @@ $linha = $query->fetchObject();
             endif;
             ?>
 
-            <?php
-            if ($_SESSION['valor_admin']==0):
-                ?>
-                <li class="nav-item dropdown">
-                    <a class="nav-link" href="../perfil/perfil_funcionario.php">Perfil</a>
-                </li>
-            <?php
-            endif;
-            ?>
+
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="https://example.com" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Motoristas</a>
                 <div class="dropdown-menu" aria-labelledby="dropdown01">

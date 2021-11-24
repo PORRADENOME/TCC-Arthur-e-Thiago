@@ -19,6 +19,7 @@ if ($query->rowCount ()==1){
         $_SESSION['autorizado'] = false;
 
         retornaErro('Usuário Banido');
+
     }
 
         $_SESSION['id'] = $linha->id_motorista;
@@ -26,13 +27,15 @@ if ($query->rowCount ()==1){
         $_SESSION['motorista'] = $linha->nome_motorista;
         $_SESSION['autorizado'] = true;
 
-        retornaOK('Acesso autorizado');
+
+      retornaOK('Acesso autorizado');
+
 
 }else {
 
     $_SESSION['autorizado'] = false;
 
-    retornaErro('Senha ou E-mail incorretos');
+    retornaErro('Senha ou E-mail Incorretos');
 }
 
 } catch (Exception $exception) {

@@ -6,9 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Jekyll v4.1.1">
-    <title>Signin Template · Bootstrap</title>
-    <?php include "conexao.php";
-    include "bootstrap.php";
+    <title>Login - Cliente</title>
+    <?php
+    include "../configurações/conexao.php";
+    include "../configurações/bootstrap.php";
     ?>
     <style>
         .form-signin {
@@ -51,7 +52,7 @@
     <!-- Custom styles for this template -->
 </head>
 <body class="text-center">
-<form class="form-signin" action="VerificaSenha.php" method="post">
+<form class="jsonForm form-signin" action="VerificaSenha.php" method="post">
     <h1 class="h3 mb-3 font-weight-normal">Login - Cliente</h1>
     <label for="email_cliente" class="sr-only">Email</label>
     <input type="text" id="email_cliente" name="email_cliente" class="form-control" placeholder="Email" required autofocus>
@@ -64,5 +65,34 @@
 
     <p></p>
 </form>
+
+<script>
+    $(document).ready(function () {
+        $(' .jsonForm ').ajaxForm({
+            dataType: 'json',
+            success: function (data) {
+                if (data.status==true){
+                    iziToast.success({
+                        message: data.mensagem,
+                        timeout: 1000,
+                        onClosing: function(){
+                            window.location.assign("http://localhost:82/cliente/perfil_cliente.php");
+                        }
+                    });
+                    $('.jsonForm').trigger('reset');
+                }else{
+                    iziToast.error({
+                        message: data.mensagem
+                    });
+                }
+            },
+            error: function (data) {
+                iziToast.error({
+                    message: 'Servidor retornou erro'
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>
