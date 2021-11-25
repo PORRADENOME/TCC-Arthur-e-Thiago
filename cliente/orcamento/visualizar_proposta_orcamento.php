@@ -48,7 +48,7 @@ include ("../configurações/menu.php");
 ?>
 
 <div class="container">
-    <h1> Vizualizar Proposta</h1>
+    <h1> Visualizar Proposta</h1>
     <p></p>
     <p></p>
 

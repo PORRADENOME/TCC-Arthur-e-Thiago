@@ -9,8 +9,7 @@ try {
 
 
 
-    $query = $conexao->prepare("UPDATE motorista,proposta SET motorista_ativo=2,proposta_aprovada=2 WHERE id_motorista=:id_motorista and motorista_proposta=:id_motorista
-");
+    $query = $conexao->prepare("UPDATE motorista,proposta SET motorista_ativo=2,proposta_aprovada=2 WHERE id_motorista=:id_motorista and motorista_proposta=:id_motorista");
     $query->bindParam(':id_motorista', $_POST['id']);
     $query->execute();
 
